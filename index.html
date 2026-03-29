@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VPP Solar Club | Autonomous Energy Trading</title>
+    <title>VPP Solar Club | Smart Energy Arbitrage</title>
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #2ecc71;
             --secondary: #27ae60;
-            --dark: #2c3e50;
+            --dark: #1a2a3a;
             --light: #ecf0f1;
             --accent: #f1c40f;
-            --danger: #e74c3c;
         }
 
         body {
@@ -21,10 +20,12 @@
             background-color: var(--dark);
             color: var(--light);
             text-align: center;
+            line-height: 1.6;
         }
 
+        /* Hero Section with Video */
         header {
-            padding: 60px 20px;
+            padding: 40px 20px;
             background: linear-gradient(135deg, #1a2a3a 0%, #2c3e50 100%);
             border-bottom: 4px solid var(--primary);
         }
@@ -32,52 +33,66 @@
         h1 { font-size: 3rem; margin-bottom: 10px; color: var(--primary); }
         .subtitle { font-size: 1.4rem; color: #bdc3c7; margin-bottom: 30px; }
 
-        .money-badge {
-            display: inline-block;
-            background: rgba(46, 204, 113, 0.2);
-            padding: 15px 30px;
-            border-radius: 50px;
-            border: 2px solid var(--primary);
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: var(--primary);
-            box-shadow: 0 0 20px rgba(46, 204, 113, 0.3);
+        .video-container {
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 2px solid rgba(255,255,255,0.1);
+        }
+
+        .video-container iframe {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border: none;
         }
 
         .container { max-width: 1000px; margin: 40px auto; padding: 20px; }
 
+        /* Profit Tracker Badge */
+        .money-badge {
+            display: inline-block;
+            background: rgba(46, 204, 113, 0.1);
+            padding: 15px 40px;
+            border-radius: 50px;
+            border: 2px solid var(--primary);
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
         /* Demo Box */
         .demo-box {
-            background: #34495e;
+            background: #2c3e50;
             border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            margin-bottom: 50px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            margin-top: 50px;
         }
 
         .status-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
             margin: 30px 0;
         }
 
         .stat-card {
-            background: #2c3e50;
-            padding: 20px;
-            border-radius: 10px;
-            border-top: 4px solid var(--accent);
+            background: #1e272e;
+            padding: 25px;
+            border-radius: 12px;
+            border-bottom: 4px solid var(--accent);
         }
-
-        .stat-card.ai-active { border-top-color: var(--primary); background: #1e272e; }
 
         .btn-ai {
             background: var(--primary);
             color: white;
-            padding: 20px 40px;
+            padding: 20px 50px;
             border: none;
             border-radius: 10px;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             cursor: pointer;
             transition: 0.3s;
             font-weight: bold;
@@ -86,145 +101,17 @@
 
         .btn-ai:hover { transform: scale(1.05); background: var(--secondary); }
 
-        /* Comparison Table */
-        table { width: 100%; border-collapse: collapse; margin-top: 40px; background: #34495e; border-radius: 10px; overflow: hidden; }
-        th, td { padding: 15px; border-bottom: 1px solid #2c3e50; text-align: right; }
-        th { background: #2c3e50; color: var(--accent); }
+        /* Table Styles */
+        .table-wrapper { overflow-x: auto; margin-top: 50px; }
+        table { width: 100%; border-collapse: collapse; background: #2c3e50; border-radius: 10px; overflow: hidden; }
+        th, td { padding: 18px; border-bottom: 1px solid #1a2a3a; text-align: right; }
+        th { background: #1e272e; color: var(--accent); }
         .highlight { color: var(--primary); font-weight: bold; }
 
         .log-box {
-            background: #1e272e;
+            background: #000;
             color: #00ff00;
-            font-family: monospace;
+            font-family: 'Courier New', monospace;
             padding: 15px;
-            height: 80px;
-            overflow: hidden;
-            border-radius: 5px;
-            margin-top: 20px;
-            text-align: left;
-            font-size: 0.9rem;
-        }
-    </style>
-</head>
-<body>
-
-<header>
-    <h1>VPP Solar Club</h1>
-    <div class="subtitle">אנחנו לא רק מנהלים אנרגיה, אנחנו סוחרים בה.</div>
-    <div class="money-badge" id="total-profit">₪0.00</div>
-    <p style="margin-top: 15px;">רווח מצטבר באופטימיזציה אוטונומית</p>
-</header>
-
-<div class="container">
-    <div class="demo-box">
-        <h2>הדגמת מסחר בזמן אמת (Live Arbitrage)</h2>
-        <p>לחץ על הכפתור כדי להפעיל את ה-AI ולראות איך המערכת מזהה הזדמנויות רווח ברשת.</p>
-        
-        <button class="btn-ai" onclick="startSimulation()">הפעל מסחר אוטונומי (AI)</button>
-
-        <div class="status-grid">
-            <div class="stat-card">
-                <div>מחיר חשמל ברשת</div>
-                <div id="grid-price" style="font-size: 1.5rem; color: var(--accent);">₪0.55</div>
-            </div>
-            <div class="stat-card ai-active">
-                <div>מצב מערכת</div>
-                <div id="system-status" style="font-size: 1.5rem;">בהמתנה</div>
-            </div>
-            <div class="stat-card">
-                <div>חיסכון יומי</div>
-                <div id="daily-gain" style="font-size: 1.5rem; color: var(--primary);">+0%</div>
-            </div>
-        </div>
-
-        <div class="log-box" id="log">
-            > מוכן להפעלה... המערכת ממתינה לפקודת אופטימיזציה.
-        </div>
-    </div>
-
-    <h2>למה VPP Solar Club? (מספרים למשקיעים)</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>מדד ביצועים</th>
-                <th>ניהול ידני/סטנדרטי</th>
-                <th>VPP Solar Club (AI)</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>מחיר מכירה ממוצע לקוט"ש</td>
-                <td>₪0.48</td>
-                <td class="highlight">₪1.24 (שיא ביקוש)</td>
-            </tr>
-            <tr>
-                <td>יעילות סוללה לאורך זמן</td>
-                <td>70%</td>
-                <td class="highlight">92% (טעינה חכמה)</td>
-            </tr>
-            <tr>
-                <td>רווח חודשי משוער (לקהילה)</td>
-                <td>₪1,200</td>
-                <td class="highlight">₪1,850 (+54%)</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-
-<script>
-    let profit = 0;
-    let isRunning = false;
-
-    function addLog(text) {
-        const log = document.getElementById('log');
-        log.innerHTML = `> ${text}<br>${log.innerHTML}`;
-    }
-
-    function startSimulation() {
-        if(isRunning) return;
-        isRunning = true;
-        
-        const btn = document.querySelector('.btn-ai');
-        btn.innerText = "מערכת פועלת באופטימיזציה...";
-        btn.style.background = "#27ae60";
-
-        // Step 1: Detect Peak
-        setTimeout(() => {
-            document.getElementById('grid-price').innerText = "₪1.42";
-            document.getElementById('grid-price').style.color = "#e74c3c";
-            addLog("זיהוי שיא ביקוש ברשת! מחיר קוט\"ש עלה ל-1.42 ₪");
-        }, 1500);
-
-        // Step 2: Action
-        setTimeout(() => {
-            document.getElementById('system-status').innerText = "מכירה לרשת (Discharging)";
-            document.getElementById('system-status').style.color = "#2ecc71";
-            addLog("פעולה: פריקת סוללה לרשת ברווח מקסימלי.");
-        }, 3000);
-
-        // Step 3: Show Money
-        setTimeout(() => {
-            let counter = 0;
-            const interval = setInterval(() => {
-                profit += 1.25;
-                counter++;
-                document.getElementById('total-profit').innerText = `₪${profit.toFixed(2)}`;
-                document.getElementById('daily-gain').innerText = `+${(counter * 1.5).toFixed(1)}%`;
-                
-                if(counter >= 34) {
-                    clearInterval(interval);
-                    addLog("אופטימיזציה הושלמה. רווח הושג: 42.50 ₪");
-                    document.getElementById('grid-price').innerText = "₪0.55";
-                    document.getElementById('grid-price').style.color = "#f1c40f";
-                    document.getElementById('system-status').innerText = "טעינה (Low Cost)";
-                    document.getElementById('system-status').style.color = "#f1c40f";
-                    isRunning = false;
-                    btn.innerText = "הפעל סבב אופטימיזציה נוסף";
-                }
-            }, 50);
-        }, 4500);
-    }
-</script>
-
-</body>
-</html>
+            height: 100px;
+            overflow-
