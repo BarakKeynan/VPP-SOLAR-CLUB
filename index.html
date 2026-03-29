@@ -9,33 +9,36 @@
     <style>
         body { font-family: 'Heebo', sans-serif; scroll-behavior: smooth; }
         .hero-bg {
-            background: linear-gradient(rgba(10,37,64,0.9), rgba(5,21,37,0.95)), 
-                        url('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&q=80&w=2000') center/cover;
+            background: linear-gradient(rgba(10,37,64,0.85), rgba(5,21,37,0.9)), 
+                        url('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&q=80&w=2000') center/cover no-repeat;
         }
         .vpp-green { color: #00D084; }
         .btn-primary {
-            background: linear-gradient(90deg, #00D084, #00b56f);
+            background: #00D084;
+            color: #0A2540;
             transition: all 0.3s ease;
         }
         .btn-primary:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 15px 30px -10px rgba(0, 208, 132, 0.4);
+            background: #00b56f;
+            transform: translateY(-3px);
         }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900">
 
     <!-- Header -->
-    <header class="fixed w-full z-50 bg-white/95 backdrop-blur-lg border-b">
+    <header class="fixed w-full z-50 bg-white/95 backdrop-blur-lg border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
-            <div class="text-3xl font-black tracking-tighter">VPP <span class="vpp-green">SOLAR CLUB</span></div>
-            <nav class="hidden md:flex gap-8 font-medium">
+            <div class="text-3xl font-black tracking-tighter text-[#0A2540]">
+                VPP <span class="vpp-green">SOLAR CLUB</span>
+            </div>
+            <nav class="hidden md:flex gap-8 font-medium text-slate-600">
                 <a href="#solutions" class="hover:text-vpp-green transition">פתרונות</a>
                 <a href="#demo" class="hover:text-vpp-green transition">דמו</a>
                 <a href="#about" class="hover:text-vpp-green transition">אודות</a>
             </nav>
             <a href="https://vppsolarclub.base44.app" target="_blank" 
-               class="btn-primary text-[#0A2540] px-8 py-3.5 rounded-2xl font-bold text-lg shadow-lg">
+               class="btn-primary px-8 py-3.5 rounded-2xl font-bold text-lg">
                 נסה את הדמו החי →
             </a>
         </div>
@@ -43,4 +46,88 @@
 
     <!-- Hero -->
     <section class="hero-bg text-white pt-32 pb-32 px-6">
-        <div class="max-w-6xl mx-auto grid md
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8">
+                <h1 class="text-5xl md:text-6xl font-black leading-tight">
+                    הגג שלך הופך ל<br><span class="vpp-green">נכס מניב</span>
+                </h1>
+                <p class="text-2xl text-slate-200 max-w-lg">
+                    VPP Solar Club מנהל עבורך את האנרגיה – מוכר חשמל בשיא המחיר ומכניס כסף אוטומטי.<br>
+                    גם אם אין לך גג פרטי.
+                </p>
+                <div class="flex flex-wrap gap-5">
+                    <a href="#demo" 
+                       class="btn-primary px-10 py-5 rounded-2xl font-bold text-xl shadow-xl">
+                        צפה בדמו החי ⚡
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=A13HuAeMcAU" target="_blank"
+                       class="border border-white/40 hover:bg-white/10 px-8 py-5 rounded-2xl font-medium text-lg transition">
+                        צפה בסרטון ההסבר
+                    </a>
+                </div>
+            </div>
+
+            <!-- YouTube Video -->
+            <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-white/30">
+                <iframe width="100%" height="460" 
+                        src="https://www.youtube.com/embed/A13HuAeMcAU" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Demo -->
+    <section id="demo" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-black mb-4">דמו חי של האפליקציה</h2>
+            <p class="text-xl text-gray-600 mb-12">תראה בעצמך איך האפליקציה עובדת בזמן אמת</p>
+            
+            <div class="bg-[#0A2540] rounded-3xl shadow-2xl border-8 border-slate-800 overflow-hidden h-[720px]">
+                <iframe src="https://vppsolarclub.base44.app" 
+                        class="w-full h-full border-none" 
+                        title="VPP Solar Club Demo">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions -->
+    <section id="solutions" class="py-24 bg-slate-100">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-black">שתי דרכים להרוויח מהשמש</h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-10">
+                <div class="bg-white p-12 rounded-3xl shadow-xl border-t-8 border-[#00D084]">
+                    <div class="text-6xl mb-6">🏠</div>
+                    <h3 class="text-3xl font-black mb-4">VPP Home</h3>
+                    <p class="text-gray-600 text-lg leading-relaxed">לבעלי גגות וסוללות. ניהול אוטומטי של אגירה, מכירה לרשת וטעינת רכב.</p>
+                    <a href="https://vppsolarclub.base44.app" target="_blank" 
+                       class="mt-10 block w-full py-5 bg-[#00D084] text-[#0A2540] rounded-2xl font-bold text-lg">נסה את VPP Home</a>
+                </div>
+
+                <div class="bg-white p-12 rounded-3xl shadow-xl border-t-8 border-blue-600">
+                    <div class="text-6xl mb-6">🏢</div>
+                    <h3 class="text-3xl font-black mb-4">Solar Club</h3>
+                    <p class="text-gray-600 text-lg leading-relaxed">לדיירי בניינים ללא גג פרטי. הצטרף למועדון סולארי וירטואלי וקבל זיכוי חודשי.</p>
+                    <a href="https://vppsolarclub.base44.app" target="_blank" 
+                       class="mt-10 block w-full py-5 bg-blue-600 text-white rounded-2xl font-bold text-lg">הצטרף ל-Solar Club</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#0A2540] text-white py-16 text-center">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-3xl font-black mb-3">VPP <span class="vpp-green">SOLAR CLUB</span></div>
+            <p class="text-slate-400">אנרגיה חכמה. כסף אוטומטי.</p>
+            <p class="text-sm text-slate-500 mt-8">© 2026 VPP Solar Club • פותח על ידי ברק</p>
+        </div>
+    </footer>
+
+</body>
+</html>
