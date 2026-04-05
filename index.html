@@ -9,9 +9,7 @@
     <style>
         :root {
             --primary: #00d2ff; 
-            --accent: #3a7bd5;
             --bg: #030812;
-            --card-bg: rgba(255, 255, 255, 0.03);
             --text: #e0e6ed;
         }
 
@@ -21,234 +19,105 @@
             background-color: var(--bg);
             color: var(--text);
             line-height: 1.6;
-            overflow-x: hidden;
         }
-
-        [dir="rtl"] { text-align: right; }
 
         /* Navbar */
         nav {
-            backdrop-filter: blur(20px);
-            background: rgba(3, 8, 18, 0.85);
-            padding: 0.8rem 5%;
+            background: rgba(3, 8, 18, 0.9);
+            padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
             border-bottom: 1px solid rgba(0, 210, 255, 0.2);
         }
 
-        .nav-logo img {
-            height: 45px;
-            display: block;
-            filter: drop-shadow(0 0 5px rgba(0, 210, 255, 0.3));
-        }
+        .nav-logo img { height: 40px; }
 
-        .lang-btn {
-            background: transparent;
-            color: var(--primary);
-            border: 1px solid var(--primary);
-            padding: 0.5rem 1.2rem;
-            cursor: pointer;
-            border-radius: 30px;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-        .lang-btn:hover { background: var(--primary); color: #000; }
-
-        /* Hero / Header Section */
+        /* Hero Section - המראה הנקי שאהבת */
         header {
-            position: relative;
-            padding: 8rem 5% 6rem;
+            padding: 8rem 5%;
             text-align: center;
-            background: linear-gradient(rgba(3, 8, 18, 0.75), rgba(3, 8, 18, 0.95)), 
-                        url('vpp_logo.jpg') no-repeat center center;
-            background-size: cover;
-            border-bottom: 2px solid rgba(0, 210, 255, 0.1);
+            background: radial-gradient(circle at center, #0a192f 0%, #030812 100%);
         }
 
         .hero-logo-img {
-            max-width: 550px;
-            width: 85%;
-            margin-bottom: 2.5rem;
-            filter: drop-shadow(0 0 20px rgba(0, 210, 255, 0.5));
+            max-width: 650px;
+            width: 90%;
+            margin-bottom: 2rem;
         }
 
         .tagline { 
             font-size: 1.8rem; 
-            color: #fff; 
-            margin: 0 0 3.5rem; 
             font-family: 'Orbitron', sans-serif;
-            text-shadow: 0 2px 15px rgba(0,0,0,0.8);
-            letter-spacing: 1px;
+            margin-bottom: 3rem;
         }
 
         .cta-button {
-            background: linear-gradient(45deg, var(--primary), var(--accent));
-            color: white;
-            padding: 1.2rem 3.5rem;
+            background: #00d2ff;
+            color: #030812;
+            padding: 1rem 2.5rem;
             text-decoration: none;
             font-weight: bold;
             border-radius: 50px;
-            font-size: 1.2rem;
-            box-shadow: 0 10px 30px rgba(0, 210, 255, 0.3);
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            display: inline-block;
+            font-size: 1.1rem;
+            transition: 0.3s;
         }
-        .cta-button:hover { transform: translateY(-5px); box-shadow: 0 20px 45px rgba(0, 210, 255, 0.5); }
 
-        /* Container & Grid */
-        .container { max-width: 1100px; margin: auto; padding: 5rem 5%; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; }
+        .container { max-width: 1100px; margin: auto; padding: 4rem 5%; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
         
         .card {
-            background: var(--card-bg);
-            padding: 3rem;
-            border-radius: 24px;
-            border: 1px solid rgba(0, 210, 255, 0.08);
-            transition: 0.4s;
-            backdrop-filter: blur(5px);
+            background: rgba(255, 255, 255, 0.03);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 210, 255, 0.1);
         }
-        .card:hover { border-color: var(--primary); background: rgba(0, 210, 255, 0.06); transform: translateY(-10px); }
-        .card i { font-size: 2.8rem; color: var(--primary); margin-bottom: 1.8rem; display: block; }
-        .card h3 { font-family: 'Orbitron', sans-serif; font-size: 1.4rem; margin-bottom: 1rem; color: #fff; }
 
-        /* Team Section */
-        .team-section { margin-top: 8rem; text-align: center; }
-        .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 4rem; text-align: left; }
-        [dir="rtl"] .team-grid { text-align: right; }
-        
-        .member { border-left: 3px solid var(--primary); padding-left: 2rem; }
-        [dir="rtl"] .member { border-left: none; border-right: 3px solid var(--primary); padding-right: 2rem; padding-left: 0; }
-        .member h4 { font-size: 1.6rem; color: #fff; margin-bottom: 0.5rem; }
-
-        footer { text-align: center; padding: 5rem; opacity: 0.4; font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.05); }
-
-        @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            .tagline { font-size: 1.3rem; }
-            .team-grid { grid-template-columns: 1fr; gap: 2rem; }
-            header { padding: 6rem 5% 4rem; }
-        }
+        [dir="rtl"] { text-align: right; }
     </style>
 </head>
 <body>
 
 <nav>
     <div class="nav-logo">
-        <img src="vpp_logo.jpg" alt="VPP Solar Club Logo">
+        <img src="vpp_logo.jpg" alt="VPP Logo">
     </div>
-    <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">עברית</button>
+    <button onclick="toggleLanguage()" style="background:none; color:#00d2ff; border:1px solid #00d2ff; padding:5px 15px; border-radius:20px; cursor:pointer;">עברית</button>
 </nav>
 
 <header>
     <img src="vpp_logo.jpg" alt="VPP Solar Club" class="hero-logo-img">
     <p id="tagline" class="tagline">The Decentralized Energy Network Effect</p>
-    <a href="mailto:Barak.keynan@gmail.com" class="cta-button" id="ctaBtn">Contact Founders</a>
+    <a href="mailto:Barak.keynan@gmail.com" class="cta-button">Contact Founders</a>
 </header>
 
 <div class="container">
     <div class="grid">
         <div class="card">
-            <i class="fas fa-shield-alt"></i>
-            <h3 id="card1Title">Energy Sovereignty</h3>
-            <p id="card1Text">Decoupling local communities from fossil fuel volatility through <strong>strategic energy resilience</strong>.</p>
+            <i class="fas fa-shield-alt" style="color:#00d2ff; font-size:2rem; margin-bottom:1rem;"></i>
+            <h3>Energy Sovereignty</h3>
+            <p>Strategic energy resilience for local communities.</p>
         </div>
         <div class="card">
-            <i class="fas fa-network-wired"></i>
-            <h3 id="card2Title">The Network Effect</h3>
-            <p id="card2Text">Scale increases collective trading power. More assets = higher yields for every member.</p>
+            <i class="fas fa-network-wired" style="color:#00d2ff; font-size:2rem; margin-bottom:1rem;"></i>
+            <h3>The Network Effect</h3>
+            <p>Scale increases collective trading power.</p>
         </div>
         <div class="card">
-            <i class="fas fa-microchip"></i>
-            <h3 id="card3Title">AI Switchboard</h3>
-            <p id="card3Text">Precision AI trading between production, storage, and the grid for maximum ROI execution.</p>
-        </div>
-    </div>
-
-    <div class="team-section">
-        <h2 id="teamTitle" style="font-size: 2.8rem; font-family:'Orbitron'; color: #fff;">Leadership</h2>
-        <div class="team-grid">
-            <div class="member">
-                <h4 id="founder1Name">Barak Keynan | CEO</h4>
-                <p id="founder1Text">20 years of clinical systems expertise & software automation. Specialist in high-reliability digital infrastructures.</p>
-            </div>
-            <div class="member">
-                <h4 id="founder2Name">Liav Vaknin | CTO</h4>
-                <p id="founder2Text">Technion Software Engineer & Infrastructure Architect. Specialist in scalable, high-precision energy systems.</p>
-            </div>
+            <i class="fas fa-microchip" style="color:#00d2ff; font-size:2rem; margin-bottom:1rem;"></i>
+            <h3>AI Switchboard</h3>
+            <p>Precision AI trading for maximum ROI.</p>
         </div>
     </div>
 </div>
 
-<footer id="footerText">
-    &copy; 2026 VPP Solar Club | Haifa, Israel | Built for Global Scale
-</footer>
-
 <script>
-    let currentLang = 'en';
-    const content = {
-        en: {
-            btn: 'עברית',
-            tagline: 'The Decentralized Energy Network Effect',
-            cta: 'Contact Founders',
-            card1Title: 'Energy Sovereignty',
-            card1Text: 'Decoupling local communities from fossil fuel volatility through <strong>strategic energy resilience</strong>.',
-            card2Title: 'The Network Effect',
-            card2Text: 'Scale increases collective trading power. More assets = higher yields for every member.',
-            card3Title: 'AI Switchboard',
-            card3Text: 'Precision AI trading between production, storage, and the grid for maximum ROI execution.',
-            teamTitle: 'Leadership',
-            founder1Name: 'Barak Keynan | CEO',
-            founder1Text: '20 years of clinical systems expertise & software automation. Specialist in high-reliability digital infrastructures.',
-            founder2Name: 'Liav Vaknin | CTO',
-            founder2Text: 'Technion Software Engineer & Infrastructure Architect. Specialist in scalable, high-precision energy systems.',
-            footer: '© 2026 VPP Solar Club | Haifa, Israel | Built for Global Scale'
-        },
-        he: {
-            btn: 'English',
-            tagline: 'אפקט הרשת של האנרגיה המבוזרת',
-            cta: 'צרו קשר עם המייסדים',
-            card1Title: 'עצמאות אנרגטית',
-            card1Text: 'ניתוק הקהילה מהתלות במחירי הנפט באמצעות <strong>חוסן אסטרטגי</strong>.',
-            card2Title: 'אפקט הרשת',
-            card2Text: 'הגדלת כוח המיקוח הקולקטיבי. יותר נכסים = יותר רווח לכל חבר בסינדיקט.',
-            card3Title: 'מרכזיית AI',
-            card3Text: 'מסחר AI מדויק בין ייצור, אגירה והרשת לביצוע אופטימלי של ROI.',
-            teamTitle: 'הנהלה',
-            founder1Name: 'ברק קינן | CEO',
-            founder1Text: '20 שנות ניסיון במערכות קליניות ואוטומציה. מומחה בתשתיות דיגיטליות בעלות אמינות גבוהה.',
-            founder2Name: 'ליאב וקנין | CTO',
-            founder2Text: 'מהנדס תוכנה מהטכניון וארכיטקט תשתיות. מומחה במערכות אנרגיה מדויקות וסקילביליות.',
-            footer: '© 2026 VPP Solar Club | חיפה, ישראל | נבנה לקנה מידה עולמי'
-        }
-    };
-
     function toggleLanguage() {
-        currentLang = currentLang === 'en' ? 'he' : 'en';
-        const html = document.getElementById('html-tag');
-        const langData = content[currentLang];
-        
-        html.setAttribute('lang', currentLang);
-        html.setAttribute('dir', currentLang === 'he' ? 'rtl' : 'ltr');
-        
-        document.getElementById('langBtn').innerText = langData.btn;
-        document.getElementById('tagline').innerText = langData.tagline;
-        document.getElementById('ctaBtn').innerText = langData.cta;
-        document.getElementById('card1Title').innerText = langData.card1Title;
-        document.getElementById('card1Text').innerHTML = langData.card1Text;
-        document.getElementById('card2Title').innerText = langData.card2Title;
-        document.getElementById('card2Text').innerText = langData.card2Text;
-        document.getElementById('card3Title').innerText = langData.card3Title;
-        document.getElementById('card3Text').innerText = langData.card3Text;
-        document.getElementById('teamTitle').innerText = langData.teamTitle;
-        document.getElementById('founder1Name').innerText = langData.founder1Name;
-        document.getElementById('founder1Text').innerText = langData.founder1Text;
-        document.getElementById('founder2Name').innerText = langData.founder2Name;
-        document.getElementById('founder2Text').innerText = langData.founder2Text;
-        document.getElementById('footerText').innerText = langData.footer;
+        const h = document.getElementById('html-tag');
+        const isEn = h.getAttribute('lang') === 'en';
+        h.setAttribute('lang', isEn ? 'he' : 'en');
+        h.setAttribute('dir', isEn ? 'rtl' : 'ltr');
+        document.getElementById('tagline').innerText = isEn ? 'אפקט הרשת של האנרגיה המבוזרת' : 'The Decentralized Energy Network Effect';
     }
 </script>
 
