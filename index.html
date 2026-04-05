@@ -8,11 +8,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #4CAF50;
-            --accent: #FFC107;
-            --bg: #0a0e14;
-            --card-bg: rgba(255, 255, 255, 0.05);
-            --text: #e0e0e0;
+            /* צבעים מותאמים אישית לפי הלוגו החדש */
+            --primary: #00d2ff; 
+            --accent: #3a7bd5;
+            --bg: #030812;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --text: #e0e6ed;
         }
 
         body {
@@ -25,105 +26,99 @@
 
         [dir="rtl"] { text-align: right; }
 
-        /* Navbar & Brand Logo */
+        /* Navbar */
         nav {
-            backdrop-filter: blur(15px);
-            background: rgba(10, 14, 20, 0.9);
-            padding: 1.2rem 5%;
+            backdrop-filter: blur(20px);
+            background: rgba(3, 8, 18, 0.85);
+            padding: 0.8rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(0, 210, 255, 0.2);
         }
 
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-        }
-
-        .logo-icon {
-            color: var(--accent);
-            font-size: 1.8rem;
-            filter: drop-shadow(0 0 8px rgba(255, 193, 7, 0.6));
-        }
-
-        .logo-text {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.6rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            color: #fff;
-            text-transform: uppercase;
-        }
-
-        .logo-text span {
-            color: var(--primary);
-            text-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+        .nav-logo img {
+            height: 45px;
+            display: block;
         }
 
         .lang-btn {
             background: transparent;
-            color: var(--accent);
-            border: 1px solid var(--accent);
-            padding: 0.6rem 1.2rem;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            padding: 0.5rem 1.2rem;
             cursor: pointer;
             border-radius: 30px;
             font-weight: 600;
             transition: 0.3s;
         }
-        .lang-btn:hover { background: var(--accent); color: var(--bg); transform: scale(1.05); }
+        .lang-btn:hover { background: var(--primary); color: #000; }
 
-        /* Hero Section */
+        /* Hero / Header Section */
         header {
-            padding: 10rem 5% 6rem;
+            position: relative;
+            padding: 6rem 5% 4rem;
             text-align: center;
-            background: radial-gradient(circle at 50% 30%, #1a2a1a 0%, #0a0e14 70%);
+            /* שימוש בתמונה כרקע עם אפקט טשטוש קל בצדדים */
+            background: linear-gradient(rgba(3, 8, 18, 0.7), rgba(3, 8, 18, 0.9)), 
+                        url('VPP LOGO.jpg') no-repeat center center;
+            background-size: cover;
+            border-bottom: 2px solid rgba(0, 210, 255, 0.1);
         }
 
-        h1 { font-size: 4.5rem; margin: 0; color: #fff; font-family: 'Orbitron', sans-serif; }
-        .tagline { font-size: 1.6rem; color: var(--accent); margin: 2rem 0 3.5rem; font-weight: 300; letter-spacing: 1px; }
+        .hero-logo-img {
+            max-width: 600px;
+            width: 90%;
+            margin-bottom: 2rem;
+            filter: drop-shadow(0 0 15px rgba(0, 210, 255, 0.4));
+        }
+
+        .tagline { 
+            font-size: 1.8rem; 
+            color: #fff; 
+            margin: 0 0 3rem; 
+            font-family: 'Orbitron', sans-serif;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
 
         .cta-button {
-            background: var(--primary);
+            background: linear-gradient(45deg, var(--primary), var(--accent));
             color: white;
             padding: 1.2rem 3rem;
             text-decoration: none;
             font-weight: bold;
             border-radius: 50px;
             font-size: 1.2rem;
-            box-shadow: 0 10px 25px rgba(76, 175, 80, 0.4);
-            transition: 0.4s ease;
+            box-shadow: 0 10px 25px rgba(0, 210, 255, 0.3);
+            transition: 0.4s;
         }
-        .cta-button:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(76, 175, 80, 0.5); }
+        .cta-button:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0, 210, 255, 0.4); }
 
-        /* Container & Cards */
-        .container { max-width: 1100px; margin: auto; padding: 0 5%; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; margin: 5rem 0; }
+        /* Rest of the Design */
+        .container { max-width: 1100px; margin: auto; padding: 4rem 5%; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; }
         
         .card {
             background: var(--card-bg);
-            padding: 3rem;
-            border-radius: 24px;
-            border: 1px solid rgba(255,255,255,0.08);
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 210, 255, 0.1);
+            transition: 0.4s;
         }
-        .card:hover { border-color: var(--primary); background: rgba(255,255,255,0.12); transform: scale(1.03); }
-        .card i { font-size: 3rem; color: var(--primary); margin-bottom: 2rem; display: block; }
+        .card:hover { border-color: var(--primary); background: rgba(0, 210, 255, 0.05); transform: translateY(-10px); }
+        .card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 1.5rem; }
 
-        /* Team */
-        .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin: 5rem 0; }
-        .member { border-right: 3px solid var(--primary); padding-right: 2rem; }
-        [dir="ltr"] .member { border-right: none; border-left: 3px solid var(--primary); padding-left: 2rem; }
+        .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 4rem; }
+        .member { border-left: 3px solid var(--primary); padding-left: 1.5rem; }
+        [dir="rtl"] .member { border-left: none; border-right: 3px solid var(--primary); padding-right: 1.5rem; padding-left: 0; }
 
-        footer { text-align: center; padding: 5rem; opacity: 0.5; border-top: 1px solid rgba(255,255,255,0.1); }
+        footer { text-align: center; padding: 4rem; opacity: 0.5; font-size: 0.9rem; }
 
         @media (max-width: 768px) {
-            h1 { font-size: 2.8rem; }
+            .tagline { font-size: 1.2rem; }
             .team-grid { grid-template-columns: 1fr; }
         }
     </style>
@@ -131,15 +126,14 @@
 <body>
 
 <nav>
-    <div class="logo-container">
-        <i class="fas fa-bolt logo-icon"></i>
-        <div class="logo-text">VPP<span>SOLAR</span></div>
+    <div class="nav-logo">
+        <img src="VPP LOGO.jpg" alt="VPP Solar Club Logo">
     </div>
     <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">עברית</button>
 </nav>
 
 <header>
-    <h1 id="mainTitle">VPP SOLAR CLUB</h1>
+    <img src="VPP LOGO.jpg" alt="VPP Solar Club" class="hero-logo-img">
     <p id="tagline" class="tagline">The Decentralized Energy Network Effect</p>
     <a href="mailto:Barak.keynan@gmail.com" class="cta-button" id="ctaBtn">Contact Founders</a>
 </header>
@@ -152,26 +146,26 @@
             <p id="card1Text">Decoupling local communities from fossil fuel volatility through <strong>strategic energy resilience</strong>.</p>
         </div>
         <div class="card">
-            <i class="fas fa-chart-line"></i>
+            <i class="fas fa-network-wired"></i>
             <h3 id="card2Title">The Network Effect</h3>
-            <p id="card2Text">Scale increases collective trading power. More assets = higher yields for every syndicate member.</p>
+            <p id="card2Text">Scale increases collective trading power. More assets = higher yields for every member.</p>
         </div>
         <div class="card">
-            <i class="fas fa-brain"></i>
+            <i class="fas fa-microchip"></i>
             <h3 id="card3Title">AI Switchboard</h3>
             <p id="card3Text">Precision AI trading between production, storage, and the grid for maximum ROI execution.</p>
         </div>
     </div>
 
-    <div class="section">
-        <h2 id="teamTitle" style="text-align:center; font-size: 2.5rem; font-family:'Orbitron'; margin-bottom: 3rem;">Leadership</h2>
+    <div class="section" style="margin-top: 6rem;">
+        <h2 id="teamTitle" style="text-align:center; font-size: 2.5rem; font-family:'Orbitron'; margin-bottom: 4rem;">The Leadership Team</h2>
         <div class="team-grid">
             <div class="member">
-                <h4 id="founder1Name" style="color:#fff; font-size: 1.6rem; margin-bottom:0.5rem;">Barak Keynan | CEO</h4>
+                <h4 id="founder1Name" style="color:#fff; font-size: 1.5rem; margin-bottom: 0.5rem;">Barak Keynan | CEO</h4>
                 <p id="founder1Text">20 years of clinical systems expertise & software automation. Expert in high-reliability digital infrastructures.</p>
             </div>
             <div class="member">
-                <h4 id="founder2Name" style="color:#fff; font-size: 1.6rem; margin-bottom:0.5rem;">Liav Vaknin | CTO</h4>
+                <h4 id="founder2Name" style="color:#fff; font-size: 1.5rem; margin-bottom: 0.5rem;">Liav Vaknin | CTO</h4>
                 <p id="founder2Text">Technion Software Engineer & Infrastructure Architect. Specialist in scalable, high-precision energy systems.</p>
             </div>
         </div>
@@ -179,7 +173,7 @@
 </div>
 
 <footer id="footerText">
-    &copy; 2026 VPP Solar Club | Built for Global Scale
+    &copy; 2026 VPP Solar Club | Haifa, Israel | Built for Global Scale
 </footer>
 
 <script>
@@ -187,25 +181,23 @@
     const content = {
         en: {
             btn: 'עברית',
-            title: 'VPP SOLAR CLUB',
             tagline: 'The Decentralized Energy Network Effect',
             cta: 'Contact Founders',
             card1Title: 'Energy Sovereignty',
             card1Text: 'Decoupling local communities from fossil fuel volatility through <strong>strategic energy resilience</strong>.',
             card2Title: 'The Network Effect',
-            card2Text: 'Scale increases collective trading power. More assets = higher yields for every syndicate member.',
+            card2Text: 'Scale increases collective trading power. More assets = higher yields for every member.',
             card3Title: 'AI Switchboard',
             card3Text: 'Precision AI trading between production, storage, and the grid for maximum ROI execution.',
-            teamTitle: 'Leadership',
+            teamTitle: 'The Leadership Team',
             founder1Name: 'Barak Keynan | CEO',
             founder1Text: '20 years of clinical systems expertise & software automation. Expert in high-reliability digital infrastructures.',
             founder2Name: 'Liav Vaknin | CTO',
             founder2Text: 'Technion Software Engineer & Infrastructure Architect. Specialist in scalable, high-precision energy systems.',
-            footer: '© 2026 VPP Solar Club | Built for Global Scale'
+            footer: '© 2026 VPP Solar Club | Haifa, Israel | Built for Global Scale'
         },
         he: {
             btn: 'English',
-            title: 'VPP SOLAR CLUB',
             tagline: 'אפקט הרשת של האנרגיה המבוזרת',
             cta: 'צרו קשר עם המייסדים',
             card1Title: 'עצמאות אנרגטית',
@@ -214,12 +206,12 @@
             card2Text: 'הגדלת כוח המיקוח הקולקטיבי. יותר נכסים = יותר רווח לכל חבר בסינדיקט.',
             card3Title: 'מרכזיית AI',
             card3Text: 'מסחר AI מדויק בין ייצור, אגירה והרשת לביצוע אופטימלי של ROI.',
-            teamTitle: 'הנהלה',
+            teamTitle: 'הנהלה וצוות מוביל',
             founder1Name: 'ברק קינן | CEO',
             founder1Text: '20 שנות ניסיון במערכות קליניות ואוטומציה. מומחה בתשתיות דיגיטליות בעלות אמינות גבוהה.',
             founder2Name: 'ליאב וקנין | CTO',
             founder2Text: 'מהנדס תוכנה מהטכניון וארכיטקט תשתיות. מומחה במערכות אנרגיה מדויקות וסקילביליות.',
-            footer: '© 2026 VPP Solar Club | נבנה לקנה מידה עולמי'
+            footer: '© 2026 VPP Solar Club | חיפה, ישראל | נבנה לקנה מידה עולמי'
         }
     };
 
@@ -232,7 +224,6 @@
         html.setAttribute('dir', currentLang === 'he' ? 'rtl' : 'ltr');
         
         document.getElementById('langBtn').innerText = langData.btn;
-        document.getElementById('mainTitle').innerText = langData.title;
         document.getElementById('tagline').innerText = langData.tagline;
         document.getElementById('ctaBtn').innerText = langData.cta;
         document.getElementById('card1Title').innerText = langData.card1Title;
