@@ -1,21 +1,77 @@
-# # VPP Solar Club – Smart Energy Management & Community Solar Ecosystem
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VPP Solar Club | Own the Grid</title>
+    <style>
+        :root {
+            --primary: #2d5a27; /* Dark Solar Green */
+            --accent: #f4b400; /* Solar Yellow */
+            --dark: #1a1a1a;
+            --light: #f4f4f4;
+        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; margin: 0; color: var(--dark); background: var(--light); }
+        header { background: var(--dark); color: white; padding: 4rem 2rem; text-align: center; }
+        .container { max-width: 1000px; margin: auto; padding: 2rem; }
+        h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+        .tagline { font-size: 1.5rem; color: var(--accent); font-weight: bold; }
+        .section { margin: 4rem 0; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .card { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-top: 4px solid var(--primary); }
+        .highlight { color: var(--primary); font-weight: bold; }
+        .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; }
+        .cta-button { background: var(--accent); color: var(--dark); padding: 1rem 2rem; text-decoration: none; font-weight: bold; border-radius: 5px; display: inline-block; margin-top: 2rem; }
+        footer { text-align: center; padding: 2rem; background: #ddd; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
 
-### 🚀 The Vision
-**VPP Solar Club** is a next-generation energy platform designed to democratize renewable energy and maximize its profitability. We bridge the gap between private property owners (**VPP Home**) and urban apartment dwellers (**Solar Club**), ensuring that clean energy and financial independence are accessible to everyone, regardless of roof ownership.
+<header>
+    <h1>VPP SOLAR CLUB</h1>
+    <p class="tagline">The Decentralized Energy Network Effect</p>
+    <a href="mailto:Barak.keynan@gmail.com" class="cta-button">Contact Founders</a>
+</header>
 
-### 🛠️ The Technology: Precision & Automation
-Founded by a **Senior QA & Automation Engineer** with over 20 years of experience in specialized systems, VPP Solar Club is built on a "Reliability-First" philosophy. Our platform leverages:
+<div class="container">
+    <div class="section">
+        <h2>The Thesis</h2>
+        <p>We are transforming fragmented solar assets into a unified <strong>Solar Syndicate</strong>. By leveraging high-reliability AI trading and automated energy arbitrage, we capture the <span class="highlight">$50M annual revenue leak</span> in the Israeli decentralized energy market.</p>
+    </div>
 
-* **VPP Home (Smart Energy Arbitrage):** An autonomous AI engine that manages residential battery storage. It monitors real-time electricity tariffs to execute "Peak Shaving"—storing energy when it's cheap and discharging to the grid when prices peak—maximizing ROI by up to 25%.
-* **Solar Club (Community Energy Shares):** A scalable model for urban residents. By purchasing "Virtual Energy Shares" in remote solar arrays, users receive automated, direct credits on their monthly utility bills—zero installation required.
-* **Grid Stability:** Our VPP network contributes to national grid resilience during peak demand, creating a smarter, more stable energy future.
+    <div class="grid">
+        <div class="card">
+            <h3>Energy Sovereignty</h3>
+            <p>Moving beyond green goals to <strong>strategic resilience</strong>. Our VPP decouples local communities from fossil fuel volatility and geopolitical energy risks.</p>
+        </div>
+        <div class="card">
+            <h3>The Network Effect</h3>
+            <p>Every new asset added to the club increases our collective trading power. More scale = Higher yields for every member of the syndicate.</p>
+        </div>
+        <div class="card">
+            <h3>AI Switchboard</h3>
+            <p>Automated, real-time trading between solar production, battery storage, and the grid. High-precision execution for maximum ROI.</p>
+        </div>
+    </div>
 
-### 💻 Repository Architecture
-This repository hosts the official **VPP Solar Club Landing Page**, engineered for high performance:
-* **Front-end:** Modern, responsive UI built with **HTML5 & Tailwind CSS**.
-* **Live Integration:** Seamless embed of our proprietary **Savings Simulation App** (hosted at `vppsolarclub.base44.app`), allowing users to calculate their potential earnings in real-time.
-* **Scalable Core:** Optimized for both the Israeli energy market and global expansion.
+    <div class="section">
+        <h2>The Team</h2>
+        <div class="team-grid">
+            <div>
+                <h4>Barak Keynan | CEO</h4>
+                <p>20 years of clinical systems expertise & software automation. Specialist in building high-reliability digital infrastructures.</p>
+            </div>
+            <div>
+                <h4>Liav Vaknin | CTO</h4>
+                <p>Technion-trained Software Engineer & Infrastructure Architect. Expert in scalable systems and analytical problem solving.</p>
+            </div>
+        </div>
+    </div>
+</div>
 
-### 👨‍💻 About the Founder
-**Barak** – A veteran Senior QA & Automation Specialist. My career has been dedicated to system precision and reliability. VPP Solar Club is the culmination of applying rigorous software testing methodologies to the complex energy market, ensuring every kilowatt is managed with maximum efficiency.
-ROI.
+<footer>
+    &copy; 2026 VPP Solar Club | Haifa, Israel | Built for Global Scale
+</footer>
+
+</body>
+</html>
