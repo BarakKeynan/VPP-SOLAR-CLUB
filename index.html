@@ -1,165 +1,77 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VPP Solar Club | הגג שלך הופך לנכס מניב</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <title>VPP Solar Club | Own the Grid</title>
     <style>
-        body { font-family: 'Heebo', sans-serif; scroll-behavior: smooth; }
-        .hero-bg {
-            background: linear-gradient(rgba(10,37,64,0.9), rgba(5,21,37,0.95)), 
-                        url('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&q=80&w=2000') center/cover no-repeat;
+        :root {
+            --primary: #2d5a27; /* Dark Solar Green */
+            --accent: #f4b400; /* Solar Yellow */
+            --dark: #1a1a1a;
+            --light: #f4f4f4;
         }
-        .vpp-green { color: #00D084; }
-        .bg-vpp-green { background-color: #00D084; }
-        .btn-primary {
-            background: #00D084;
-            color: #0A2540;
-            transition: all 0.3s ease;
-        }
-        .btn-primary:hover {
-            background: #00b56f;
-            transform: translateY(-3px);
-        }
-        .money-counter {
-            text-shadow: 0 0 15px rgba(0, 208, 132, 0.4);
-        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; margin: 0; color: var(--dark); background: var(--light); }
+        header { background: var(--dark); color: white; padding: 4rem 2rem; text-align: center; }
+        .container { max-width: 1000px; margin: auto; padding: 2rem; }
+        h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+        .tagline { font-size: 1.5rem; color: var(--accent); font-weight: bold; }
+        .section { margin: 4rem 0; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .card { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-top: 4px solid var(--primary); }
+        .highlight { color: var(--primary); font-weight: bold; }
+        .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; }
+        .cta-button { background: var(--accent); color: var(--dark); padding: 1rem 2rem; text-decoration: none; font-weight: bold; border-radius: 5px; display: inline-block; margin-top: 2rem; }
+        footer { text-align: center; padding: 2rem; background: #ddd; font-size: 0.9rem; }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-900">
+<body>
 
-    <header class="fixed w-full z-50 bg-white/95 backdrop-blur-lg border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
-            <div class="text-3xl font-black tracking-tighter text-[#0A2540]">
-                VPP <span class="vpp-green">SOLAR CLUB</span>
-            </div>
-            <nav class="hidden md:flex gap-8 font-medium text-slate-600">
-                <a href="#solutions" class="hover:text-vpp-green transition">פתרונות</a>
-                <a href="#demo" class="hover:text-vpp-green transition">דמו</a>
-                <a href="#impact" class="hover:text-vpp-green transition">תשואה למשקיעים</a>
-            </nav>
-            <a href="https://vppsolarclub.base44.app" target="_blank" 
-               class="btn-primary px-8 py-3.5 rounded-2xl font-bold text-lg">
-                 כניסה למערכת →
-            </a>
+<header>
+    <h1>VPP SOLAR CLUB</h1>
+    <p class="tagline">The Decentralized Energy Network Effect</p>
+    <a href="mailto:Barak.keynan@gmail.com" class="cta-button">Contact Founders</a>
+</header>
+
+<div class="container">
+    <div class="section">
+        <h2>The Thesis</h2>
+        <p>We are transforming fragmented solar assets into a unified <strong>Solar Syndicate</strong>. By leveraging high-reliability AI trading and automated energy arbitrage, we capture the <span class="highlight">$50M annual revenue leak</span> in the Israeli decentralized energy market.</p>
+    </div>
+
+    <div class="grid">
+        <div class="card">
+            <h3>Energy Sovereignty</h3>
+            <p>Moving beyond green goals to <strong>strategic resilience</strong>. Our VPP decouples local communities from fossil fuel volatility and geopolitical energy risks.</p>
         </div>
-    </header>
+        <div class="card">
+            <h3>The Network Effect</h3>
+            <p>Every new asset added to the club increases our collective trading power. More scale = Higher yields for every member of the syndicate.</p>
+        </div>
+        <div class="card">
+            <h3>AI Switchboard</h3>
+            <p>Automated, real-time trading between solar production, battery storage, and the grid. High-precision execution for maximum ROI.</p>
+        </div>
+    </div>
 
-    <section class="hero-bg text-white pt-40 pb-32 px-6">
-        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-            <div class="space-y-8">
-                <div class="inline-block px-4 py-2 bg-white/10 rounded-full border border-white/20 text-vpp-green font-bold">
-                    🚀 טכנולוגיית אופטימיזציית אנרגיה אוטונומית
-                </div>
-                <h1 class="text-5xl md:text-7xl font-black leading-tight">
-                    הגג שלך הופך ל<br><span class="vpp-green text-shadow">נכס פיננסי</span>
-                </h1>
-                <p class="text-2xl text-slate-200 max-w-lg">
-                    אנחנו לא רק מנהלים את החשמל שלך – אנחנו סוחרים בו. המערכת מוכרת בשיא המחיר וקונה בשפל. 100% אוטומטי.
-                </p>
-                
-                <div class="bg-white/5 border border-white/10 p-6 rounded-3xl backdrop-blur-sm">
-                    <div class="text-sm text-slate-400 mb-1">רווח מצטבר בזמן אמת (Simulation):</div>
-                    <div id="live-profit" class="text-4xl font-black vpp-green money-counter">₪0.00</div>
-                    <div class="text-xs text-slate-500 mt-2">● AI Arbitrage Active: Grid Demand High</div>
-                </div>
-
-                <div class="flex flex-wrap gap-5">
-                    <button onclick="document.getElementById('demo').scrollIntoView()" 
-                       class="btn-primary px-10 py-5 rounded-2xl font-bold text-xl shadow-xl">
-                        הפעל דמו אופטימיזציה ⚡
-                    </button>
-                </div>
+    <div class="section">
+        <h2>The Team</h2>
+        <div class="team-grid">
+            <div>
+                <h4>Barak Keynan | CEO</h4>
+                <p>20 years of clinical systems expertise & software automation. Specialist in building high-reliability digital infrastructures.</p>
             </div>
-
-            <div class="relative group">
-                <div class="absolute -inset-1 bg-vpp-green rounded-3xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
-                <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10 bg-black">
-                    <iframe width="100%" height="400" 
-                            src="https://www.youtube.com/embed/A13HuAeMcAU" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                    </iframe>
-                </div>
+            <div>
+                <h4>Liav Vaknin | CTO</h4>
+                <p>Technion-trained Software Engineer & Infrastructure Architect. Expert in scalable systems and analytical problem solving.</p>
             </div>
         </div>
-    </section>
+    </div>
+</div>
 
-    <section id="impact" class="py-24 bg-white">
-        <div class="max-w-4xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-black mb-4">למה VPP Solar Club?</h2>
-                <p class="text-xl text-gray-600">השוואת ביצועים: ניהול פסיבי מול המנוע האוטונומי שלנו</p>
-            </div>
-            
-            <div class="overflow-hidden rounded-3xl border border-slate-200 shadow-2xl">
-                <table class="w-full text-right border-collapse">
-                    <thead class="bg-slate-900 text-white">
-                        <tr>
-                            <th class="p-6 text-xl">מדד</th>
-                            <th class="p-6 text-xl">ניהול סטנדרטי</th>
-                            <th class="p-6 text-xl vpp-green">VPP Solar Club</th>
-                        </tr>
-                    </thead>
-                    <tbody class="text-lg">
-                        <tr class="border-b border-slate-100">
-                            <td class="p-6 font-bold">מחיר מכירה ממוצע</td>
-                            <td class="p-6 text-slate-500">₪0.48 / kWh</td>
-                            <td class="p-6 font-bold text-vpp-green">₪1.32 / kWh (Peak)</td>
-                        </tr>
-                        <tr class="border-b border-slate-100 bg-slate-50">
-                            <td class="p-6 font-bold">שימוש ב-AI לחיזוי</td>
-                            <td class="p-6 text-slate-500">ללא</td>
-                            <td class="p-6 font-bold text-vpp-green">Predictive Arbitrage</td>
-                        </tr>
-                        <tr>
-                            <td class="p-6 font-bold">תשואה שנתית (ROI)</td>
-                            <td class="p-6 text-slate-500">~9%</td>
-                            <td class="p-6 font-bold text-vpp-green">~16.5% (+83% שיפור)</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
+<footer>
+    &copy; 2026 VPP Solar Club | Haifa, Israel | Built for Global Scale
+</footer>
 
-    <section id="demo" class="py-24 bg-slate-900 text-white">
-        <div class="max-w-6xl mx-auto px-6 text-center">
-            <h2 class="text-4xl font-black mb-4">ממשק המשתמש (MVP)</h2>
-            <p class="text-xl text-slate-400 mb-12">מבט לתוך סביבת הניהול של מועדון הסולאר</p>
-            
-            <div class="relative mx-auto max-w-[900px] rounded-3xl shadow-2xl border-[12px] border-slate-800 overflow-hidden h-[600px] bg-white">
-                <iframe src="https://vppsolarclub.base44.app" 
-                        class="w-full h-full border-none" 
-                        title="VPP Solar Club Demo">
-                </iframe>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-slate-950 text-white py-12 border-t border-white/5">
-        <div class="max-w-6xl mx-auto px-6 text-center">
-            <div class="text-2xl font-black mb-4">VPP <span class="vpp-green">SOLAR CLUB</span></div>
-            <p class="text-slate-500 text-sm">© 2026 VPP Solar Club • פותח על ידי ברק קינן • Haifa, Israel</p>
-        </div>
-    </footer>
-
-    <script>
-        // מנוע עדכון רווחים חי למשקיעים
-        let currentProfit = 0;
-        const profitElement = document.getElementById('live-profit');
-
-        function updateProfit() {
-            // סימולציה של רווח מצטבר מהפרשי תעריפים
-            currentProfit += (Math.random() * 0.15);
-            profitElement.innerText = `₪${currentProfit.toFixed(2)}`;
-        }
-
-        // התחלת הספירה
-        setInterval(updateProfit, 1500);
-    </script>
 </body>
 </html>
