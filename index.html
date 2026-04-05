@@ -8,7 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* צבעים מותאמים אישית לפי הלוגו החדש */
             --primary: #00d2ff; 
             --accent: #3a7bd5;
             --bg: #030812;
@@ -22,6 +21,7 @@
             background-color: var(--bg);
             color: var(--text);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         [dir="rtl"] { text-align: right; }
@@ -43,6 +43,7 @@
         .nav-logo img {
             height: 45px;
             display: block;
+            filter: drop-shadow(0 0 5px rgba(0, 210, 255, 0.3));
         }
 
         .lang-btn {
@@ -60,66 +61,76 @@
         /* Hero / Header Section */
         header {
             position: relative;
-            padding: 6rem 5% 4rem;
+            padding: 8rem 5% 6rem;
             text-align: center;
-            /* שימוש בתמונה כרקע עם אפקט טשטוש קל בצדדים */
-            background: linear-gradient(rgba(3, 8, 18, 0.7), rgba(3, 8, 18, 0.9)), 
-                        url('VPP LOGO.jpg') no-repeat center center;
+            background: linear-gradient(rgba(3, 8, 18, 0.75), rgba(3, 8, 18, 0.95)), 
+                        url('vpp_logo.jpg') no-repeat center center;
             background-size: cover;
             border-bottom: 2px solid rgba(0, 210, 255, 0.1);
         }
 
         .hero-logo-img {
-            max-width: 600px;
-            width: 90%;
-            margin-bottom: 2rem;
-            filter: drop-shadow(0 0 15px rgba(0, 210, 255, 0.4));
+            max-width: 550px;
+            width: 85%;
+            margin-bottom: 2.5rem;
+            filter: drop-shadow(0 0 20px rgba(0, 210, 255, 0.5));
         }
 
         .tagline { 
             font-size: 1.8rem; 
             color: #fff; 
-            margin: 0 0 3rem; 
+            margin: 0 0 3.5rem; 
             font-family: 'Orbitron', sans-serif;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            text-shadow: 0 2px 15px rgba(0,0,0,0.8);
+            letter-spacing: 1px;
         }
 
         .cta-button {
             background: linear-gradient(45deg, var(--primary), var(--accent));
             color: white;
-            padding: 1.2rem 3rem;
+            padding: 1.2rem 3.5rem;
             text-decoration: none;
             font-weight: bold;
             border-radius: 50px;
             font-size: 1.2rem;
-            box-shadow: 0 10px 25px rgba(0, 210, 255, 0.3);
-            transition: 0.4s;
+            box-shadow: 0 10px 30px rgba(0, 210, 255, 0.3);
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: inline-block;
         }
-        .cta-button:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0, 210, 255, 0.4); }
+        .cta-button:hover { transform: translateY(-5px); box-shadow: 0 20px 45px rgba(0, 210, 255, 0.5); }
 
-        /* Rest of the Design */
-        .container { max-width: 1100px; margin: auto; padding: 4rem 5%; }
+        /* Container & Grid */
+        .container { max-width: 1100px; margin: auto; padding: 5rem 5%; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; }
         
         .card {
             background: var(--card-bg);
-            padding: 2.5rem;
-            border-radius: 20px;
-            border: 1px solid rgba(0, 210, 255, 0.1);
+            padding: 3rem;
+            border-radius: 24px;
+            border: 1px solid rgba(0, 210, 255, 0.08);
             transition: 0.4s;
+            backdrop-filter: blur(5px);
         }
-        .card:hover { border-color: var(--primary); background: rgba(0, 210, 255, 0.05); transform: translateY(-10px); }
-        .card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 1.5rem; }
+        .card:hover { border-color: var(--primary); background: rgba(0, 210, 255, 0.06); transform: translateY(-10px); }
+        .card i { font-size: 2.8rem; color: var(--primary); margin-bottom: 1.8rem; display: block; }
+        .card h3 { font-family: 'Orbitron', sans-serif; font-size: 1.4rem; margin-bottom: 1rem; color: #fff; }
 
-        .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 4rem; }
-        .member { border-left: 3px solid var(--primary); padding-left: 1.5rem; }
-        [dir="rtl"] .member { border-left: none; border-right: 3px solid var(--primary); padding-right: 1.5rem; padding-left: 0; }
+        /* Team Section */
+        .team-section { margin-top: 8rem; text-align: center; }
+        .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 4rem; text-align: left; }
+        [dir="rtl"] .team-grid { text-align: right; }
+        
+        .member { border-left: 3px solid var(--primary); padding-left: 2rem; }
+        [dir="rtl"] .member { border-left: none; border-right: 3px solid var(--primary); padding-right: 2rem; padding-left: 0; }
+        .member h4 { font-size: 1.6rem; color: #fff; margin-bottom: 0.5rem; }
 
-        footer { text-align: center; padding: 4rem; opacity: 0.5; font-size: 0.9rem; }
+        footer { text-align: center; padding: 5rem; opacity: 0.4; font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.05); }
 
         @media (max-width: 768px) {
-            .tagline { font-size: 1.2rem; }
-            .team-grid { grid-template-columns: 1fr; }
+            h1 { font-size: 2.5rem; }
+            .tagline { font-size: 1.3rem; }
+            .team-grid { grid-template-columns: 1fr; gap: 2rem; }
+            header { padding: 6rem 5% 4rem; }
         }
     </style>
 </head>
@@ -127,13 +138,13 @@
 
 <nav>
     <div class="nav-logo">
-        <img src="VPP LOGO.jpg" alt="VPP Solar Club Logo">
+        <img src="vpp_logo.jpg" alt="VPP Solar Club Logo">
     </div>
     <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">עברית</button>
 </nav>
 
 <header>
-    <img src="VPP LOGO.jpg" alt="VPP Solar Club" class="hero-logo-img">
+    <img src="vpp_logo.jpg" alt="VPP Solar Club" class="hero-logo-img">
     <p id="tagline" class="tagline">The Decentralized Energy Network Effect</p>
     <a href="mailto:Barak.keynan@gmail.com" class="cta-button" id="ctaBtn">Contact Founders</a>
 </header>
@@ -157,15 +168,15 @@
         </div>
     </div>
 
-    <div class="section" style="margin-top: 6rem;">
-        <h2 id="teamTitle" style="text-align:center; font-size: 2.5rem; font-family:'Orbitron'; margin-bottom: 4rem;">The Leadership Team</h2>
+    <div class="team-section">
+        <h2 id="teamTitle" style="font-size: 2.8rem; font-family:'Orbitron'; color: #fff;">Leadership</h2>
         <div class="team-grid">
             <div class="member">
-                <h4 id="founder1Name" style="color:#fff; font-size: 1.5rem; margin-bottom: 0.5rem;">Barak Keynan | CEO</h4>
-                <p id="founder1Text">20 years of clinical systems expertise & software automation. Expert in high-reliability digital infrastructures.</p>
+                <h4 id="founder1Name">Barak Keynan | CEO</h4>
+                <p id="founder1Text">20 years of clinical systems expertise & software automation. Specialist in high-reliability digital infrastructures.</p>
             </div>
             <div class="member">
-                <h4 id="founder2Name" style="color:#fff; font-size: 1.5rem; margin-bottom: 0.5rem;">Liav Vaknin | CTO</h4>
+                <h4 id="founder2Name">Liav Vaknin | CTO</h4>
                 <p id="founder2Text">Technion Software Engineer & Infrastructure Architect. Specialist in scalable, high-precision energy systems.</p>
             </div>
         </div>
@@ -189,9 +200,9 @@
             card2Text: 'Scale increases collective trading power. More assets = higher yields for every member.',
             card3Title: 'AI Switchboard',
             card3Text: 'Precision AI trading between production, storage, and the grid for maximum ROI execution.',
-            teamTitle: 'The Leadership Team',
+            teamTitle: 'Leadership',
             founder1Name: 'Barak Keynan | CEO',
-            founder1Text: '20 years of clinical systems expertise & software automation. Expert in high-reliability digital infrastructures.',
+            founder1Text: '20 years of clinical systems expertise & software automation. Specialist in high-reliability digital infrastructures.',
             founder2Name: 'Liav Vaknin | CTO',
             founder2Text: 'Technion Software Engineer & Infrastructure Architect. Specialist in scalable, high-precision energy systems.',
             footer: '© 2026 VPP Solar Club | Haifa, Israel | Built for Global Scale'
@@ -206,7 +217,7 @@
             card2Text: 'הגדלת כוח המיקוח הקולקטיבי. יותר נכסים = יותר רווח לכל חבר בסינדיקט.',
             card3Title: 'מרכזיית AI',
             card3Text: 'מסחר AI מדויק בין ייצור, אגירה והרשת לביצוע אופטימלי של ROI.',
-            teamTitle: 'הנהלה וצוות מוביל',
+            teamTitle: 'הנהלה',
             founder1Name: 'ברק קינן | CEO',
             founder1Text: '20 שנות ניסיון במערכות קליניות ואוטומציה. מומחה בתשתיות דיגיטליות בעלות אמינות גבוהה.',
             founder2Name: 'ליאב וקנין | CTO',
