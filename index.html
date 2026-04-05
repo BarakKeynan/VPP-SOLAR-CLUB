@@ -1,77 +1,163 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="html-tag">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VPP Solar Club | Own the Grid</title>
     <style>
         :root {
-            --primary: #2d5a27; /* Dark Solar Green */
-            --accent: #f4b400; /* Solar Yellow */
+            --primary: #2d5a27;
+            --accent: #f4b400;
             --dark: #1a1a1a;
             --light: #f4f4f4;
         }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; margin: 0; color: var(--dark); background: var(--light); }
+        body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; margin: 0; color: var(--dark); background: var(--light); transition: all 0.3s ease; }
+        [dir="rtl"] { text-align: right; }
+        
+        nav { background: #000; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        .lang-btn { background: var(--accent); border: none; padding: 8px 15px; cursor: pointer; font-weight: bold; border-radius: 4px; }
+        
         header { background: var(--dark); color: white; padding: 4rem 2rem; text-align: center; }
         .container { max-width: 1000px; margin: auto; padding: 2rem; }
-        h1 { font-size: 3rem; margin-bottom: 0.5rem; }
-        .tagline { font-size: 1.5rem; color: var(--accent); font-weight: bold; }
-        .section { margin: 4rem 0; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        h1 { font-size: 3rem; margin: 0; }
+        .tagline { font-size: 1.5rem; color: var(--accent); font-weight: bold; margin-bottom: 2rem; }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 3rem 0; }
         .card { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-top: 4px solid var(--primary); }
-        .highlight { color: var(--primary); font-weight: bold; }
+        
         .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; }
-        .cta-button { background: var(--accent); color: var(--dark); padding: 1rem 2rem; text-decoration: none; font-weight: bold; border-radius: 5px; display: inline-block; margin-top: 2rem; }
+        .cta-button { background: var(--accent); color: var(--dark); padding: 1rem 2rem; text-decoration: none; font-weight: bold; border-radius: 5px; display: inline-block; }
         footer { text-align: center; padding: 2rem; background: #ddd; font-size: 0.9rem; }
+
+        @media (max-width: 600px) { .team-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 
+<nav>
+    <div style="color: white; font-weight: bold;">VPP SOLAR CLUB</div>
+    <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">עברית</button>
+</nav>
+
 <header>
-    <h1>VPP SOLAR CLUB</h1>
-    <p class="tagline">The Decentralized Energy Network Effect</p>
-    <a href="mailto:Barak.keynan@gmail.com" class="cta-button">Contact Founders</a>
+    <h1 id="mainTitle">VPP SOLAR CLUB</h1>
+    <p id="tagline" class="tagline">The Decentralized Energy Network Effect</p>
+    <a href="mailto:Barak.keynan@gmail.com" class="cta-button" id="ctaBtn">Contact Founders</a>
 </header>
 
 <div class="container">
     <div class="section">
-        <h2>The Thesis</h2>
-        <p>We are transforming fragmented solar assets into a unified <strong>Solar Syndicate</strong>. By leveraging high-reliability AI trading and automated energy arbitrage, we capture the <span class="highlight">$50M annual revenue leak</span> in the Israeli decentralized energy market.</p>
+        <h2 id="thesisTitle">The Thesis</h2>
+        <p id="thesisText">We are transforming fragmented solar assets into a unified <strong>Solar Syndicate</strong>. By leveraging high-reliability AI trading and automated energy arbitrage, we capture the <span style="color:var(--primary); font-weight:bold;">$50M annual revenue leak</span> in the Israeli decentralized energy market.</p>
     </div>
 
     <div class="grid">
         <div class="card">
-            <h3>Energy Sovereignty</h3>
-            <p>Moving beyond green goals to <strong>strategic resilience</strong>. Our VPP decouples local communities from fossil fuel volatility and geopolitical energy risks.</p>
+            <h3 id="card1Title">Energy Sovereignty</h3>
+            <p id="card1Text">Moving beyond green goals to <strong>strategic resilience</strong>. Our VPP decouples local communities from fossil fuel volatility and geopolitical energy risks.</p>
         </div>
         <div class="card">
-            <h3>The Network Effect</h3>
-            <p>Every new asset added to the club increases our collective trading power. More scale = Higher yields for every member of the syndicate.</p>
+            <h3 id="card2Title">The Network Effect</h3>
+            <p id="card2Text">Every new asset added to the club increases our collective trading power. More scale = Higher yields for every member of the syndicate.</p>
         </div>
         <div class="card">
-            <h3>AI Switchboard</h3>
-            <p>Automated, real-time trading between solar production, battery storage, and the grid. High-precision execution for maximum ROI.</p>
+            <h3 id="card3Title">AI Switchboard</h3>
+            <p id="card3Text">Automated, real-time trading between solar production, battery storage, and the grid. High-precision execution for maximum ROI.</p>
         </div>
     </div>
 
     <div class="section">
-        <h2>The Team</h2>
+        <h2 id="teamTitle">The Team</h2>
         <div class="team-grid">
             <div>
-                <h4>Barak Keynan | CEO</h4>
-                <p>20 years of clinical systems expertise & software automation. Specialist in building high-reliability digital infrastructures.</p>
+                <h4 id="founder1Name">Barak Keynan | CEO</h4>
+                <p id="founder1Text">20 years of clinical systems expertise & software automation. Specialist in building high-reliability digital infrastructures.</p>
             </div>
             <div>
-                <h4>Liav Vaknin | CTO</h4>
-                <p>Technion-trained Software Engineer & Infrastructure Architect. Expert in scalable systems and analytical problem solving.</p>
+                <h4 id="founder2Name">Liav Vaknin | CTO</h4>
+                <p id="founder2Text">Technion-trained Software Engineer & Infrastructure Architect. Expert in scalable systems and analytical problem solving.</p>
             </div>
         </div>
     </div>
 </div>
 
-<footer>
+<footer id="footerText">
     &copy; 2026 VPP Solar Club | Haifa, Israel | Built for Global Scale
 </footer>
+
+<script>
+    let currentLang = 'en';
+    const content = {
+        en: {
+            btn: 'עברית',
+            title: 'VPP SOLAR CLUB',
+            tagline: 'The Decentralized Energy Network Effect',
+            cta: 'Contact Founders',
+            thesisTitle: 'The Thesis',
+            thesisText: 'We are transforming fragmented solar assets into a unified <strong>Solar Syndicate</strong>. By leveraging high-reliability AI trading and automated energy arbitrage, we capture the $50M annual revenue leak in the Israeli decentralized energy market.',
+            card1Title: 'Energy Sovereignty',
+            card1Text: 'Moving beyond green goals to <strong>strategic resilience</strong>. Our VPP decouples local communities from fossil fuel volatility and geopolitical energy risks.',
+            card2Title: 'The Network Effect',
+            card2Text: 'Every new asset added to the club increases our collective trading power. More scale = Higher yields for every member of the syndicate.',
+            card3Title: 'AI Switchboard',
+            card3Text: 'Automated, real-time trading between solar production, battery storage, and the grid. High-precision execution for maximum ROI.',
+            teamTitle: 'The Team',
+            founder1Name: 'Barak Keynan | CEO',
+            founder1Text: '20 years of clinical systems expertise & software automation. Specialist in building high-reliability digital infrastructures.',
+            founder2Name: 'Liav Vaknin | CTO',
+            founder2Text: 'Technion-trained Software Engineer & Infrastructure Architect. Expert in scalable systems and analytical problem solving.',
+            footer: '© 2026 VPP Solar Club | Haifa, Israel | Built for Global Scale'
+        },
+        he: {
+            btn: 'English',
+            title: 'VPP SOLAR CLUB',
+            tagline: 'אפקט הרשת של האנרגיה המבוזרת',
+            cta: 'צרו קשר עם המייסדים',
+            thesisTitle: 'החזון שלנו',
+            thesisText: 'אנחנו הופכים נכסי אנרגיה מפוזרים ל<strong>סינדיקט סולארי</strong> מאוחד. באמצעות מסחר מבוסס AI ואוטומציה, אנחנו עוצרים את דליפת הרווחים של כ-50 מיליון דולר בשנה בשוק האנרגיה הישראלי.',
+            card1Title: 'עצמאות אנרגטית',
+            card1Text: 'מעבר ליעדים ירוקים - מדובר ב<strong>חוסן אסטרטגי</strong>. המערכת שלנו מנתקת את הקהילה מהתלות במחירי הנפט וסיכונים גיאופוליטיים.',
+            card2Title: 'אפקט הרשת',
+            card2Text: 'כל נכס חדש שמצטרף למועדון מגדיל את כוח המיקוח של כולם. יותר קנה מידה = יותר רווח לכל חבר בסינדיקט.',
+            card3Title: 'מרכזיית AI',
+            card3Text: 'מסחר אוטומטי בזמן אמת בין ייצור סולארי, אגירה בסוללות והרשת. ביצוע מדויק למקסימום רווח.',
+            teamTitle: 'הצוות',
+            founder1Name: 'ברק קינן | CEO',
+            founder1Text: '20 שנות ניסיון במערכות קליניות ואוטומציה של תוכנה. מומחה בבניית תשתיות דיגיטליות אמינות.',
+            founder2Name: 'ליאב וקנין | CTO',
+            founder2Text: 'מהנדס תוכנה מהטכניון וארכיטקט תשתיות. מומחה במערכות סקילביליות ופתרון בעיות אנליטיות.',
+            footer: '© 2026 VPP Solar Club | חיפה, ישראל | נבנה לקנה מידה עולמי'
+        }
+    };
+
+    function toggleLanguage() {
+        currentLang = currentLang === 'en' ? 'he' : 'en';
+        const html = document.getElementById('html-tag');
+        const langData = content[currentLang];
+        
+        html.setAttribute('lang', currentLang);
+        html.setAttribute('dir', currentLang === 'he' ? 'rtl' : 'ltr');
+        
+        document.getElementById('langBtn').innerText = langData.btn;
+        document.getElementById('mainTitle').innerText = langData.title;
+        document.getElementById('tagline').innerText = langData.tagline;
+        document.getElementById('ctaBtn').innerText = langData.cta;
+        document.getElementById('thesisTitle').innerText = langData.thesisTitle;
+        document.getElementById('thesisText').innerHTML = langData.thesisText;
+        document.getElementById('card1Title').innerText = langData.card1Title;
+        document.getElementById('card1Text').innerHTML = langData.card1Text;
+        document.getElementById('card2Title').innerText = langData.card2Title;
+        document.getElementById('card2Text').innerText = langData.card2Text;
+        document.getElementById('card3Title').innerText = langData.card3Title;
+        document.getElementById('card3Text').innerText = langData.card3Text;
+        document.getElementById('teamTitle').innerText = langData.teamTitle;
+        document.getElementById('founder1Name').innerText = langData.founder1Name;
+        document.getElementById('founder1Text').innerText = langData.founder1Text;
+        document.getElementById('founder2Name').innerText = langData.founder2Name;
+        document.getElementById('founder2Text').innerText = langData.founder2Text;
+        document.getElementById('footerText').innerText = langData.footer;
+    }
+</script>
 
 </body>
 </html>
