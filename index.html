@@ -133,4 +133,150 @@
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
         
         .card {
-            background: var(--card-
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: 0.4s;
+            text-align: center;
+        }
+        .card:hover {
+            border-color: var(--primary);
+            transform: translateY(-10px);
+            background: rgba(0, 210, 255, 0.05);
+        }
+        .card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 1.5rem; }
+        .card h3 { font-family: 'Orbitron', sans-serif; font-size: 1.4rem; margin-bottom: 1rem; }
+
+        footer { 
+            text-align: center; 
+            padding: 4rem; 
+            opacity: 0.5; 
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        @media (max-width: 768px) {
+            .tagline { font-size: 1.5rem; }
+            .cta-group { flex-direction: column; align-items: center; }
+            .cta-button { width: 80%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-logo">
+        <img src="https://i.ibb.co/vKs2HdW/VPP-LOGO.png" alt="VPP Logo">
+    </div>
+    <button onclick="toggleLanguage()" id="langBtn" style="background:none; border:1px solid var(--primary); color:var(--primary); padding:8px 20px; border-radius:20px; cursor:pointer; font-weight: bold;">עברית</button>
+</nav>
+
+<header>
+    <img src="https://i.ibb.co/vKs2HdW/VPP-LOGO.png" alt="VPP Solar Club" class="hero-logo-img">
+    
+    <h1 id="mainTitle" class="tagline">The Decentralized Energy Network Effect</h1>
+    
+    <p id="subTitle" class="description">
+        VPP Solar Club connects distributed energy resources into a unified Virtual Power Plant. 
+        We leverage AI and real-time trading to transform local solar and battery assets into high-yield energy hubs.
+    </p>
+    
+    <div class="cta-group">
+        <a href="https://vppsolarclub.base44.app" target="_blank" class="cta-button" id="demoBtn">
+            <i class="fas fa-rocket"></i> Launch App Demo
+        </a>
+        <a href="mailto:Barak.keynan@gmail.com" class="cta-button secondary" id="contactBtn">
+            <i class="fas fa-envelope"></i> Contact Founders
+        </a>
+    </div>
+
+    <div class="video-section">
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/A13HuAeMcAU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="grid">
+        <div class="card">
+            <i class="fas fa-shield-alt"></i>
+            <h3 id="c1T">Energy Sovereignty</h3>
+            <p id="c1D">Strategic energy resilience and community-owned power assets for a stable future.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-bolt"></i>
+            <h3 id="c2T">Smart Yield</h3>
+            <p id="c2D">AI-driven trading that maximizes profit by intelligently managing production and storage.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-network-wired"></i>
+            <h3 id="c3T">VPP Network</h3>
+            <p id="c3D">A decentralized network where collective scale increases trading power for every member.</p>
+        </div>
+    </div>
+</div>
+
+<footer id="footerText">
+    &copy; 2026 VPP Solar Club | Haifa, Israel | Empowering the Grid
+</footer>
+
+<script>
+    let currentLang = 'en';
+    const content = {
+        en: {
+            lang: 'עברית',
+            title: 'The Decentralized Energy Network Effect',
+            sub: 'VPP Solar Club connects distributed energy resources into a unified Virtual Power Plant. We leverage AI and real-time trading to transform local solar and battery assets into high-yield energy hubs.',
+            demo: 'Launch App Demo',
+            contact: 'Contact Founders',
+            c1t: 'Energy Sovereignty',
+            c1d: 'Strategic energy resilience and community-owned power assets for a stable future.',
+            c2t: 'Smart Yield',
+            c2d: 'AI-driven trading that maximizes profit by intelligently managing production and storage.',
+            c3t: 'VPP Network',
+            c3d: 'A decentralized network where collective scale increases trading power for every member.',
+            footer: '© 2026 VPP Solar Club | Haifa, Israel | Empowering the Grid'
+        },
+        he: {
+            lang: 'English',
+            title: 'אפקט הרשת של האנרגיה המבוזרת',
+            sub: 'VPP Solar Club מחברת משאבי אנרגיה מבוזרים לתחנת כוח וירטואלית מאוחדת. אנו משתמשים ב-AI ובמסחר בזמן אמת כדי להפוך נכסי שמש וסוללות מקומיים למרכזים אנרגטיים בעלי תשואה גבוהה.',
+            demo: 'כניסה לדמו האפליקציה',
+            contact: 'צרו קשר עם המייסדים',
+            c1t: 'עצמאות אנרגטית',
+            c1d: 'חוסן אנרגטי אסטרטגי ונכסי כוח בבעלות הקהילה לעתיד יציב.',
+            c2t: 'תשואה חכמה',
+            c2d: 'מסחר מבוסס AI הממקסם רווחים על ידי ניהול חכם של ייצור ואגירה.',
+            c3t: 'רשת VPP',
+            c3d: 'רשת מבוזרת שבה הגודל הקולקטיבי מגדיל את כוח המיקוח עבור כל חבר.',
+            footer: '© 2026 VPP Solar Club | חיפה, ישראל | מחשמלים את הרשת'
+        }
+    };
+
+    function toggleLanguage() {
+        currentLang = currentLang === 'en' ? 'he' : 'en';
+        const h = document.getElementById('html-tag');
+        const c = content[currentLang];
+        
+        h.setAttribute('lang', currentLang);
+        h.setAttribute('dir', currentLang === 'he' ? 'rtl' : 'ltr');
+        
+        document.getElementById('langBtn').innerText = c.lang;
+        document.getElementById('mainTitle').innerText = c.title;
+        document.getElementById('subTitle').innerText = c.sub;
+        document.getElementById('demoBtn').innerHTML = `<i class="fas fa-rocket"></i> ${c.demo}`;
+        document.getElementById('contactBtn').innerHTML = `<i class="fas fa-envelope"></i> ${c.contact}`;
+        document.getElementById('c1T').innerText = c.c1t;
+        document.getElementById('c1D').innerText = c.c1d;
+        document.getElementById('c2T').innerText = c.c2t;
+        document.getElementById('c2D').innerText = c.c2d;
+        document.getElementById('c3T').innerText = c.c3t;
+        document.getElementById('c3D').innerText = c.c3d;
+        document.getElementById('footerText').innerText = c.footer;
+    }
+</script>
+
+</body>
+</html>
