@@ -9,10 +9,9 @@
     <style>
         :root {
             --primary: #00d2ff; 
-            --accent: #3a7bd5;
             --bg: #030812;
-            --card-bg: rgba(255, 255, 255, 0.05);
             --text: #e0e6ed;
+            --card-bg: rgba(255, 255, 255, 0.05);
         }
 
         body {
@@ -21,6 +20,7 @@
             background-color: var(--bg);
             color: var(--text);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         [dir="rtl"] { text-align: right; }
@@ -38,262 +38,99 @@
             border-bottom: 1px solid rgba(0, 210, 255, 0.2);
         }
 
-        .nav-logo img { height: 45px; vertical-align: middle; }
-
-        .nav-links a {
-            color: var(--text);
-            text-decoration: none;
-            margin-left: 20px;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-        .nav-links a:hover { color: var(--primary); }
+        .nav-logo img { height: 40px; }
 
         /* Hero Section */
         header {
-            padding: 6rem 5% 4rem;
+            padding: 5rem 5% 3rem;
             text-align: center;
             background: radial-gradient(circle at center, #0a192f 0%, #030812 100%);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
 
         .hero-logo-img {
             max-width: 600px;
-            width: 90%;
-            margin-bottom: 2rem;
-            filter: drop-shadow(0 0 15px rgba(0, 210, 255, 0.3));
+            width: 85%;
+            margin-bottom: 2.5rem;
+            filter: drop-shadow(0 0 25px rgba(0, 210, 255, 0.4));
         }
 
         .tagline { 
-            font-size: 1.8rem; 
+            font-size: 2.2rem; 
             font-family: 'Orbitron', sans-serif;
             color: #fff;
-            margin-bottom: 2.5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
+        .description {
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            font-size: 1.2rem;
+            color: rgba(224, 230, 237, 0.8);
+        }
+
+        /* Buttons */
         .cta-group {
             display: flex;
             justify-content: center;
             gap: 20px;
             flex-wrap: wrap;
+            margin-bottom: 4rem;
         }
 
         .cta-button {
             background: var(--primary);
             color: #030812;
-            padding: 1rem 2rem;
+            padding: 1.1rem 2.5rem;
             text-decoration: none;
             font-weight: bold;
             border-radius: 50px;
             transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 210, 255, 0.3);
+            font-size: 1rem;
             display: inline-flex;
             align-items: center;
             gap: 10px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 210, 255, 0.5);
         }
 
         .cta-button.secondary {
             background: transparent;
             color: var(--primary);
             border: 2px solid var(--primary);
+            box-shadow: none;
         }
 
-        .cta-button:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0, 210, 255, 0.3); }
+        /* Video Wrapper */
+        .video-section {
+            max-width: 850px;
+            margin: 0 auto 5rem;
+            padding: 0 20px;
+        }
 
-        /* Media Section (YouTube) */
         .video-container {
-            max-width: 800px;
-            margin: 4rem auto;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            border: 1px solid rgba(0, 210, 255, 0.2);
-        }
-
-        .video-wrapper {
             position: relative;
             padding-bottom: 56.25%;
             height: 0;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+            border: 1px solid rgba(0, 210, 255, 0.2);
         }
 
-        .video-wrapper iframe {
+        .video-container iframe {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0; width: 100%; height: 100%;
         }
 
-        /* Features */
-        .container { max-width: 1100px; margin: auto; padding: 4rem 5%; }
-        
-        .section-title {
-            text-align: center;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 2.2rem;
-            margin-bottom: 3rem;
-            color: var(--primary);
-        }
-
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; }
+        /* Features Grid */
+        .container { max-width: 1100px; margin: auto; padding: 0 5% 5rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
         
         .card {
-            background: var(--card-bg);
-            padding: 2.5rem;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: 0.4s;
-        }
-        .card:hover { border-color: var(--primary); transform: translateY(-10px); }
-        .card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 1.5rem; }
-        .card h3 { font-family: 'Orbitron', sans-serif; margin-bottom: 1rem; }
-
-        /* App Demo Section */
-        .demo-box {
-            background: linear-gradient(45deg, #0a192f, #112240);
-            padding: 3rem;
-            border-radius: 30px;
-            text-align: center;
-            margin-top: 4rem;
-            border: 1px solid var(--primary);
-        }
-
-        footer { text-align: center; padding: 4rem; opacity: 0.6; font-size: 0.9rem; }
-
-        @media (max-width: 768px) {
-            .tagline { font-size: 1.3rem; }
-            .cta-group { flex-direction: column; }
-        }
-    </style>
-</head>
-<body>
-
-<nav>
-    <div class="nav-logo">
-        <img src="vpp_logo.jpg" alt="VPP Logo" onerror="this.src='https://via.placeholder.com/150?text=VPP+SOLAR'">
-    </div>
-    <div class="nav-links">
-        <button onclick="toggleLanguage()" id="langBtn" style="background:none; border:1px solid var(--primary); color:var(--primary); padding:5px 15px; border-radius:20px; cursor:pointer;">עברית</button>
-    </div>
-</nav>
-
-<header>
-    <img src="vpp_logo.jpg" alt="VPP Solar Club" class="hero-logo-img" onerror="this.style.display='none'">
-    <h1 id="mainTitle" class="tagline">The Decentralized Energy Network Effect</h1>
-    <p id="heroDesc" style="max-width: 700px; margin: 0 auto 3rem; font-size: 1.1rem; opacity: 0.9;">
-        We are building the future of energy. By connecting local solar assets into a unified Virtual Power Plant, we empower communities to own their energy and maximize ROI through AI-driven trading.
-    </p>
-    <div class="cta-group">
-        <a href="https://vppsolarclub.base44.app" target="_blank" class="cta-button">
-            <i class="fas fa-external-link-alt"></i> <span id="btnDemo">Launch App Demo</span>
-        </a>
-        <a href="mailto:Barak.keynan@gmail.com" class="cta-button secondary">
-            <i class="fas fa-envelope"></i> <span id="btnContact">Contact Founders</span>
-        </a>
-    </div>
-</header>
-
-<div class="container">
-    <div class="video-container">
-        <div class="video-wrapper">
-            <iframe src="https://www.youtube.com/embed/A13HuAeMcAU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-    </div>
-
-    <h2 class="section-title" id="whyTitle">Why VPP Solar Club?</h2>
-    <div class="grid">
-        <div class="card">
-            <i class="fas fa-bolt"></i>
-            <h3 id="c1T">Energy Independence</h3>
-            <p id="c1D">Reduce dependence on the central grid and protect your community from energy price volatility.</p>
-        </div>
-        <div class="card">
-            <i class="fas fa-chart-line"></i>
-            <h3 id="c2T">Yield Optimization</h3>
-            <p id="c2D">Our AI switchboard manages production and storage to sell energy back to the grid at peak prices.</p>
-        </div>
-        <div class="card">
-            <i class="fas fa-users"></i>
-            <h3 id="c3T">Community Power</h3>
-            <p id="c3D">Join a decentralized network where scale increases collective trading power for all members.</p>
-        </div>
-    </div>
-
-    <div class="demo-box">
-        <h2 id="demoTitle">Ready to see it in action?</h2>
-        <p id="demoDesc">Explore our Virtual Power Plant dashboard and see how we manage energy assets in real-time.</p>
-        <br>
-        <a href="https://vppsolarclub.base44.app" target="_blank" class="cta-button">Open Dashboard</a>
-    </div>
-</div>
-
-<footer id="footerText">
-    &copy; 2026 VPP Solar Club | Haifa, Israel | Built for Global Scale
-</footer>
-
-<script>
-    let currentLang = 'en';
-    const content = {
-        en: {
-            lang: 'עברית',
-            title: 'The Decentralized Energy Network Effect',
-            hero: 'We are building the future of energy. By connecting local solar assets into a unified Virtual Power Plant, we empower communities to own their energy and maximize ROI through AI-driven trading.',
-            demo: 'Launch App Demo',
-            contact: 'Contact Founders',
-            why: 'Why VPP Solar Club?',
-            c1t: 'Energy Independence',
-            c1d: 'Reduce dependence on the central grid and protect your community from energy price volatility.',
-            c2t: 'Yield Optimization',
-            c2d: 'Our AI switchboard manages production and storage to sell energy back to the grid at peak prices.',
-            c3t: 'Community Power',
-            c3d: 'Join a decentralized network where scale increases collective trading power for all members.',
-            dt: 'Ready to see it in action?',
-            dd: 'Explore our Virtual Power Plant dashboard and see how we manage energy assets in real-time.',
-            footer: '© 2026 VPP Solar Club | Haifa, Israel | Built for Global Scale'
-        },
-        he: {
-            lang: 'English',
-            title: 'אפקט הרשת של האנרגיה המבוזרת',
-            hero: 'אנחנו בונים את עתיד האנרגיה. על ידי חיבור נכסים סולאריים מקומיים לתחנת כוח וירטואלית מאוחדת, אנחנו מאפשרים לקהילות לשלוט באנרגיה שלהן ולמקסם רווחים באמצעות מסחר מבוסס AI.',
-            demo: 'כניסה לדמו של האפליקציה',
-            contact: 'צרו קשר עם המייסדים',
-            why: 'למה VPP Solar Club?',
-            c1t: 'עצמאות אנרגטית',
-            c1d: 'צמצום התלות ברשת החשמל המרכזית והגנה על הקהילה מתנודות במחירי האנרגיה.',
-            c2t: 'אופטימיזציית תשואה',
-            c2d: 'מערכת ה-AI שלנו מנהלת ייצור ואגירה כדי למכור חשמל לרשת במחירי השיא.',
-            c3t: 'כוח קהילתי',
-            c3d: 'הצטרפו לרשת מבוזרת שבה הגודל מגדיל את כוח המיקוח הקולקטיבי של כל החברים.',
-            dt: 'מוכנים לראות את זה בפעולה?',
-            dd: 'היכנסו לדשבורד של תחנת הכוח הוירטואלית וראו איך אנחנו מנהלים נכסי אנרגיה בזמן אמת.',
-            footer: '© 2026 VPP Solar Club | חיפה, ישראל | נבנה לקנה מידה עולמי'
-        }
-    };
-
-    function toggleLanguage() {
-        currentLang = currentLang === 'en' ? 'he' : 'en';
-        const html = document.getElementById('html-tag');
-        const c = content[currentLang];
-        
-        html.setAttribute('lang', currentLang);
-        html.setAttribute('dir', currentLang === 'he' ? 'rtl' : 'ltr');
-        
-        document.getElementById('langBtn').innerText = c.lang;
-        document.getElementById('mainTitle').innerText = c.title;
-        document.getElementById('heroDesc').innerText = c.hero;
-        document.getElementById('btnDemo').innerText = c.demo;
-        document.getElementById('btnContact').innerText = c.contact;
-        document.getElementById('whyTitle').innerText = c.why;
-        document.getElementById('c1T').innerText = c.c1t;
-        document.getElementById('c1D').innerText = c.c1d;
-        document.getElementById('c2T').innerText = c.c2t;
-        document.getElementById('c2D').innerText = c.c2d;
-        document.getElementById('c3T').innerText = c.c3t;
-        document.getElementById('c3D').innerText = c.c3d;
-        document.getElementById('demoTitle').innerText = c.dt;
-        document.getElementById('demoDesc').innerText = c.dd;
-        document.getElementById('footerText').innerText = c.footer;
-    }
-</script>
-
-</body>
-</html>
+            background: var(--card-
