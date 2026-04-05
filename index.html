@@ -88,20 +88,7 @@
         }
         .cta-button:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(0, 210, 255, 0.4); }
 
-        /* --- Video Section --- */
-        .video-section { max-width: 850px; margin: 0 auto 5rem; padding: 0 5%; }
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid rgba(0, 210, 255, 0.2);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-        }
-        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-
-        /* --- Features --- */
+        /* --- Features Grid --- */
         .container { max-width: 1100px; margin: auto; padding: 4rem 5%; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; }
         .card {
@@ -115,8 +102,7 @@
         .card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 1.5rem; }
 
         footer { text-align: center; padding: 4rem; opacity: 0.5; font-size: 0.9rem; }
-    </style>
-</head>
+    </style> </head>
 <body>
 
 <nav>
@@ -129,14 +115,8 @@
 <header>
     <img src="https://i.ibb.co/vKs2HdW/VPP-LOGO.png" alt="VPP Solar Club" class="hero-logo-img">
     <h1 id="tagline" class="tagline">The Decentralized Energy Network Effect</h1>
-    <a href="https://vppsolarclub.base44.app" target="_blank" class="cta-button" id="ctaBtn">Launch App Demo</a>
+    <a href="mailto:Barak.keynan@gmail.com" class="cta-button" id="ctaBtn">Contact Founders</a>
 </header>
-
-<div class="video-section">
-    <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/A13HuAeMcAU" frameborder="0" allowfullscreen></iframe>
-    </div>
-</div>
 
 <div class="container">
     <div class="grid">
@@ -146,13 +126,13 @@
             <p id="c1d">Strategic energy resilience and community-owned power assets.</p>
         </div>
         <div class="card">
-            <i class="fas fa-chart-line"></i>
-            <h3 id="c2t">AI Optimization</h3>
+            <i class="fas fa-network-wired"></i>
+            <h3 id="c2t">AI switchboard</h3>
             <p id="c2d">Real-time trading between production, storage, and the grid.</p>
         </div>
         <div class="card">
-            <i class="fas fa-network-wired"></i>
-            <h3 id="c3t">VPP Network</h3>
+            <i class="fas fa-chart-line"></i>
+            <h3 id="c3t">The network effect</h3>
             <p id="c3d">Scale increases collective trading power for every member.</p>
         </div>
     </div>
@@ -168,37 +148,4 @@
         en: {
             btn: 'עברית',
             tag: 'The Decentralized Energy Network Effect',
-            cta: 'Launch App Demo',
-            c1t: 'Energy Sovereignty', c1d: 'Strategic energy resilience and community-owned power assets.',
-            c2t: 'AI Optimization', c2d: 'Real-time trading between production, storage, and the grid.',
-            c3t: 'VPP Network', c3d: 'Scale increases collective trading power for every member.',
-            foot: '© 2026 VPP Solar Club | Haifa, Israel'
-        },
-        he: {
-            btn: 'English',
-            tag: 'אפקט הרשת של האנרגיה המבוזרת',
-            cta: 'כניסה לדמו האפליקציה',
-            c1t: 'עצמאות אנרגטית', c1d: 'חוסן אנרגטי אסטרטגי ונכסי כוח בבעלות הקהילה.',
-            c2t: 'אופטימיזציית AI', c2d: 'מסחר בזמן אמת בין ייצור, אגירה ורשת החשמל.',
-            c3t: 'רשת VPP', c3d: 'הגדלת כוח המיקוח הקולקטיבי לכל חבר ברשת.',
-            foot: '© 2026 VPP Solar Club | חיפה, ישראל'
-        }
-    };
-
-    function toggleLanguage() {
-        currentLang = currentLang === 'en' ? 'he' : 'en';
-        const html = document.getElementById('html-tag');
-        const d = content[currentLang];
-        html.setAttribute('lang', currentLang);
-        html.setAttribute('dir', currentLang === 'he' ? 'rtl' : 'ltr');
-        document.getElementById('langBtn').innerText = d.btn;
-        document.getElementById('tagline').innerText = d.tag;
-        document.getElementById('ctaBtn').innerText = d.cta;
-        document.getElementById('c1t').innerText = d.c1t; document.getElementById('c1d').innerText = d.c1d;
-        document.getElementById('c2t').innerText = d.c2t; document.getElementById('c2d').innerText = d.c2d;
-        document.getElementById('c3t').innerText = d.c3t; document.getElementById('c3d').innerText = d.c3d;
-        document.getElementById('footerText').innerText = d.foot;
-    }
-</script>
-</body>
-</html>
+            cta: 'Contact Founders',
