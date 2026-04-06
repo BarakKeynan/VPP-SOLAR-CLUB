@@ -7,91 +7,96 @@
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="VPP_LOGO.png">
-
+    
     <style>
         :root {
             --primary: #00d2ff;
             --accent: #00ff88;
             --bg-dark: #05070a;
-            --card-bg: rgba(22, 27, 34, 0.9);
+            --card-bg: rgba(22, 27, 34, 0.85);
         }
 
-        * { margin:0; padding:0; box-sizing:border-box; transition: all 0.3s ease; }
+        * { margin:0; padding:0; box-sizing:border-box; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
         body { font-family:'Inter', sans-serif; background:var(--bg-dark); color:#fff; overflow-x:hidden; }
 
-        /* רקע ויזואלי עוצמתי - אנרגיה וחדשנות */
         .solar-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
-            background: 
-                linear-gradient(rgba(5,7,10,0.8), rgba(5,7,10,0.9)),
-                url('https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&q=80&w=1600');
-            background-size: cover;
-            background-position: center;
+            background: linear-gradient(rgba(5,7,10,0.8), rgba(5,7,10,0.95)),
+                        url('https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&q=80&w=1600') center/cover;
         }
 
-        /* הנאבבר נשאר שקוף ואלגנטי */
         nav {
-            position: absolute; top: 0; width: 100%; padding: 20px 8%;
-            display: flex; justify-content: space-between; align-items: center; z-index: 1000;
+            position: absolute; top: 0; width: 100%; padding: 30px 8%;
+            display: flex; justify-content: flex-end; z-index: 1000;
         }
 
         .lang-btn {
-            padding: 8px 20px; border: 1px solid var(--primary); border-radius: 50px;
-            background: transparent; color: var(--primary); font-family: 'Orbitron'; cursor: pointer;
+            padding: 10px 25px; border: 2px solid var(--accent); border-radius: 50px;
+            background: rgba(0, 255, 136, 0.1); color: var(--accent); 
+            font-family: 'Orbitron'; cursor: pointer; font-weight: bold;
         }
 
-        /* הירו סקשן עם לוגו מרכזי */
         .hero {
-            height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
-            text-align: center; padding: 20px; position: relative;
+            min-height: 100vh; display: flex; flex-direction: column; align-items: center; 
+            justify-content: center; text-align: center; padding: 120px 20px 60px;
         }
 
+        /* לוגו ענק עם אפקט Feather וטשטוש קצוות */
         .main-logo-hero {
-            width: 280px; /* לוגו גדול ומרכזי */
-            margin-bottom: 30px;
-            filter: drop-shadow(0 0 20px rgba(0,210,255,0.5));
+            width: clamp(300px, 60vw, 800px); /* פי 3 מהקוד הקודם */
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 30px rgba(0,210,255,0.3)) blur(0.5px);
+            mask-image: radial-gradient(circle, black 70%, rgba(0,0,0,0.4) 90%, transparent 100%);
+            -webkit-mask-image: radial-gradient(circle, black 70%, rgba(0,0,0,0.4) 90%, transparent 100%);
+            opacity: 0.95;
         }
 
         .hero h1 {
-            font-family: 'Orbitron'; font-size: clamp(2.5rem, 8vw, 5.5rem); font-weight: 900;
+            font-family: 'Orbitron'; font-size: clamp(2rem, 7vw, 5rem); font-weight: 900;
             background: linear-gradient(135deg, #fff, var(--primary), var(--accent));
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            margin-bottom: 10px; letter-spacing: 2px;
+            margin-bottom: 15px;
         }
 
-        .hero p { font-size: 1.5rem; opacity: 0.9; margin-bottom: 40px; font-weight: 300; }
+        .hero p { font-size: 1.4rem; opacity: 0.8; margin-bottom: 40px; max-width: 800px; }
 
-        /* כפתורים */
         .cta-group { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
         .btn {
-            padding: 18px 45px; border-radius: 60px; font-family: 'Orbitron'; font-weight: 700;
-            text-decoration: none; font-size: 1rem; cursor: pointer;
+            padding: 18px 40px; border-radius: 50px; font-family: 'Orbitron'; font-weight: 700;
+            text-decoration: none; font-size: 0.9rem; cursor: pointer; text-transform: uppercase;
         }
-        .btn-primary { background: var(--accent); color: #000; box-shadow: 0 10px 40px rgba(0,255,136,0.4); }
-        .btn-outline { border: 2px solid var(--primary); color: var(--primary); background: rgba(0,210,255,0.05); }
-        .btn:hover { transform: translateY(-5px); box-shadow: 0 15px 50px rgba(0,210,255,0.3); }
+        .btn-primary { background: var(--accent); color: #000; }
+        .btn-outline { border: 2px solid var(--primary); color: var(--primary); }
+        .btn:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,210,255,0.3); }
 
         /* סרטון */
         .video-wrapper {
-            width: 90%; max-width: 1000px; margin: -100px auto 100px;
+            width: 90%; max-width: 1000px; margin: 0 auto 100px;
             border-radius: 40px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 0 100px rgba(0,210,255,0.2);
+            box-shadow: 0 0 100px rgba(0,210,255,0.2); aspect-ratio: 16/9;
         }
 
-        /* גריד כרטיסיות */
+        /* קהלי יעד - הסברים מפורטים */
+        .section-title { font-family: 'Orbitron'; text-align: center; font-size: 2.5rem; margin-bottom: 50px; color: var(--primary); }
         .bento-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px; padding: 0 8% 100px; max-width: 1400px; margin: 0 auto;
         }
         .bento-card {
             background: var(--card-bg); border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 40px; padding: 45px; backdrop-filter: blur(15px);
+            border-radius: 40px; padding: 40px; backdrop-filter: blur(20px);
+            display: flex; flex-direction: column; height: 100%;
         }
-        .bento-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
-        .bento-card h3 { font-family: 'Orbitron'; margin-bottom: 15px; font-size: 1.5rem; color: var(--accent); }
+        .bento-card:hover { border-color: var(--accent); background: rgba(33, 38, 45, 0.95); }
+        .bento-card i { font-size: 2.5rem; color: var(--accent); margin-bottom: 20px; }
+        .bento-card h3 { font-family: 'Orbitron'; margin-bottom: 15px; font-size: 1.4rem; }
+        .bento-card p { font-size: 1rem; line-height: 1.6; opacity: 0.8; }
 
-        footer { text-align: center; padding: 60px; opacity: 0.4; font-family: 'Orbitron'; font-size: 0.8rem; }
+        footer { text-align: center; padding: 60px; opacity: 0.4; font-family: 'Orbitron'; border-top: 1px solid rgba(255,255,255,0.1); }
+
+        /* התאמות לכיווניות שפה */
+        [dir="ltr"] .bento-card { text-align: left; }
+        [dir="rtl"] .bento-card { text-align: right; }
     </style>
 </head>
 <body>
@@ -99,51 +104,95 @@
     <div class="solar-overlay"></div>
 
     <nav>
-        <div style="width: 50px;"></div> <button onclick="toggleLang()" class="lang-btn" id="langBtn">ENGLISH</button>
+        <button onclick="toggleLang()" class="lang-btn" id="langBtn">ENGLISH</button>
     </nav>
 
     <header class="hero">
         <img src="VPP_LOGO.png" alt="VPP Solar Club" class="main-logo-hero" onerror="this.src='VPP_LOGO.png.png'">
-        
         <h1 id="hero-title">THE ENERGY SYNDICATE</h1>
         <p id="hero-subtitle">ניהול חכם. רווח מקסימלי. אנרגיה נקייה.</p>
         
         <div class="cta-group">
-            <a href="https://barakkeynan.github.io/VPP-SOLAR-CLUB/" class="btn btn-primary">OPEN APP DEMO</a>
-            <a href="VPP_Solar_Club_Pitch_Deck_2026.pdf" target="_blank" class="btn btn-outline">PITCH DECK</a>
+            <a href="https://barakkeynan.github.io/VPP-SOLAR-CLUB/" class="btn btn-primary" id="btn-app">OPEN APP DEMO</a>
+            <a href="VPP_Solar_Club_Pitch_Deck_2026.pdf" target="_blank" class="btn btn-outline" id="btn-pitch">PITCH DECK</a>
         </div>
     </header>
 
     <section class="video-wrapper">
-        <iframe width="100%" height="560" src="https://www.youtube.com/embed/A13HuAeMcAU" frameborder="0" allowfullscreen></iframe>
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/A13HuAeMcAU" frameborder="0" allowfullscreen></iframe>
     </section>
 
+    <h2 class="section-title" id="targets-title">TARGET AUDIENCE</h2>
     <div class="bento-grid">
         <div class="bento-card">
-            <i class="fas fa-microchip"></i>
-            <h3>AI ARBITRAGE</h3>
-            <p>מנוע קבלת ההחלטות האוטונומי שמנצח את מחירי השוק בכל 15 דקות.</p>
+            <i class="fas fa-industry"></i>
+            <h3 id="t1-h">מרכזים לוגיסטיים</h3>
+            <p id="t1-p">אופטימיזציה מלאה של צריכת האנרגיה במפעלים. המערכת מבצעת Peak Shaving להפחתת עלויות בשיא הביקוש ומוכרת חשמל לרשת בזמן מחירי שיא (SMP).</p>
         </div>
         <div class="bento-card">
-            <i class="fas fa-network-wired"></i>
-            <h3>THE SYNDICATE</h3>
-            <p>רשת מבוזרת של נכסים הפועלת כישות אחת עוצמתית מול רשת החשמל הארצית.</p>
+            <i class="fas fa-home"></i>
+            <h3 id="t2-h">בעלי גגות פרטיים</h3>
+            <p id="t2-p">הופכים את הגג הפרטי לתחנת כוח רווחית. ניהול סוללה חכם שמגדיל את התשואה ב-25% יותר מכל הסדר רגיל, תוך שמירה על אורך חיי הסוללה.</p>
         </div>
         <div class="bento-card">
-            <i class="fas fa-bolt"></i>
-            <h3>CONNECTIVITY</h3>
-            <p>חיבור ישיר בזמן אמת לנגה, חברת החשמל ויצרני סוללות מובילים.</p>
+            <i class="fas fa-users"></i>
+            <h3 id="t3-h">קהילת האנרגיה</h3>
+            <p id="t3-p">גם ללא גג ניתן להצטרף לסינדיקט. שוכרים ושותפים נהנים מהנחות משמעותיות בחשבון החשמל החודשי על ידי שימוש באנרגיה המיוצרת בתוך הקהילה.</p>
         </div>
     </div>
 
-    <footer>© 2026 VPP SOLAR CLUB • HAIFA, ISRAEL • ENGINEERED BY BARAK KEYNAN</footer>
+    <footer>© 2026 VPP SOLAR CLUB • HAIFA, ISRAEL • VPP.SOLAR.CLUB@GMAIL.COM</footer>
 
     <script>
+        const content = {
+            he: {
+                title: "THE ENERGY SYNDICATE",
+                subtitle: "ניהול חכם. רווח מקסימלי. אנרגיה נקייה.",
+                app: "פתח אפליקציה",
+                pitch: "מצגת משקיעים",
+                targets: "קהלי יעד",
+                t1h: "מרכזים לוגיסטיים",
+                t1p: "אופטימיזציה מלאה של צריכת האנרגיה במפעלים. המערכת מבצעת Peak Shaving להפחתת עלויות בשיא הביקוש ומוכרת חשמל לרשת בזמן מחירי שיא (SMP).",
+                t2h: "בעלי גגות פרטיים",
+                t2p: "הופכים את הגג הפרטי לתחנת כוח רווחית. ניהול סוללה חכם שמגדיל את התשואה ב-25% יותר מכל הסדר רגיל, תוך שמירה על אורך חיי הסוללה.",
+                t3h: "קהילת האנרגיה",
+                t3p: "גם ללא גג ניתן להצטרף לסינדיקט. שוכרים ושותפים נהנים מהנחות משמעותיות בחשבון החשמל החודשי על ידי שימוש באנרגיה המיוצרת בתוך הקהילה."
+            },
+            en: {
+                title: "THE ENERGY SYNDICATE",
+                subtitle: "Smart Management. Max Profit. Clean Energy.",
+                app: "OPEN APP DEMO",
+                pitch: "PITCH DECK 2026",
+                targets: "TARGET AUDIENCE",
+                t1h: "Logistics Centers",
+                t1p: "Full energy optimization for industrial sites. Real-time Peak Shaving to cut costs and SMP-based grid injection during high-price windows.",
+                t2h: "Private Rooftops",
+                t2p: "Turn your home into a profitable power station. Autonomous battery management increasing yields by 25% compared to standard settlements.",
+                t3h: "Energy Community",
+                t3p: "Join the syndicate even without a roof. Tenants and partners enjoy direct electricity bill discounts by consuming community-generated power."
+            }
+        };
+
         function toggleLang() {
             const html = document.getElementById('main-html');
             const isHe = html.dir === 'rtl';
+            const lang = isHe ? 'en' : 'he';
+            
             html.dir = isHe ? 'ltr' : 'rtl';
+            html.lang = lang;
+            
             document.getElementById('langBtn').innerText = isHe ? 'עברית' : 'ENGLISH';
+            document.getElementById('hero-title').innerText = content[lang].title;
+            document.getElementById('hero-subtitle').innerText = content[lang].subtitle;
+            document.getElementById('btn-app').innerText = content[lang].app;
+            document.getElementById('btn-pitch').innerText = content[lang].pitch;
+            document.getElementById('targets-title').innerText = content[lang].targets;
+            document.getElementById('t1-h').innerText = content[lang].t1h;
+            document.getElementById('t1-p').innerText = content[lang].t1p;
+            document.getElementById('t2-h').innerText = content[lang].t2h;
+            document.getElementById('t2-p').innerText = content[lang].t2p;
+            document.getElementById('t3-h').innerText = content[lang].t3h;
+            document.getElementById('t3-p').innerText = content[lang].t3p;
         }
     </script>
 </body>
