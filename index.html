@@ -1,218 +1,277 @@
 <!DOCTYPE html>
-<html lang="he" id="html-tag" dir="rtl">
+<html lang="he" dir="rtl" id="main-html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VPP Solar Club | Own the Grid</title>
+    <title>VPP Solar Club | Precision Energy</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #00d2ff; 
             --accent: #3a7bd5;
-            --bg: #030812;
-            --card-bg: rgba(255, 255, 255, 0.03);
-            --text: #e0e6ed;
+            --bg: #02060d;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text: #f0f4f8;
         }
+
+        * { box-sizing: border-box; transition: all 0.3s ease; }
 
         body {
             font-family: 'Inter', sans-serif;
             margin: 0;
             background-color: var(--bg);
             color: var(--text);
-            line-height: 1.6;
-            text-align: right;
+            overflow-x: hidden;
         }
 
-        /* --- Navbar --- */
+        /* --- Navbar Premium --- */
         nav {
-            backdrop-filter: blur(15px);
-            background: rgba(10, 25, 47, 0.9);
-            padding: 0.8rem 5%;
+            backdrop-filter: blur(20px);
+            background: rgba(2, 6, 13, 0.8);
+            padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: sticky;
+            position: fixed;
+            width: 100%;
             top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(0, 210, 255, 0.2);
+            z-index: 2000;
+            border-bottom: 1px solid var(--glass-border);
         }
 
-        .nav-logo img { height: 40px; }
-
-        /* --- Hero --- */
-        header {
-            padding: 4rem 5% 2rem;
-            text-align: center;
-        }
-
-        .hero-logo-img {
-            width: 50%; /* הצרת הלוגו ב-50% כפי שביקשת */
-            max-width: 500px;
-            height: auto;
-            filter: drop-shadow(0 0 20px rgba(0, 210, 255, 0.4));
-        }
-
-        .tagline { 
-            font-size: 1.2rem; 
+        .lang-switch {
+            background: var(--glass);
+            border: 1px solid var(--primary);
             color: var(--primary);
-            margin: 2rem 0;
-            font-family: 'Orbitron', sans-serif;
-        }
-
-        /* --- Buttons --- */
-        .cta-group { display: flex; justify-content: center; gap: 15px; margin-bottom: 3rem; }
-        .cta-button {
-            background: linear-gradient(45deg, var(--primary), var(--accent));
-            color: white;
-            padding: 0.8rem 2rem;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 50px;
-            transition: 0.3s;
-        }
-        .cta-button:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0, 210, 255, 0.3); }
-
-        /* --- Cards Grid --- */
-        .container { max-width: 1100px; margin: auto; padding: 0 5% 5rem; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        
-        .card {
-            background: var(--card-bg);
-            padding: 2rem;
+            padding: 5px 15px;
             border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: 0.4s;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+        .lang-switch:hover { background: var(--primary); color: #000; }
+
+        /* --- Full Width Header Logo --- */
+        .header-strip {
+            margin-top: 70px;
+            width: 100%;
+            background: #000;
+            line-height: 0;
+        }
+        .header-strip img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            filter: brightness(1.2) contrast(1.1);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            padding: 4rem 10%;
+            text-align: center;
+            background: radial-gradient(circle at top, #0a192f 0%, #02060d 70%);
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(1.5rem, 4vw, 3rem);
+            letter-spacing: 4px;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #fff, var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* --- Rich UI Cards --- */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            padding: 2rem 10% 5rem;
+        }
+
+        .card {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+            padding: 3rem 2rem;
+            text-align: center;
             cursor: pointer;
             position: relative;
+            overflow: hidden;
         }
-        .card:hover { 
-            border-color: var(--primary); 
-            background: rgba(0, 210, 255, 0.05);
-            transform: scale(1.02);
+        .card::before {
+            content: '';
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, transparent, rgba(0, 210, 255, 0.05));
+            z-index: -1;
         }
-        .card i { font-size: 2rem; color: var(--primary); margin-bottom: 1rem; }
-        .card h3 { font-family: 'Orbitron', sans-serif; margin-bottom: 1rem; }
-        .card p { font-size: 0.95rem; opacity: 0.8; }
-        .more-info { font-size: 0.8rem; color: var(--primary); margin-top: 1rem; display: block; }
+        .card:hover {
+            transform: translateY(-15px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(0, 210, 255, 0.15);
+        }
+        .card i {
+            font-size: 3rem;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
+        }
+        .card h3 { font-family: 'Orbitron', sans-serif; font-size: 1.5rem; margin-bottom: 1rem; color: #fff; }
 
-        /* --- Modal (חלון מידע) --- */
+        /* --- Premium Modal --- */
         .modal {
             display: none;
             position: fixed;
-            z-index: 2000;
-            left: 0; top: 0; width: 100%; height: 100%;
-            background-color: rgba(0,0,0,0.85);
-            backdrop-filter: blur(5px);
+            z-index: 3000;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.95);
+            backdrop-filter: blur(15px);
         }
         .modal-content {
-            background: #0a192f;
-            margin: 10% auto;
-            padding: 2.5rem;
+            background: linear-gradient(145deg, #0a192f, #02060d);
+            margin: 5% auto;
+            padding: 4rem;
+            width: 90%; max-width: 800px;
+            border-radius: 40px;
             border: 1px solid var(--primary);
-            width: 80%;
-            max-width: 600px;
-            border-radius: 20px;
             position: relative;
-            box-shadow: 0 0 50px rgba(0, 210, 255, 0.2);
+            animation: slideIn 0.5s ease;
         }
-        .close-modal {
-            position: absolute; left: 20px; top: 15px;
-            font-size: 2rem; color: var(--primary); cursor: pointer;
+        @keyframes slideIn { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
+
+        .close { position: absolute; right: 30px; top: 20px; font-size: 2.5rem; color: var(--primary); cursor: pointer; }
+
+        .cta-main {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-family: 'Orbitron', sans-serif;
+            box-shadow: 0 0 30px rgba(0, 210, 255, 0.3);
         }
 
-        footer { text-align: center; padding: 3rem; opacity: 0.6; border-top: 1px solid rgba(255,255,255,0.1); }
+        /* LTR Support */
+        .ltr { direction: ltr; text-align: left; }
+        .ltr .grid, .ltr nav { direction: ltr; }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="nav-logo"><img src="./VPP_LOGO.png.png" alt="Logo"></div>
-        <a href="https://vppsolarclub.base44.app" style="color: var(--primary); text-decoration: none; font-weight: bold;">Dashboard חיה</a>
+        <button class="lang-switch" onclick="toggleLang()" id="langBtn">English</button>
+        <div style="font-family: 'Orbitron'; font-weight: bold; letter-spacing: 2px;">VPP SOLAR CLUB</div>
+        <a href="https://vppsolarclub.base44.app" style="color: var(--primary); text-decoration: none; font-size: 0.9rem;">DASHBOARD</a>
     </nav>
 
-    <header>
-        <img src="./VPP_LOGO.png.png" alt="VPP Solar Club" class="hero-logo-img">
-        <p class="tagline">The AI Operating System for Decentralized Energy</p>
-        <div class="cta-group">
-            <a href="https://vppsolarclub.base44.app" class="cta-button">Launch Dashboard</a>
-            <a href="#video" class="cta-button" style="background: transparent; border: 1px solid var(--primary);">צפה בסרטון</a>
+    <div class="header-strip">
+        <img src="./VPP_LOGO.png.png" alt="VPP Wide Logo">
+    </div>
+
+    <header class="hero">
+        <h1 id="heroTitle">The AI Operating System for Decentralized Energy</h1>
+        <div style="margin-top: 2rem;">
+            <a href="https://vppsolarclub.base44.app" class="cta-main" id="heroCta">ENTER PLATFORM</a>
         </div>
     </header>
 
-    <div class="container">
-        <div class="grid">
-            <div class="card" onclick="openModal('modal1')">
-                <i class="fas fa-chart-line"></i>
-                <h3>Smart Trading</h3>
-                <p>אופטימיזציה של רווחים באמצעות אלגוריתם מבוסס מחירי SMP בזמן אמת.</p>
-                <span class="more-info">לחץ לפירוט טכני ></span>
-            </div>
-
-            <div class="card" onclick="openModal('modal2')">
-                <i class="fas fa-users"></i>
-                <h3>Solar Syndicate</h3>
-                <p>ניהול קהילתי חכם המאפשר מכירת חשמל בין שכנים ומקסום פוטנציאל הגג.</p>
-                <span class="more-info">לחץ לפירוט טכני ></span>
-            </div>
-
-            <div class="card" onclick="openModal('modal3')">
-                <i class="fas fa-microchip"></i>
-                <h3>Technion-Grade</h3>
-                <p>ארכיטקטורה הנדסית יציבה המבטיחה אינטגרציה מלאה מול תשתיות המדינה.</p>
-                <span class="more-info">לחץ לפירוט טכני ></span>
-            </div>
+    <div class="grid">
+        <div class="card" onclick="openModal('m1')">
+            <i class="fas fa-microchip"></i>
+            <h3 id="card1Title">Technion-Grade</h3>
+            <p id="card1Desc">ארכיטקטורה הנדסית יציבה המבטיחה אינטגרציה מלאה מול תשתיות המדינה.</p>
+        </div>
+        <div class="card" onclick="openModal('m2')">
+            <i class="fas fa-users-rays"></i>
+            <h3 id="card2Title">Solar Syndicate</h3>
+            <p id="card2Desc">ניהול קהילתי חכם המאפשר מכירת חשמל בין שכנים ומקסום פוטנציאל הגג.</p>
+        </div>
+        <div class="card" onclick="openModal('m3')">
+            <i class="fas fa-chart-line"></i>
+            <h3 id="card3Title">Smart Trading</h3>
+            <p id="card3Desc">אופטימיזציה של רווחים באמצעות אלגוריתם מבוסס מחירי SMP בזמן אמת.</p>
         </div>
     </div>
 
-    <div id="modal1" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('modal1')">&times;</span>
-            <h2 style="color: var(--primary);">Smart Trading AI</h2>
-            <p>המערכת מנתחת את מחירי החשמל בשוק הסיטונאי (SMP) בכל רגע נתון. היא מחליטה אוטומטית מתי לפרוק את הסוללה לרשת כשמחיר המכירה בשיא, ומתי לטעון אותה מהשמש או מהרשת כשמחיר הקנייה בשפל.</p>
-            <ul style="padding-right: 20px;">
-                <li>רווח ממוצע גבוה ב-₪0.14 לכל קוט"ש.</li>
-                <li>חיזוי ביקושים מבוסס למידת מכונה.</li>
-                <li>אוטומציה מלאה - Zero Touch.</li>
-            </ul>
-        </div>
-    </div>
+    <div id="m1" class="modal"><div class="modal-content">
+        <span class="close" onclick="closeModal('m1')">&times;</span>
+        <h2 style="color: var(--primary); font-family: 'Orbitron';">Technion-Grade Engineering</h2>
+        <p id="m1Long">מערכת ה-VPP שלנו עוצבה לפי הסטנדרטים המחמירים ביותר של הנדסת חשמל ותוכנה. המערכת כוללת הגנות סייבר רב-שכבתיות ותאימות מלאה לרגולציה הישראלית והבינלאומית.</p>
+    </div></div>
 
-    <div id="modal2" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('modal2')">&times;</span>
-            <h2 style="color: var(--primary);">Solar Syndicate</h2>
-            <p>אנחנו הופכים את השכונה לתחנת כוח וירטואלית (VPP). המערכת מאפשרת לשתף אנרגיה עודפת בתוך הקהילה, להפחית עומסים על השנאים המקומיים ולייצר מודל כלכלי שיתופי.</p>
-            <ul style="padding-right: 20px;">
-                <li>ניהול משותף של נכסי אנרגיה.</li>
-                <li>שיפור החוסן האנרגטי הקהילתי.</li>
-                <li>שקיפות מלאה בניהול הרווחים.</li>
-            </ul>
-        </div>
-    </div>
+    <div id="m2" class="modal"><div class="modal-content">
+        <span class="close" onclick="closeModal('m2')">&times;</span>
+        <h2 style="color: var(--primary); font-family: 'Orbitron';">Solar Syndicate</h2>
+        <p id="m2Long">הכוח שלנו הוא בקהילה. אנחנו מאחדים מאות גגות וסוללות לרשת אחת חכמה שמתנהגת כתחנת כוח גדולה, מה שמאפשר כוח מיקוח מול חברות החשמל וחלוקת רווחים הוגנת.</p>
+    </div></div>
 
-    <div id="modal3" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('modal3')">&times;</span>
-            <h2 style="color: var(--primary);">Technion-Grade Engineering</h2>
-            <p>הפתרון שלנו מבוסס על סטנדרטים הנדסיים מחמירים. המערכת עוצבה כדי לעמוד בתקני הסייבר והבטיחות של רשת החשמל הארצית, תוך שמירה על גמישות תוכנתית מקסימלית.</p>
-            <ul style="padding-right: 20px;">
-                <li>פרוטוקולי אבטחה ברמה צבאית.</li>
-                <li>תמיכה בכל סוגי הממירים והסוללות (Vendor Neutral).</li>
-                <li>ניטור בזמן אמת של בריאות המערכת.</li>
-            </ul>
-        </div>
-    </div>
+    <div id="m3" class="modal"><div class="modal-content">
+        <span class="close" onclick="closeModal('m3')">&times;</span>
+        <h2 style="color: var(--primary); font-family: 'Orbitron';">Smart Trading AI</h2>
+        <p id="m3Long">האלגוריתם שלנו סורק את מחירי ה-SMP בכל 15 דקות ומחליט מתי לפרוק אנרגיה לרשת ברווח מקסימלי. אנחנו מייצרים פער רווח (Profit Gap) ממוצע של ₪0.14 לקוט"ש מעל המתחרים.</p>
+    </div></div>
 
     <script>
+        const content = {
+            he: {
+                btn: "English",
+                hero: "The AI Operating System for Decentralized Energy",
+                cta: "ENTER PLATFORM",
+                c1t: "Technion-Grade", c1d: "ארכיטקטורה הנדסית יציבה המבטיחה אינטגרציה מלאה מול תשתיות המדינה.",
+                c2t: "Solar Syndicate", c2d: "ניהול קהילתי חכם המאפשר מכירת חשמל בין שכנים ומקסום פוטנציאל הגג.",
+                c3t: "Smart Trading", c3d: "אופטימיזציה של רווחים באמצעות אלגוריתם מבוסס מחירי SMP בזמן אמת.",
+                m1l: "מערכת ה-VPP שלנו עוצבה לפי הסטנדרטים המחמירים ביותר של הנדסת חשמל ותוכנה. המערכת כוללת הגנות סייבר רב-שכבתיות.",
+                m2l: "הכוח שלנו הוא בקהילה. אנחנו מאחדים מאות גגות וסוללות לרשת אחת חכמה שמתנהגת כתחנת כוח גדולה.",
+                m3l: "האלגוריתם שלנו סורק את מחירי ה-SMP בכל 15 דקות ומחליט מתי לפרוק אנרגיה לרשת ברווח מקסימלי."
+            },
+            en: {
+                btn: "עברית",
+                hero: "The AI Operating System for Decentralized Energy",
+                cta: "ENTER PLATFORM",
+                c1t: "Technion-Grade", c1d: "Robust engineering architecture ensuring seamless integration with national infrastructure.",
+                c2t: "Solar Syndicate", c2d: "Smart community management enabling peer-to-peer energy trading and roof potential maximization.",
+                c3t: "Smart Trading", c3d: "Profit optimization via AI algorithms based on real-time SMP market prices.",
+                m1l: "Our VPP system is designed to the most stringent electrical and software engineering standards, featuring multi-layer cyber security.",
+                m2l: "Community is power. We unite hundreds of solar roofs into a single smart grid that functions as a major utility-scale power plant.",
+                m3l: "Our proprietary AI scans SMP prices every 15 minutes to discharge energy at peak profitability, generating a ₪0.14/kWh profit gap."
+            }
+        };
+
+        let currentLang = 'he';
+
+        function toggleLang() {
+            currentLang = currentLang === 'he' ? 'en' : 'he';
+            const html = document.getElementById('main-html');
+            const data = content[currentLang];
+            
+            html.dir = currentLang === 'he' ? 'rtl' : 'ltr';
+            html.lang = currentLang;
+            if(currentLang === 'en') document.body.classList.add('ltr');
+            else document.body.classList.remove('ltr');
+
+            document.getElementById('langBtn').innerText = data.btn;
+            document.getElementById('heroTitle').innerText = data.hero;
+            document.getElementById('heroCta').innerText = data.cta;
+            document.getElementById('card1Title').innerText = data.c1t;
+            document.getElementById('card1Desc').innerText = data.c1d;
+            document.getElementById('card2Title').innerText = data.c2t;
+            document.getElementById('card2Desc').innerText = data.c2d;
+            document.getElementById('card3Title').innerText = data.c3t;
+            document.getElementById('card3Desc').innerText = data.c3d;
+            document.getElementById('m1Long').innerText = data.m1l;
+            document.getElementById('m2Long').innerText = data.m2l;
+            document.getElementById('m3Long').innerText = data.m3l;
+        }
+
         function openModal(id) { document.getElementById(id).style.display = "block"; }
         function closeModal(id) { document.getElementById(id).style.display = "none"; }
-        window.onclick = function(event) { if (event.target.className === 'modal') { event.target.style.display = "none"; } }
     </script>
-
-    <footer>
-        <p>© 2026 VPP Solar Club | Engineering Precision</p>
-    </footer>
-
 </body>
 </html>
