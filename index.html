@@ -12,7 +12,7 @@
         :root {
             --primary: #00d2ff;
             --accent: #00ff88;
-            --bg-dark: #0a0c10; /* כהה עמוק ומאוזן */
+            --bg-dark: #0a0c10;
             --card-bg: rgba(22, 27, 34, 0.7);
             --text-light: #f0f6fc;
             --glass-border: rgba(255, 255, 255, 0.08);
@@ -49,7 +49,6 @@
             margin-bottom: 1.5rem; letter-spacing: 2px;
         }
 
-        /* Video Frame */
         .video-container { width: 90%; max-width: 1000px; margin: -50px auto 60px; }
         .video-box { 
             position: relative; padding-bottom: 56.25%; border-radius: 30px; 
@@ -58,7 +57,6 @@
         }
         .video-box iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
 
-        /* Bento Grid */
         .bento-grid { 
             display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; 
             padding: 40px 8%; max-width: 1400px; margin: 0 auto; 
@@ -76,23 +74,15 @@
         .card-wide { grid-column: span 2; }
 
         .bento-card i { font-size: 2.2rem; color: var(--primary); margin-bottom: 1.5rem; }
-        .bento-card h3 { font-family: 'Orbitron'; font-size: 1.5rem; margin-bottom: 1rem; color: #fff; letter-spacing: 1px; }
-        .bento-card p { opacity: 0.6; font-size: 0.95rem; line-height: 1.6; font-weight: 300; }
+        .bento-card h3 { font-family: 'Orbitron'; font-size: 1.5rem; margin-bottom: 1rem; color: #fff; }
 
-        /* Partnership Section - RESTORED & BALANCED */
-        .partners-section { 
-            padding: 80px 8%; text-align: center; border-top: 1px solid var(--glass-border);
-            background: rgba(255,255,255,0.01);
-        }
-        .partners-grid { 
-            display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 40px; 
-        }
+        .partners-section { padding: 80px 8%; text-align: center; border-top: 1px solid var(--glass-border); }
+        .partners-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 40px; }
         .partner-tag { 
             font-family: 'Orbitron'; font-size: 0.85rem; font-weight: 700; color: #8b949e; 
             border: 1px solid #30363d; padding: 12px 25px; border-radius: 12px; 
             background: #161b22; letter-spacing: 1px;
         }
-        .partner-tag:hover { color: var(--primary); border-color: var(--primary); }
 
         /* Modals */
         .modal { 
@@ -109,19 +99,9 @@
         }
         .bullet-point h4 { font-family: 'Orbitron'; margin-bottom: 8px; color: var(--accent); font-size: 1rem; }
 
-        /* Form */
         .form-section { padding: 100px 8%; border-top: 1px solid var(--glass-border); }
         .form-card { max-width: 700px; margin: 0 auto; background: var(--card-bg); padding: 50px; border-radius: 40px; border: 1px solid var(--glass-border); }
-        input, select, textarea { 
-            width: 100%; padding: 18px; margin-bottom: 15px; border-radius: 12px; 
-            background: #0d1117; border: 1px solid #30363d; color: #fff; font-family: 'Inter';
-        }
-        .btn-submit { 
-            background: var(--primary); color: #000; font-family: 'Orbitron'; 
-            font-weight: 900; width: 100%; padding: 20px; border-radius: 50px; 
-            border: none; cursor: pointer; font-size: 1.1rem; margin-top: 20px;
-        }
-
+        
         footer { text-align: center; padding: 40px; opacity: 0.3; font-size: 0.75rem; font-family: 'Orbitron'; }
         .ltr { direction: ltr; text-align: left; }
     </style>
@@ -138,7 +118,6 @@
     <header class="hero">
         <img src="./VPP_LOGO.png.png" alt="Logo" style="width: 400px; margin-bottom: 2rem; filter: drop-shadow(0 0 30px rgba(0,210,255,0.2));">
         <h1>ENERGY INTELLIGENCE REDEFINED</h1>
-        <p style="opacity: 0.5; font-size: 1.1rem; max-width: 600px;">מערכת ההפעלה המבוזרת לאופטימיזציה של נכסי אנרגיה בזמן אמת.</p>
     </header>
 
     <section class="video-container">
@@ -152,7 +131,7 @@
             <div>
                 <i class="fas fa-microchip"></i>
                 <h3>SMART TRADING AI</h3>
-                <p>מנוע ארביטראז' אוטונומי המזהה שיאי ביקוש ומייצר רווח עודף מול מחירי ה-SMP בכל 15 דקות.</p>
+                <p>מנוע ארביטראז' אוטונומי המזהה שיאי ביקוש ומייצר רווח עודף מול מחירי ה-SMP.</p>
             </div>
             <div style="font-family:'Orbitron'; font-size: 4rem; font-weight:900; color:var(--primary); margin-top: 20px;">₪0.14<span style="font-size: 0.9rem; color: #8b949e;"> / kWh GAP</span></div>
         </div>
@@ -160,7 +139,7 @@
         <div class="bento-card card-wide" onclick="openModal('m2')">
             <i class="fas fa-hubspot"></i>
             <h3>SYNDICATE NETWORK</h3>
-            <p>איחוד כוחות קהילתי המייצר כוח מיקוח קולקטיבי ושיתוף רווחים חכם בין כל חברי המועדון.</p>
+            <p>איחוד כוחות קהילתי המייצר כוח מיקוח קולקטיבי ושיתוף רווחים חכם.</p>
         </div>
 
         <div class="bento-card" onclick="openModal('m3')">
@@ -172,7 +151,43 @@
         <div class="bento-card" onclick="openModal('m4')">
             <i class="fas fa-solar-panel"></i>
             <h3>SOLUTIONS</h3>
-            <p>פתרונות מותאמים אישית לבעלי גגות פרטיים, שוכרים ומרכזים לוגיסטיים.</p>
+            <p>פתרונות מותאמים אישית לבעלי גגות פרטיים ושוכרים.</p>
+        </div>
+    </div>
+
+    <div id="m1" class="modal">
+        <span class="close-btn" onclick="closeModal('m1')">&times;</span>
+        <div class="modal-content">
+            <div class="info-title">SMART TRADING AI</div>
+            <div class="bullet-point"><h4>Arbitrage Logic</h4><p>ניצול פערי תמחור בין שעות שפל לשיא לייצור רווח מקסימלי.</p></div>
+            <div class="bullet-point"><h4>15-Min Cycles</h4><p>סריקת מדדים קבועה לקבלת החלטות הזרמה/טעינה אוטונומיות.</p></div>
+        </div>
+    </div>
+
+    <div id="m2" class="modal">
+        <span class="close-btn" onclick="closeModal('m2')">&times;</span>
+        <div class="modal-content">
+            <div class="info-title">SYNDICATE NETWORK</div>
+            <div class="bullet-point"><h4>Collective Power</h4><p>איחוד נכסים קטנים לישות אנרגטית אחת חזקה מול חברת החשמל.</p></div>
+            <div class="bullet-point"><h4>Shared Profits</h4><p>חלוקת רווחי הארביטראז' בין חברי הסינדיקט בצורה שקופה ומנוהלת.</p></div>
+        </div>
+    </div>
+
+    <div id="m3" class="modal ltr">
+        <span class="close-btn" onclick="closeModal('m3')">&times;</span>
+        <div class="modal-content">
+            <div class="info-title">CONNECTIVITY HUB</div>
+            <div class="bullet-point"><h4>Direct Grid Link</h4><p>Real-time data exchange with Noga ISO and Electric Corp.</p></div>
+            <div class="bullet-point"><h4>Hardware Ecosystem</h4><p>Seamless integration with Tesla, SolarEdge, and Huawei systems.</p></div>
+        </div>
+    </div>
+
+    <div id="m4" class="modal">
+        <span class="close-btn" onclick="closeModal('m4')">&times;</span>
+        <div class="modal-content">
+            <div class="info-title">SOLUTIONS & TARGETS</div>
+            <div class="bullet-point"><h4>בעלי גגות</h4><p>הפיכת הגג לנכס מניב ללא מאמץ ניהולי.</p></div>
+            <div class="bullet-point"><h4>שוכרים מסחריים</h4><p>הוזלת עלויות אנרגיה דרך מודל השותפות בסינדיקט.</p></div>
         </div>
     </div>
 
@@ -184,57 +199,21 @@
             <span class="partner-tag">TESLA ENERGY</span>
             <span class="partner-tag">SOLAREDGE</span>
             <span class="partner-tag">HUAWEI SOLAR</span>
-            <span class="partner-tag">BYD STORAGE</span>
-            <span class="partner-tag">SUNGROW</span>
         </div>
     </section>
-
-    <div id="m1" class="modal">
-        <span class="close-btn" onclick="closeModal('m1')">&times;</span>
-        <div class="modal-content">
-            <div class="info-title">SMART TRADING AI</div>
-            <div class="bullet-point">
-                <h4>Profit Maximization</h4>
-                <p>המערכת מייצרת רווח של ₪0.14 לקוט"ש מעל המתחרים על ידי ניצול פערי ארביטראז' בבורסה.</p>
-            </div>
-            <div class="bullet-point">
-                <h4>Predictive Analysis</h4>
-                <p>חיזוי צריכה עתידית והחלטת טעינה/פריקה אופטימלית בזמן אמת.</p>
-            </div>
-        </div>
-    </div>
-
-    <div id="m3" class="modal ltr">
-        <span class="close-btn" onclick="closeModal('m3')">&times;</span>
-        <div class="modal-content">
-            <div class="info-title">CONNECTIVITY HUB</div>
-            <div class="bullet-point"><h4>Grid ISO Integration</h4><p>Native communication protocols with Noga System Operator for frequency response.</p></div>
-            <div class="bullet-point"><h4>Hardware Agnostic</h4><p>Compatible with all major Tier-1 inverter and battery manufacturers.</p></div>
-        </div>
-    </div>
 
     <section class="form-section" id="contact">
         <div class="form-card">
             <h2 style="font-family:'Orbitron'; text-align:center; margin-bottom: 30px; font-size: 2rem;">JOIN THE CLUB</h2>
             <form>
-                <input type="text" placeholder="שם מלא / חברה" required>
-                <input type="email" placeholder="אימייל עסקי" required>
-                <select>
-                    <option disabled selected>סיווג פעילות</option>
-                    <option>בעל גג / נכס</option>
-                    <option>שוכר נכס מסחרי</option>
-                    <option>יזם סולארי</option>
-                    <option>אחר</option>
-                </select>
-                <textarea placeholder="ספר לנו על הפוטנציאל האנרגטי שלך..." rows="4"></textarea>
-                <button type="submit" class="btn-submit">INITIALIZE SYSTEM</button>
+                <input type="text" placeholder="שם מלא" style="width:100%; padding:18px; margin-bottom:15px; border-radius:12px; background:#0d1117; border:1px solid #30363d; color:#fff;">
+                <input type="email" placeholder="אימייל" style="width:100%; padding:18px; margin-bottom:15px; border-radius:12px; background:#0d1117; border:1px solid #30363d; color:#fff;">
+                <button type="submit" style="background:var(--primary); color:#000; font-family:'Orbitron'; font-weight:900; width:100%; padding:20px; border-radius:50px; border:none; cursor:pointer;">INITIALIZE CONNECTION</button>
             </form>
         </div>
     </section>
 
-    <footer>
-        © 2026 VPP SOLAR CLUB | HAIFA, ISRAEL | ENGINEERED FOR STABILITY
-    </footer>
+    <footer>© 2026 VPP SOLAR CLUB | HAIFA, ISRAEL</footer>
 
     <script>
         function openModal(id) { document.getElementById(id).style.display = "block"; document.body.style.overflow = "hidden"; }
