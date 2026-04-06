@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="he" id="html-tag" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -38,7 +39,7 @@
             border-bottom: 1px solid rgba(0, 210, 255, 0.3);
         }
 
-        .nav-logo { font-family: 'Orbitron', sans-serif; color: var(--primary); font-weight: bold; font-size: 1.5rem; }
+        .nav-logo img { height: 45px; width: auto; filter: drop-shadow(0 0 8px var(--primary)); }
 
         .cta-nav {
             background: transparent;
@@ -60,12 +61,11 @@
             background: radial-gradient(circle at center, #0a192f 0%, #030812 100%);
         }
 
-        h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: clamp(2rem, 8vw, 3.5rem);
-            color: #fff;
-            margin-bottom: 1rem;
-            text-shadow: 0 0 20px rgba(0, 210, 255, 0.5);
+        .hero-logo-img {
+            max-width: 300px;
+            width: 60%;
+            margin-bottom: 2rem;
+            filter: drop-shadow(0 0 20px rgba(0, 210, 255, 0.4));
         }
 
         .tagline { 
@@ -108,7 +108,7 @@
         }
         .video-container {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            padding-bottom: 56.25%; 
             height: 0;
             border-radius: 20px;
             overflow: hidden;
@@ -116,11 +116,7 @@
             box-shadow: 0 0 40px rgba(0, 210, 255, 0.15);
         }
         .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
         }
 
         /* --- Grid --- */
@@ -151,12 +147,14 @@
 <body>
 
     <nav>
-        <div class="nav-logo">VPP SOLAR CLUB</div>
+        <div class="nav-logo">
+            <img src="VPP_LOGO.png" alt="VPP Solar Club Logo">
+        </div>
         <a href="https://vppsolarclub.base44.app" class="cta-nav">Dashboard חיה</a>
     </nav>
 
     <header>
-        <h1>VPP SOLAR CLUB</h1>
+        <img src="VPP_LOGO.png" alt="VPP Solar Club" class="hero-logo-img">
         <p class="tagline">The AI Operating System for Decentralized Energy</p>
         
         <div class="cta-group">
