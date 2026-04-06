@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" id="html-tag">
+<html lang="he" id="html-tag" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,11 +22,10 @@
             color: var(--text);
             line-height: 1.6;
             overflow-x: hidden;
+            text-align: right;
         }
 
-        [dir="rtl"] { text-align: right; }
-
-        /* --- המלבן העליון (Navbar) --- */
+        /* --- Navbar --- */
         nav {
             backdrop-filter: blur(15px);
             background: var(--nav-bg);
@@ -40,9 +39,9 @@
             border-bottom: 1px solid rgba(0, 210, 255, 0.3);
         }
 
-        .nav-logo img { height: 40px; filter: drop-shadow(0 0 5px var(--primary)); }
+        .nav-logo { font-family: 'Orbitron', sans-serif; color: var(--primary); font-weight: bold; font-size: 1.5rem; }
 
-        .lang-btn {
+        .cta-nav {
             background: transparent;
             color: var(--primary);
             border: 1px solid var(--primary);
@@ -50,33 +49,34 @@
             cursor: pointer;
             border-radius: 30px;
             font-weight: bold;
+            text-decoration: none;
             transition: 0.3s;
         }
-        .lang-btn:hover { background: var(--primary); color: #000; }
+        .cta-nav:hover { background: var(--primary); color: #000; }
 
         /* --- Hero Section --- */
         header {
-            padding: 6rem 5% 4rem;
+            padding: 8rem 5% 4rem;
             text-align: center;
             background: radial-gradient(circle at center, #0a192f 0%, #030812 100%);
         }
 
-        .hero-logo-img {
-            max-width: 600px;
-            width: 85%;
-            margin-bottom: 2.5rem;
-            filter: drop-shadow(0 0 25px rgba(0, 210, 255, 0.4));
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            color: #fff;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px rgba(0, 210, 255, 0.5);
         }
 
         .tagline { 
-            font-size: 1.8rem; 
-            font-family: 'Orbitron', sans-serif;
-            color: #fff;
+            font-size: 1.5rem; 
+            color: var(--primary);
             margin-bottom: 3rem;
-            letter-spacing: 1px;
+            opacity: 0.9;
         }
 
-        /* כפתורים משודרגים */
+        /* כפתורים */
         .cta-group {
             display: flex;
             justify-content: center;
@@ -100,27 +100,7 @@
         }
         .cta-button:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0, 210, 255, 0.4); }
 
-        .cta-button.secondary {
-            background: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-            box-shadow: none;
-        }
-
-        /* --- וידאו מוטמע --- */
-        .video-section { max-width: 850px; margin: 0 auto 5rem; padding: 0 5%; }
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid rgba(0, 210, 255, 0.2);
-            box-shadow: 0 25px 60px rgba(0,0,0,0.6);
-        }
-        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-
-        /* --- כרטיסי תכונות --- */
+        /* --- Grid --- */
         .container { max-width: 1100px; margin: auto; padding: 4rem 5%; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; }
         .card {
@@ -135,4 +115,54 @@
         .card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 1.5rem; }
         .card h3 { font-family: 'Orbitron', sans-serif; color: #fff; margin-bottom: 1rem; }
 
-        footer { text-align: center; padding: 4rem; opacity: 0.4; font-size: 0.9rem; border-top: 1px solid rgba(
+        footer { text-align: center; padding: 4rem; opacity: 0.6; font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.1); }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-logo">VPP SOLAR CLUB</div>
+        <a href="https://vppsolarclub.base44.app" class="cta-nav">כניסה למערכת</a>
+    </nav>
+
+    <header>
+        <h1>VPP SOLAR CLUB</h1>
+        <p class="tagline">The AI Operating System for Decentralized Energy</p>
+        
+        <div class="cta-group">
+            <a href="https://vppsolarclub.base44.app" class="cta-button">
+                <i class="fas fa-rocket"></i> Launch Dashboard
+            </a>
+            <a href="#features" class="cta-button" style="background: transparent; border: 2px solid var(--primary); color: var(--primary);">
+                למד עוד
+            </a>
+        </div>
+    </header>
+
+    <div class="container" id="features">
+        <div class="grid">
+            <div class="card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Smart Trading</h3>
+                <p>מסחר אוטומטי מבוסס AI למקסום רווחים מול מחירי השוק בזמן אמת.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-users"></i>
+                <h3>Neighborhood Syndicate</h3>
+                <p>איחוד כוחות קהילתי לייצור כוח מיקוח מול חברות האנרגיה.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Energy Stability</h3>
+                <p>ניהול מלאי אנרגיה חכם המבטיח רציפות וחיסכון מקסימלי.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>VPP Solar Club | Technion-Grade Systems Architecture</p>
+        <p>© 2026 Barak & Liav Keynan</p>
+    </footer>
+
+</body>
+</html>
