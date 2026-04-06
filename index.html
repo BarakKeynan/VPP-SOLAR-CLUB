@@ -13,15 +13,15 @@
             --primary: #00d2ff;
             --accent: #00ff88;
             --bg-dark: #05070a;
-            --card-bg: rgba(22, 27, 34, 0.85);
+            --card-bg: rgba(22, 27, 34, 0.9);
         }
 
-        * { margin:0; padding:0; box-sizing:border-box; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        * { margin:0; padding:0; box-sizing:border-box; transition: all 0.3s ease; }
         body { font-family:'Inter', sans-serif; background:var(--bg-dark); color:#fff; overflow-x:hidden; }
 
         .solar-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
-            background: linear-gradient(rgba(5,7,10,0.8), rgba(5,7,10,0.95)),
+            background: linear-gradient(rgba(5,7,10,0.85), rgba(5,7,10,0.95)),
                         url('https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&q=80&w=1600') center/cover;
         }
 
@@ -41,14 +41,13 @@
             justify-content: center; text-align: center; padding: 120px 20px 60px;
         }
 
-        /* לוגו ענק עם אפקט Feather וטשטוש קצוות */
+        /* לוגו ענק עם אפקט Feather משופר */
         .main-logo-hero {
-            width: clamp(300px, 60vw, 800px); /* פי 3 מהקוד הקודם */
-            margin-bottom: 20px;
-            filter: drop-shadow(0 0 30px rgba(0,210,255,0.3)) blur(0.5px);
-            mask-image: radial-gradient(circle, black 70%, rgba(0,0,0,0.4) 90%, transparent 100%);
-            -webkit-mask-image: radial-gradient(circle, black 70%, rgba(0,0,0,0.4) 90%, transparent 100%);
-            opacity: 0.95;
+            width: clamp(350px, 65vw, 900px);
+            margin-bottom: 30px;
+            filter: drop-shadow(0 0 40px rgba(0,210,255,0.4));
+            mask-image: radial-gradient(circle, black 60%, rgba(0,0,0,0.3) 85%, transparent 100%);
+            -webkit-mask-image: radial-gradient(circle, black 60%, rgba(0,0,0,0.3) 85%, transparent 100%);
         }
 
         .hero h1 {
@@ -60,43 +59,44 @@
 
         .hero p { font-size: 1.4rem; opacity: 0.8; margin-bottom: 40px; max-width: 800px; }
 
-        .cta-group { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+        .cta-group { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 60px; }
         .btn {
             padding: 18px 40px; border-radius: 50px; font-family: 'Orbitron'; font-weight: 700;
             text-decoration: none; font-size: 0.9rem; cursor: pointer; text-transform: uppercase;
         }
         .btn-primary { background: var(--accent); color: #000; }
         .btn-outline { border: 2px solid var(--primary); color: var(--primary); }
-        .btn:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,210,255,0.3); }
 
-        /* סרטון */
-        .video-wrapper {
-            width: 90%; max-width: 1000px; margin: 0 auto 100px;
-            border-radius: 40px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 0 100px rgba(0,210,255,0.2); aspect-ratio: 16/9;
-        }
-
-        /* קהלי יעד - הסברים מפורטים */
-        .section-title { font-family: 'Orbitron'; text-align: center; font-size: 2.5rem; margin-bottom: 50px; color: var(--primary); }
+        /* גריד של הפתרונות (החלונות מהתמונות) */
         .bento-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px; padding: 0 8% 100px; max-width: 1400px; margin: 0 auto;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px; padding: 0 8% 80px; max-width: 1400px; margin: 0 auto;
         }
         .bento-card {
             background: var(--card-bg); border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 40px; padding: 40px; backdrop-filter: blur(20px);
-            display: flex; flex-direction: column; height: 100%;
+            border-radius: 35px; padding: 40px; cursor: pointer; text-align: center;
         }
-        .bento-card:hover { border-color: var(--accent); background: rgba(33, 38, 45, 0.95); }
-        .bento-card i { font-size: 2.5rem; color: var(--accent); margin-bottom: 20px; }
-        .bento-card h3 { font-family: 'Orbitron'; margin-bottom: 15px; font-size: 1.4rem; }
-        .bento-card p { font-size: 1rem; line-height: 1.6; opacity: 0.8; }
+        .bento-card:hover { border-color: var(--accent); transform: translateY(-10px); background: rgba(33, 38, 45, 0.98); }
+        .bento-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
+        .bento-card h3 { font-family: 'Orbitron'; margin-bottom: 15px; font-size: 1.4rem; color: var(--accent); }
+
+        /* חלונות קופצים (Modals) */
+        .modal {
+            display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(5,7,10,0.98); backdrop-filter: blur(20px); overflow-y: auto;
+        }
+        .modal-content {
+            max-width: 800px; margin: 100px auto; padding: 50px; background: var(--card-bg);
+            border-radius: 40px; border: 1px solid var(--primary); position: relative;
+        }
+        .close-btn { position: absolute; top: 25px; left: 30px; font-size: 2.5rem; cursor: pointer; color: var(--accent); }
+        .modal-content h2 { font-family: 'Orbitron'; color: var(--primary); margin-bottom: 25px; }
+        .modal-content ul { list-style: none; text-align: right; }
+        [dir="ltr"] .modal-content ul { text-align: left; }
+        .modal-content li { margin-bottom: 15px; font-size: 1.1rem; display: flex; align-items: center; gap: 12px; }
+        .modal-content li i { color: var(--accent); font-size: 0.9rem; }
 
         footer { text-align: center; padding: 60px; opacity: 0.4; font-family: 'Orbitron'; border-top: 1px solid rgba(255,255,255,0.1); }
-
-        /* התאמות לכיווניות שפה */
-        [dir="ltr"] .bento-card { text-align: left; }
-        [dir="rtl"] .bento-card { text-align: right; }
     </style>
 </head>
 <body>
@@ -113,63 +113,109 @@
         <p id="hero-subtitle">ניהול חכם. רווח מקסימלי. אנרגיה נקייה.</p>
         
         <div class="cta-group">
-            <a href="https://barakkeynan.github.io/VPP-SOLAR-CLUB/" class="btn btn-primary" id="btn-app">OPEN APP DEMO</a>
+            <a href="https://barakkeynan.github.io/VPP-SOLAR-CLUB/" class="btn btn-primary" id="btn-app">OPEN APP</a>
             <a href="VPP_Solar_Club_Pitch_Deck_2026.pdf" target="_blank" class="btn btn-outline" id="btn-pitch">PITCH DECK</a>
         </div>
     </header>
 
-    <section class="video-wrapper">
-        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/A13HuAeMcAU" frameborder="0" allowfullscreen></iframe>
-    </section>
-
-    <h2 class="section-title" id="targets-title">TARGET AUDIENCE</h2>
     <div class="bento-grid">
-        <div class="bento-card">
-            <i class="fas fa-industry"></i>
-            <h3 id="t1-h">מרכזים לוגיסטיים</h3>
-            <p id="t1-p">אופטימיזציה מלאה של צריכת האנרגיה במפעלים. המערכת מבצעת Peak Shaving להפחתת עלויות בשיא הביקוש ומוכרת חשמל לרשת בזמן מחירי שיא (SMP).</p>
+        <div class="bento-card" onclick="openModal('m-arbitrage')">
+            <i class="fas fa-microchip"></i>
+            <h3 id="c1-h">AI ARBITRAGE</h3>
+            <p id="c1-p">מנוע קבלת ההחלטות האוטונומי.</p>
         </div>
-        <div class="bento-card">
-            <i class="fas fa-home"></i>
-            <h3 id="t2-h">בעלי גגות פרטיים</h3>
-            <p id="t2-p">הופכים את הגג הפרטי לתחנת כוח רווחית. ניהול סוללה חכם שמגדיל את התשואה ב-25% יותר מכל הסדר רגיל, תוך שמירה על אורך חיי הסוללה.</p>
+        <div class="bento-card" onclick="openModal('m-syndicate')">
+            <i class="fas fa-network-wired"></i>
+            <h3 id="c2-h">VPP SYNDICATE</h3>
+            <p id="c2-p">רשת מבוזרת של נכסי אנרגיה.</p>
         </div>
-        <div class="bento-card">
-            <i class="fas fa-users"></i>
-            <h3 id="t3-h">קהילת האנרגיה</h3>
-            <p id="t3-p">גם ללא גג ניתן להצטרף לסינדיקט. שוכרים ושותפים נהנים מהנחות משמעותיות בחשבון החשמל החודשי על ידי שימוש באנרגיה המיוצרת בתוך הקהילה.</p>
+        <div class="bento-card" onclick="openModal('m-connect')">
+            <i class="fas fa-link"></i>
+            <h3 id="c3-h">CONNECTIVITY</h3>
+            <p id="c3-p">חיבור ישיר לנגה וחברת החשמל.</p>
+        </div>
+        <div class="bento-card" onclick="openModal('m-solutions')">
+            <i class="fas fa-lightbulb"></i>
+            <h3 id="c4-h">SOLUTIONS</h3>
+            <p id="c4-p">פתרונות מותאמים לכל קהלי היעד.</p>
         </div>
     </div>
 
-    <footer>© 2026 VPP SOLAR CLUB • HAIFA, ISRAEL • VPP.SOLAR.CLUB@GMAIL.COM</footer>
+    <div id="m-arbitrage" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('m-arbitrage')">&times;</span>
+            <h2 id="m1-t">AI ARBITRAGE</h2>
+            <ul id="m1-l">
+                <li><i class="fas fa-check"></i> מסחר באנרגיה בזמן אמת כל 15 דקות.</li>
+                <li><i class="fas fa-check"></i> טעינה במחיר נמוך ופריקה במחירי שיא.</li>
+                <li><i class="fas fa-check"></i> אופטימיזציה אוטונומית לשמירה על הסוללה.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="m-syndicate" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('m-syndicate')">&times;</span>
+            <h2 id="m2-t">THE SYNDICATE</h2>
+            <ul id="m2-l">
+                <li><i class="fas fa-check"></i> איחוד מאות נכסים לכוח קנייה קולקטיבי.</li>
+                <li><i class="fas fa-check"></i> ניהול מרכזי מבוסס ענן (VPP).</li>
+                <li><i class="fas fa-check"></i> יציבות רשת ברמה הנדסית גבוהה.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="m-connect" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('m-connect')">&times;</span>
+            <h2 id="m3-t">CONNECTIVITY</h2>
+            <ul id="m3-l">
+                <li><i class="fas fa-check"></i> API ישיר למנהל המערכת (נגה).</li>
+                <li><i class="fas fa-check"></i> אינטגרציה עם Tesla וספקי סוללות מובילים.</li>
+                <li><i class="fas fa-check"></i> דיווח נתונים ובקרה רציפה 24/7.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="m-solutions" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('m-solutions')">&times;</span>
+            <h2 id="m4-t">SOLUTIONS</h2>
+            <ul id="m4-l">
+                <li><i class="fas fa-check"></i> <b>מרכזים לוגיסטיים:</b> צמצום עלויות בשיא הביקוש.</li>
+                <li><i class="fas fa-check"></i> <b>בעלי גגות:</b> הגדלת רווחים ב-25% בממוצע.</li>
+                <li><i class="fas fa-check"></i> <b>שוכרים:</b> הנחות בחשמל ללא התקנה פיזית.</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>© 2026 VPP SOLAR CLUB • HAIFA, ISRAEL</footer>
 
     <script>
-        const content = {
+        const translations = {
             he: {
                 title: "THE ENERGY SYNDICATE",
                 subtitle: "ניהול חכם. רווח מקסימלי. אנרגיה נקייה.",
                 app: "פתח אפליקציה",
-                pitch: "מצגת משקיעים",
-                targets: "קהלי יעד",
-                t1h: "מרכזים לוגיסטיים",
-                t1p: "אופטימיזציה מלאה של צריכת האנרגיה במפעלים. המערכת מבצעת Peak Shaving להפחתת עלויות בשיא הביקוש ומוכרת חשמל לרשת בזמן מחירי שיא (SMP).",
-                t2h: "בעלי גגות פרטיים",
-                t2p: "הופכים את הגג הפרטי לתחנת כוח רווחית. ניהול סוללה חכם שמגדיל את התשואה ב-25% יותר מכל הסדר רגיל, תוך שמירה על אורך חיי הסוללה.",
-                t3h: "קהילת האנרגיה",
-                t3p: "גם ללא גג ניתן להצטרף לסינדיקט. שוכרים ושותפים נהנים מהנחות משמעותיות בחשבון החשמל החודשי על ידי שימוש באנרגיה המיוצרת בתוך הקהילה."
+                pitch: "מצגת 2026",
+                c1h: "AI ARBITRAGE", c1p: "מנוע קבלת ההחלטות האוטונומי.",
+                c2h: "VPP SYNDICATE", c2p: "רשת מבוזרת של נכסי אנרגיה.",
+                c3h: "CONNECTIVITY", c3p: "חיבור ישיר לנגה וחברת החשמל.",
+                c4h: "SOLUTIONS", c4p: "פתרונות לכל קהלי היעד.",
+                m1l: `<li><i class="fas fa-check"></i> מסחר באנרגיה בזמן אמת כל 15 דקות.</li><li><i class="fas fa-check"></i> טעינה במחיר נמוך ופריקה במחירי שיא.</li><li><i class="fas fa-check"></i> אופטימיזציה אוטונומית לשמירה על הסוללה.</li>`,
+                m4l: `<li><i class="fas fa-check"></i> <b>מרכזים לוגיסטיים:</b> צמצום עלויות בשיא הביקוש.</li><li><i class="fas fa-check"></i> <b>בעלי גגות:</b> הגדלת רווחים ב-25% בממוצע.</li><li><i class="fas fa-check"></i> <b>שוכרים:</b> הנחות בחשמל ללא התקנה פיזית.</li>`
             },
             en: {
                 title: "THE ENERGY SYNDICATE",
-                subtitle: "Smart Management. Max Profit. Clean Energy.",
-                app: "OPEN APP DEMO",
+                subtitle: "Smart Management. Maximum Profit. Clean Energy.",
+                app: "OPEN APP",
                 pitch: "PITCH DECK 2026",
-                targets: "TARGET AUDIENCE",
-                t1h: "Logistics Centers",
-                t1p: "Full energy optimization for industrial sites. Real-time Peak Shaving to cut costs and SMP-based grid injection during high-price windows.",
-                t2h: "Private Rooftops",
-                t2p: "Turn your home into a profitable power station. Autonomous battery management increasing yields by 25% compared to standard settlements.",
-                t3h: "Energy Community",
-                t3p: "Join the syndicate even without a roof. Tenants and partners enjoy direct electricity bill discounts by consuming community-generated power."
+                c1h: "AI ARBITRAGE", c1p: "Autonomous Decision Engine.",
+                c2h: "VPP SYNDICATE", c2p: "Decentralized Energy Network.",
+                c3h: "CONNECTIVITY", c3p: "Direct Grid Integration.",
+                c4h: "SOLUTIONS", c4p: "Targeted Industry Solutions.",
+                m1l: `<li><i class="fas fa-check"></i> Real-time energy trading every 15 mins.</li><li><i class="fas fa-check"></i> Buy low, sell high optimization.</li><li><i class="fas fa-check"></i> Battery life-cycle protection.</li>`,
+                m4l: `<li><i class="fas fa-check"></i> <b>Logistics:</b> Peak Shaving & cost reduction.</li><li><i class="fas fa-check"></i> <b>Rooftops:</b> Average 25% yield increase.</li><li><i class="fas fa-check"></i> <b>Tenants:</b> Direct bill discounts.</li>`
             }
         };
 
@@ -177,23 +223,23 @@
             const html = document.getElementById('main-html');
             const isHe = html.dir === 'rtl';
             const lang = isHe ? 'en' : 'he';
-            
             html.dir = isHe ? 'ltr' : 'rtl';
-            html.lang = lang;
             
             document.getElementById('langBtn').innerText = isHe ? 'עברית' : 'ENGLISH';
-            document.getElementById('hero-title').innerText = content[lang].title;
-            document.getElementById('hero-subtitle').innerText = content[lang].subtitle;
-            document.getElementById('btn-app').innerText = content[lang].app;
-            document.getElementById('btn-pitch').innerText = content[lang].pitch;
-            document.getElementById('targets-title').innerText = content[lang].targets;
-            document.getElementById('t1-h').innerText = content[lang].t1h;
-            document.getElementById('t1-p').innerText = content[lang].t1p;
-            document.getElementById('t2-h').innerText = content[lang].t2h;
-            document.getElementById('t2-p').innerText = content[lang].t2p;
-            document.getElementById('t3-h').innerText = content[lang].t3h;
-            document.getElementById('t3-p').innerText = content[lang].t3p;
+            document.getElementById('hero-title').innerText = translations[lang].title;
+            document.getElementById('hero-subtitle').innerText = translations[lang].subtitle;
+            document.getElementById('btn-app').innerText = translations[lang].app;
+            document.getElementById('btn-pitch').innerText = translations[lang].pitch;
+            document.getElementById('c1-h').innerText = translations[lang].c1h; document.getElementById('c1-p').innerText = translations[lang].c1p;
+            document.getElementById('c2-h').innerText = translations[lang].c2h; document.getElementById('c2-p').innerText = translations[lang].c2p;
+            document.getElementById('c3-h').innerText = translations[lang].c3h; document.getElementById('c3-p').innerText = translations[lang].c3p;
+            document.getElementById('c4-h').innerText = translations[lang].c4h; document.getElementById('c4-p').innerText = translations[lang].c4p;
+            document.getElementById('m1-l').innerHTML = translations[lang].m1l;
+            document.getElementById('m4-l').innerHTML = translations[lang].m4l;
         }
+
+        function openModal(id) { document.getElementById(id).style.display = "block"; }
+        function closeModal(id) { document.getElementById(id).style.display = "none"; }
     </script>
 </body>
 </html>
