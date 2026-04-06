@@ -3,115 +3,319 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VPP SOLAR CLUB | TARGETED ENERGY SOLUTIONS</title>
-    
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@100;300;600;900&display=swap" rel="stylesheet">
+    <meta name="description" content="VPP Solar Club - מועדון אנרגיה סולארית חכם. AI Arbitrage, רשת VPP מבוזרת ורווח מקסימלי מהגג שלך.">
+    <title>VPP SOLAR CLUB | הגג שלך. הרווח שלך.</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
             --primary: #00d2ff;
             --accent: #00ff88;
-            --sun-glow: #f1c40f;
-            --bg-dark: #05070a; 
-            --card-bg: rgba(22, 27, 34, 0.85);
+            --bg-dark: #05070a;
+            --card-bg: rgba(20, 25, 35, 0.95);
+            --glass-border: rgba(255, 255, 255, 0.15);
             --text-light: #f0f6fc;
-            --glass-border: rgba(255, 255, 255, 0.1);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-        body { font-family: 'Inter', sans-serif; background-color: var(--bg-dark); color: var(--text-light); overflow-x: hidden; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: var(--bg-dark); 
+            color: var(--text-light); 
+            line-height: 1.65; 
+            overflow-x: hidden;
+        }
 
-        /* רקע אווירה סולארית עדין */
         .solar-bg {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 50% -20%, rgba(0, 210, 255, 0.15), transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(0, 255, 136, 0.05), transparent 40%);
-            z-index: -1;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2;
+            background: radial-gradient(circle at 40% 20%, rgba(0, 210, 255, 0.22), transparent 70%),
+                        radial-gradient(circle at 75% 75%, rgba(0, 255, 136, 0.12), transparent 60%);
         }
 
         nav {
-            backdrop-filter: blur(25px); background: rgba(5, 7, 10, 0.8);
-            padding: 1.2rem 8%; display: flex; justify-content: space-between; align-items: center;
-            position: fixed; width: 100%; top: 0; z-index: 2000; border-bottom: 1px solid var(--glass-border);
+            backdrop-filter: blur(30px);
+            background: rgba(5, 7, 10, 0.92);
+            padding: 1.3rem 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 2000;
+            border-bottom: 1px solid var(--glass-border);
         }
 
-        .hero { 
-            height: 75vh; display: flex; flex-direction: column; justify-content: center; 
-            align-items: center; text-align: center; padding-top: 120px;
-        }
-        .hero h1 { 
-            font-family: 'Orbitron'; font-size: clamp(2rem, 6vw, 4rem); 
-            background: linear-gradient(135deg, #fff, var(--primary), var(--accent)); 
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            margin-bottom: 1.5rem; letter-spacing: 3px; font-weight: 900;
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 140px 8% 100px;
+            position: relative;
+            overflow: hidden;
         }
 
-        .video-container { width: 90%; max-width: 1000px; margin: -60px auto 80px; }
-        .video-box { 
-            position: relative; padding-bottom: 56.25%; border-radius: 40px; 
-            overflow: hidden; border: 1px solid var(--glass-border);
-            box-shadow: 0 0 100px rgba(0, 210, 255, 0.2);
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://picsum.photos/id/1015/2000/1200') no-repeat center center; /* תמונת פאנלים סולאריים */
+            background-size: cover;
+            opacity: 0.28;
+            z-index: -1;
         }
-        .video-box iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
 
-        /* Bento Grid */
-        .bento-grid { 
-            display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; 
-            padding: 40px 8%; max-width: 1400px; margin: 0 auto; 
+        .hero h1 {
+            font-family: 'Orbitron';
+            font-size: clamp(3rem, 9vw, 5.8rem);
+            font-weight: 900;
+            letter-spacing: 3px;
+            background: linear-gradient(135deg, #ffffff, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.4rem;
+            z-index: 2;
         }
-        .bento-card { 
-            background: var(--card-bg); border: 1px solid var(--glass-border); 
-            border-radius: 45px; padding: 45px; cursor: pointer; backdrop-filter: blur(15px);
-            display: flex; flex-direction: column; justify-content: space-between;
+
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 780px;
+            opacity: 0.9;
+            margin-bottom: 2.8rem;
+            z-index: 2;
         }
-        .bento-card:hover { 
-            border-color: var(--accent); transform: translateY(-12px) scale(1.02); 
-            background: rgba(33, 38, 45, 0.95);
+
+        .cta-button {
+            padding: 20px 52px;
+            font-size: 1.35rem;
+            font-family: 'Orbitron';
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--accent), #00cc77);
+            color: #000;
+            border: none;
+            border-radius: 60px;
+            cursor: pointer;
+            box-shadow: 0 12px 35px rgba(0, 255, 136, 0.35);
+            transition: all 0.4s;
+            z-index: 2;
         }
+
+        .cta-button:hover {
+            transform: translateY(-6px) scale(1.06);
+            box-shadow: 0 20px 45px rgba(0, 255, 136, 0.5);
+        }
+
+        .stats {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 70px;
+            z-index: 2;
+        }
+
+        .stat-item h3 {
+            font-family: 'Orbitron';
+            font-size: 3.2rem;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .video-container {
+            width: 90%;
+            max-width: 1150px;
+            margin: -90px auto 120px;
+            border-radius: 42px;
+            overflow: hidden;
+            box-shadow: 0 0 140px rgba(0, 210, 255, 0.3);
+            border: 2px solid var(--glass-border);
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 30px;
+            padding: 80px 8%;
+            max-width: 1500px;
+            margin: 0 auto;
+        }
+
+        .bento-card {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 40px;
+            padding: 48px 42px;
+            cursor: pointer;
+            backdrop-filter: blur(20px);
+            transition: all 0.5s;
+        }
+
+        .bento-card:hover {
+            transform: translateY(-20px) scale(1.04);
+            border-color: var(--accent);
+            box-shadow: 0 35px 70px rgba(0, 255, 136, 0.18);
+        }
+
         .card-big { grid-column: span 2; grid-row: span 2; }
-        .card-wide { grid-column: span 2; }
 
-        .bento-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 1.5rem; filter: drop-shadow(0 0 10px var(--primary)); }
-        .bento-card h3 { font-family: 'Orbitron'; font-size: 1.6rem; margin-bottom: 1rem; color: #fff; }
-
-        /* Modals Design */
-        .modal { 
-            display: none; position: fixed; z-index: 3000; top: 0; left: 0; 
-            width: 100%; height: 100%; background: rgba(5, 7, 10, 0.98); 
-            backdrop-filter: blur(40px); overflow-y: auto; padding: 5rem 8%; 
-        }
-        .modal-content { max-width: 1000px; margin: 0 auto; }
-        .close-btn { position: fixed; left: 4%; top: 4%; font-size: 3.5rem; cursor: pointer; color: #fff; opacity: 0.5; }
-        .close-btn:hover { opacity: 1; }
-
-        .info-header { border-bottom: 1px solid var(--glass-border); padding-bottom: 30px; margin-bottom: 40px; }
-        .info-title { font-family: 'Orbitron'; font-size: 3rem; color: var(--primary); }
-        
-        .target-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .target-box { 
-            background: rgba(255,255,255,0.03); padding: 35px; border-radius: 35px; 
-            border: 1px solid var(--glass-border); position: relative; overflow: hidden;
-        }
-        .target-box::before {
-            content: ""; position: absolute; top: 0; right: 0; width: 5px; height: 100%; background: var(--accent);
-        }
-        .target-box h4 { font-family: 'Orbitron'; color: var(--accent); margin-bottom: 15px; font-size: 1.3rem; }
-        .target-box ul { list-style: none; margin-top: 20px; }
-        .target-box li { margin-bottom: 12px; font-size: 0.95rem; opacity: 0.8; display: flex; align-items: center; }
-        .target-box li i { color: var(--primary); margin-left: 10px; font-size: 0.8rem; }
-
-        .image-quote { 
-            width: 100%; height: 250px; border-radius: 30px; margin-top: 30px;
-            background-size: cover; background-position: center; border: 1px solid var(--glass-border);
+        .bento-card i {
+            font-size: 3.5rem;
+            color: var(--primary);
+            margin-bottom: 1.6rem;
+            filter: drop-shadow(0 0 20px var(--primary));
         }
 
-        /* Form */
-        .form-section { padding: 100px 8%; }
-        .form-card { max-width: 800px; margin: 0 auto; background: var(--card-bg); padding: 60px; border-radius: 50px; border: 1px solid var(--glass-border); }
-        
-        footer { text-align: center; padding: 60px; opacity: 0.4; font-size: 0.8rem; font-family: 'Orbitron'; letter-spacing: 2px; }
-        .ltr { direction: ltr; text-align: left; }
+        .highlight {
+            font-size: 3.4rem;
+            font-weight: 900;
+            color: var(--accent);
+            font-family: 'Orbitron';
+        }
+
+        .section-title {
+            font-family: 'Orbitron';
+            font-size: 2.6rem;
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .steps, .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
+            padding: 80px 8%;
+            max-width: 1480px;
+            margin: 0 auto;
+        }
+
+        .step, .benefit {
+            background: var(--card-bg);
+            padding: 40px 30px;
+            border-radius: 32px;
+            border: 1px solid var(--glass-border);
+            text-align: center;
+            transition: all 0.4s;
+        }
+
+        .step:hover, .benefit:hover { transform: translateY(-10px); }
+
+        .step-number {
+            font-family: 'Orbitron';
+            font-size: 4.5rem;
+            color: var(--accent);
+            opacity: 0.15;
+            margin-bottom: -30px;
+        }
+
+        .vpp-image {
+            width: 100%;
+            max-width: 1100px;
+            margin: 60px auto;
+            border-radius: 40px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .form-section {
+            padding: 130px 8%;
+            background: linear-gradient(to bottom, #0a0f1a, var(--bg-dark));
+        }
+
+        .form-card {
+            max-width: 860px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 70px 65px;
+            border-radius: 48px;
+            border: 1px solid var(--glass-border);
+        }
+
+        input, select {
+            width: 100%;
+            padding: 18px 22px;
+            margin-bottom: 22px;
+            border-radius: 16px;
+            background: #0d1117;
+            border: 1px solid #30363d;
+            color: #fff;
+            font-size: 1.05rem;
+        }
+
+        .calculator {
+            background: rgba(0, 255, 136, 0.08);
+            padding: 30px;
+            border-radius: 28px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .success-message {
+            display: none;
+            padding: 50px;
+            background: rgba(0, 255, 136, 0.12);
+            border-radius: 32px;
+            color: var(--accent);
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 3000;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(5, 7, 10, 0.98);
+            backdrop-filter: blur(40px);
+            overflow-y: auto;
+            padding: 80px 8%;
+        }
+
+        .modal-content {
+            max-width: 1050px;
+            margin: 0 auto;
+            background: rgba(15, 20, 32, 0.98);
+            border-radius: 40px;
+            padding: 55px;
+            border: 1px solid var(--glass-border);
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 35px;
+            left: 45px;
+            font-size: 4rem;
+            cursor: pointer;
+            color: #ddd;
+            opacity: 0.7;
+        }
+
+        .info-title {
+            font-family: 'Orbitron';
+            font-size: 3.3rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 90px 20px 50px;
+            opacity: 0.6;
+            font-size: 0.95rem;
+            font-family: 'Orbitron';
+        }
+
+        @media (max-width: 768px) {
+            .bento-grid { grid-template-columns: 1fr; }
+            .card-big { grid-column: span 1; grid-row: span 1; }
+            .hero { padding-top: 120px; }
+        }
     </style>
 </head>
 <body>
@@ -119,169 +323,231 @@
     <div class="solar-bg"></div>
 
     <nav>
-        <button onclick="toggleLang()" id="langBtn" style="border:1px solid #30363d; padding:10px 30px; border-radius:50px; background:none; color:#fff; cursor:pointer; font-family:'Orbitron';">ENGLISH</button>
-        <div style="font-family:'Orbitron'; font-weight:900; letter-spacing:3px; color:var(--primary); font-size: 1.2rem;">VPP SOLAR CLUB</div>
+        <button onclick="toggleLang()" id="langBtn" style="border:1px solid #40454d; padding:12px 34px; border-radius:50px; background:none; color:#fff; cursor:pointer; font-family:'Orbitron';">ENGLISH</button>
+        <div style="font-family:'Orbitron'; font-weight:900; letter-spacing:4px; color:var(--primary); font-size:1.4rem;">VPP SOLAR CLUB</div>
     </nav>
 
     <header class="hero">
-        <img src="./VPP_LOGO.png.png" alt="Logo" style="width: 420px; margin-bottom: 2rem; filter: drop-shadow(0 0 40px rgba(0,210,255,0.3));">
-        <h1>THE ENERGY SYNDICATE</h1>
-        <p style="opacity: 0.7; font-size: 1.3rem; letter-spacing: 1px;">ניהול חכם. רווח מקסימלי. אנרגיה נקייה.</p>
+        <img src="./VPP_LOGO.png.png" alt="VPP Solar Club Logo" style="width: 420px; max-width:90%; margin-bottom: 2.8rem; filter: drop-shadow(0 0 55px rgba(0,210,255,0.45)); z-index:2; position:relative;">
+        <h1>הגג שלך.<br>הרווח שלך.</h1>
+        <p>מועדון VPP חכם עם בינה מלאכותית שמנהל את האנרגיה הסולארית שלך, מייצר רווח מקסימלי ומשתף אותך ברשת הסינדיקט.</p>
+        
+        <button onclick="document.getElementById('register').scrollIntoView({ behavior: 'smooth' });" class="cta-button">הצטרף עכשיו והתחל להרוויח</button>
+
+        <div class="stats">
+            <div class="stat-item"><h3>₪0.14</h3><p>רווח ממוצע לקוט"ש</p></div>
+            <div class="stat-item"><h3>+28%</h3><p>יותר רווח מסולארי רגיל</p></div>
+            <div class="stat-item"><h3>AI</h3><p>פעולה כל 15 דקות</p></div>
+        </div>
     </header>
 
     <section class="video-container">
-        <div class="video-box">
-            <iframe src="https://www.youtube.com/embed/A13HuAeMcAU" title="VPP OS" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/A13HuAeMcAU" title="VPP OS" allowfullscreen style="width:100%; height:100%; border:none; aspect-ratio:16/9;"></iframe>
+    </section>
+
+    <!-- Benefits -->
+    <section class="benefits-grid">
+        <div class="benefit">
+            <i class="fas fa-chart-line fa-3x" style="color:var(--accent); margin-bottom:20px;"></i>
+            <h3>רווח גבוה יותר</h3>
+            <p>AI Arbitrage מנצל תנודות מחירים בבורסת החשמל.</p>
+        </div>
+        <div class="benefit">
+            <i class="fas fa-leaf fa-3x" style="color:var(--accent); margin-bottom:20px;"></i>
+            <h3>קיימות אמיתית</h3>
+            <p>הפחתת פליטות CO₂ + עמידה בתקני ESG.</p>
+        </div>
+        <div class="benefit">
+            <i class="fas fa-shield-alt fa-3x" style="color:var(--accent); margin-bottom:20px;"></i>
+            <h3>ביטחון אנרגטי</h3>
+            <p>רשת מבוזרת שמגנה מפני עליות מחירים.</p>
         </div>
     </section>
 
+    <!-- Bento Grid -->
     <div class="bento-grid">
         <div class="bento-card card-big" onclick="openModal('m1')">
-            <div>
-                <i class="fas fa-microchip"></i>
-                <h3>AI ARBITRAGE</h3>
-                <p>מנוע קבלת ההחלטות האוטונומי שמנצח את מחירי השוק בכל 15 דקות.</p>
-            </div>
-            <div style="font-family:'Orbitron'; font-size: 4.5rem; font-weight:900; color:var(--primary); margin-top: 20px;">₪0.14<span style="font-size: 1rem; color: #8b949e;"> / kWh PROFIT</span></div>
+            <i class="fas fa-microchip"></i>
+            <h3>AI ARBITRAGE ENGINE</h3>
+            <p>מנוע בינה מלאכותית מתקדם שסורק את השוק כל 15 דקות ומבצע טעינה/פריקה אופטימלית.</p>
+            <div class="highlight" style="margin-top:25px;">₪0.14 <span style="font-size:1.2rem; color:#8b949e;">/kWh</span></div>
         </div>
 
-        <div class="bento-card card-wide" onclick="openModal('m2')">
+        <div class="bento-card" onclick="openModal('m2')">
             <i class="fas fa-network-wired"></i>
             <h3>THE SYNDICATE</h3>
-            <p>רשת מבוזרת של נכסים הפועלת כישות אחת עוצמתית מול רשת החשמל הארצית.</p>
+            <p>רשת VPP מבוזרת של נכסים שפועלת כיחידה אחת חזקה מול נגה וחברת החשמל.</p>
         </div>
 
         <div class="bento-card" onclick="openModal('m3')">
-            <i class="fas fa-bolt"></i>
+            <i class="fas fa-plug"></i>
             <h3>CONNECTIVITY</h3>
-            <p>חיבור ישיר בזמן אמת לנגה, חברת החשמל ויצרני סוללות מובילים.</p>
+            <p>חיבור API מלא ל-Tesla, SolarEdge, Huawei Solar, נגה ועוד.</p>
         </div>
 
         <div class="bento-card" onclick="openModal('m4')">
-            <i class="fas fa-users-gear"></i>
-            <h3>TARGET AUDIENCE</h3>
-            <p>מידע מותאם אישית לבעלי גגות, שוכרים ומרכזים לוגיסטיים.</p>
+            <i class="fas fa-users"></i>
+            <h3>למי זה מתאים</h3>
+            <p>בעלי גגות, שוכרים, מרכזים לוגיסטיים ותעשייה.</p>
         </div>
     </div>
 
-    <div id="m4" class="modal">
-        <span class="close-btn" onclick="closeModal('m4')">&times;</span>
-        <div class="modal-content">
-            <div class="info-header">
-                <div class="info-title">TARGET AUDIENCE & SOLUTIONS</div>
-                <p style="margin-top:10px; opacity:0.6;">לכל אחד יש מקום במועדון הסולארי שלנו. מצא את המסלול שלך:</p>
+    <!-- How it Works + תמונה -->
+    <section style="padding:100px 8%; background:rgba(10,15,25,0.7);">
+        <h2 class="section-title">איך זה עובד</h2>
+        
+        <!-- תמונת VPP Diagram -->
+        <img src="https://picsum.photos/id/1015/1200/600" alt="Virtual Power Plant Diagram" class="vpp-image" style="background:#0a0f1a;">
+
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">01</div>
+                <h3>חיבור המערכת</h3>
+                <p>מחברים את הפאנלים, הסוללה והממיר ל-VPP OS.</p>
             </div>
-            
-            <div class="target-grid">
-                <div class="target-box">
-                    <h4>בעלי גגות פרטיים</h4>
-                    <p>הפוך את הגג הסטטי לנכס פיננסי אקטיבי.</p>
-                    <ul>
-                        <li><i class="fas fa-check"></i> הגדלת רווח של 25% מהסדר פריקה רגיל.</li>
-                        <li><i class="fas fa-check"></i> ניהול סוללה אוטומטי המאריך את חיי התא.</li>
-                        <li><i class="fas fa-check"></i> ניטור מלא באפליקציית ה-Club.</li>
-                    </ul>
-                </div>
-
-                <div class="target-box">
-                    <h4>שוכרים ושותפי אנרגיה</h4>
-                    <p>אין לך גג? אתה עדיין יכול להרוויח מהמהפכה.</p>
-                    <ul>
-                        <li><i class="fas fa-check"></i> מודל "קהילת אנרגיה" המזכה בהנחות חשמל.</li>
-                        <li><i class="fas fa-check"></i> שותפות ברווחי הארביטראז' של הסינדיקט.</li>
-                        <li><i class="fas fa-check"></i> השקעה בנכסים סולאריים מבוזרים.</li>
-                    </ul>
-                </div>
-
-                <div class="target-box">
-                    <h4>מרכזים לוגיסטיים ותעשייה</h4>
-                    <p>אופטימיזציה של צריכת אנרגיה בקנה מידה ענק.</p>
-                    <ul>
-                        <li><i class="fas fa-check"></i> השטחת עקומת הביקוש (Peak Shaving).</li>
-                        <li><i class="fas fa-check"></i> פריקת אנרגיה לרשת בזמן מחירי שיא (SMP).</li>
-                        <li><i class="fas fa-check"></i> עמידה בתקני ESG וקיימות בינלאומיים.</li>
-                    </ul>
-                </div>
+            <div class="step">
+                <div class="step-number">02</div>
+                <h3>למידה חכמה</h3>
+                <p>ה-AI לומד את דפוסי הצריכה והמחירים שלך.</p>
             </div>
-
-            <div class="image-quote" style="background-image: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&q=80&w=1000');">
-                <div style="background: rgba(0,0,0,0.4); width:100%; height:100%; border-radius:30px; display:flex; align-items:center; justify-content:center; padding:40px; text-align:center;">
-                    <h2 style="font-family:'Orbitron'; border:2px solid var(--accent); padding:20px; background:rgba(0,0,0,0.6);">JOIN THE CLEAN ENERGY REVOLUTION</h2>
-                </div>
+            <div class="step">
+                <div class="step-number">03</div>
+                <h3>אופטימיזציה אוטומטית</h3>
+                <p>טעינה זולה • פריקה יקרה • שיתוף בסינדיקט.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">04</div>
+                <h3>רווח והדוחות</h3>
+                <p>תשלום חודשי + ניטור מלא באפליקציה.</p>
             </div>
         </div>
-    </div>
+    </section>
 
+    <!-- Testimonials -->
+    <section style="padding:100px 8%; text-align:center;">
+        <h2 class="section-title">חברי המועדון מספרים</h2>
+        <div style="max-width:820px; margin:0 auto; background:var(--card-bg); padding:50px; border-radius:36px; border:1px solid var(--glass-border);">
+            <p style="font-size:1.35rem; font-style:italic;">"בחודש הראשון הרווחתי כמעט 5,200 ₪ נוספים. המערכת פשוט עובדת לבד."</p>
+            <p style="margin-top:30px; opacity:0.75;">— דני כהן, חיפה (גג 12kW)</p>
+        </div>
+    </section>
+
+    <!-- Modals -->
     <div id="m1" class="modal">
-        <span class="close-btn" onclick="closeModal('m1')">&times;</span>
+        <span class="close-btn" onclick="closeModal('m1')">×</span>
         <div class="modal-content">
             <div class="info-title">AI ARBITRAGE ENGINE</div>
-            <div class="bullet-point"><h4>Decision Making</h4><p>האלגוריתם שלנו סורק את בורסת החשמל ומחליט מתי לטעון ומתי לפרוק ברווח מקסימלי.</p></div>
+            <p>המנוע החכם שלנו מבצע אלפי חישובים בכל 15 דקות כדי למקסם את הרווח שלך.</p>
         </div>
     </div>
 
     <div id="m2" class="modal">
-        <span class="close-btn" onclick="closeModal('m2')">&times;</span>
+        <span class="close-btn" onclick="closeModal('m2')">×</span>
         <div class="modal-content">
-            <div class="info-title">VPP SYNDICATE</div>
-            <div class="bullet-point"><h4>Power in Numbers</h4><p>ככל שהרשת גדלה, כוח המיקוח והיציבות של הסינדיקט גדלים.</p></div>
+            <div class="info-title">THE SYNDICATE</div>
+            <p>כוח קולקטיבי: אלפי נכסים פועלים יחד כתחנת כוח וירטואלית.</p>
         </div>
     </div>
 
-    <div id="m3" class="modal ltr">
-        <span class="close-btn" onclick="closeModal('m3')">&times;</span>
+    <div id="m3" class="modal">
+        <span class="close-btn" onclick="closeModal('m3')">×</span>
         <div class="modal-content">
             <div class="info-title">CONNECTIVITY HUB</div>
-            <div class="bullet-point"><h4>Ecosystem Partners</h4><p>Native API connectivity with Tesla, SolarEdge, and Noga.</p></div>
+            <!-- תמונת Tesla Powerwall -->
+            <img src="https://picsum.photos/id/201/800/450" alt="Tesla Powerwall" style="width:100%; border-radius:24px; margin:25px 0;">
+            <p>תמיכה מלאה ב-Tesla Powerwall, SolarEdge, Huawei Solar ועוד.</p>
         </div>
     </div>
 
-    <section style="padding: 60px 8%; text-align: center;">
-        <h2 style="font-family:'Orbitron'; font-size: 1rem; opacity: 0.5; letter-spacing: 5px; margin-bottom: 40px;">ECOSYSTEM PARTNERS</h2>
-        <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:25px;">
-            <span style="border: 1px solid var(--glass-border); padding: 12px 30px; border-radius: 50px; background:rgba(255,255,255,0.02);">NOGA / נגה</span>
-            <span style="border: 1px solid var(--glass-border); padding: 12px 30px; border-radius: 50px; background:rgba(255,255,255,0.02);">IEC / חברת החשמל</span>
-            <span style="border: 1px solid var(--glass-border); padding: 12px 30px; border-radius: 50px; background:rgba(255,255,255,0.02);">TESLA</span>
-            <span style="border: 1px solid var(--glass-border); padding: 12px 30px; border-radius: 50px; background:rgba(255,255,255,0.02);">SOLAREDGE</span>
-            <span style="border: 1px solid var(--glass-border); padding: 12px 30px; border-radius: 50px; background:rgba(255,255,255,0.02);">HUAWEI SOLAR</span>
+    <div id="m4" class="modal">
+        <span class="close-btn" onclick="closeModal('m4')">×</span>
+        <div class="modal-content">
+            <div class="info-title">למי זה מתאים?</div>
+            <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:25px; margin-top:40px;">
+                <div style="padding:30px; background:rgba(255,255,255,0.05); border-radius:28px;">בעלי גגות פרטיים</div>
+                <div style="padding:30px; background:rgba(255,255,255,0.05); border-radius:28px;">שוכרים ושותפי אנרגיה</div>
+                <div style="padding:30px; background:rgba(255,255,255,0.05); border-radius:28px;">מרכזים לוגיסטיים ותעשייה</div>
+            </div>
         </div>
-    </section>
+    </div>
 
+    <!-- Form + Calculator -->
     <section class="form-section" id="register">
         <div class="form-card">
-            <h2 style="font-family:'Orbitron'; text-align:center; margin-bottom: 40px; font-size: 2.5rem; color:var(--primary);">JOIN THE CLUB</h2>
-            <form>
-                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:20px;">
-                    <input type="text" placeholder="שם מלא / חברה" style="width:100%; padding:20px; border-radius:15px; background:#0d1117; border:1px solid #30363d; color:#fff;">
-                    <input type="email" placeholder="אימייל" style="width:100%; padding:20px; border-radius:15px; background:#0d1117; border:1px solid #30363d; color:#fff;">
+            <h2 class="section-title" style="margin-bottom:40px; color:var(--primary);">הצטרף למועדון</h2>
+
+            <div class="calculator">
+                <h3 style="margin-bottom:15px;">חשב כמה תוכל להרוויח</h3>
+                <input type="number" id="kwInput" placeholder="גודל מערכת (kW)" style="max-width:280px; margin:0 auto; display:block;" oninput="calculateProfit()">
+                <p id="profitResult" style="margin-top:15px; font-size:1.4rem; font-weight:600; color:var(--accent);"></p>
+            </div>
+
+            <form id="joinForm">
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+                    <input type="text" id="name" placeholder="שם מלא / חברה" required>
+                    <input type="email" id="email" placeholder="אימייל" required>
                 </div>
-                <select style="width:100%; padding:20px; margin-top:20px; border-radius:15px; background:#0d1117; border:1px solid #30363d; color:#fff;">
-                    <option>בחר מסלול: בעל נכס</option>
-                    <option>בחר מסלול: שוכר / שותף</option>
-                    <option>בחר מסלול: מרכז לוגיסטי</option>
+                <input type="tel" id="phone" placeholder="טלפון">
+                <select id="type" required>
+                    <option value="">בחר מסלול</option>
+                    <option value="private">בעל גג פרטי</option>
+                    <option value="renter">שוכר / שותף</option>
+                    <option value="business">מרכז לוגיסטי / תעשייה</option>
                 </select>
-                <button type="submit" style="width:100%; padding:22px; margin-top:30px; border-radius:100px; background:var(--primary); color:#000; font-family:'Orbitron'; font-weight:900; border:none; cursor:pointer;">INITIALIZE SYSTEM</button>
+                <button type="submit" class="cta-button" style="width:100%; margin-top:15px;">אתחל מערכת והתחל להרוויח</button>
             </form>
+
+            <div id="successMsg" class="success-message">
+                ✅ מערכת אותחלה בהצלחה!<br>ניצור איתך קשר תוך 24 שעות.
+            </div>
         </div>
     </section>
 
-    <footer>© 2026 VPP SOLAR CLUB | ENGINEERED IN HAIFA | POWERED BY SUN</footer>
+    <footer>
+        © 2026 VPP SOLAR CLUB • ENGINEERED IN HAIFA • POWERED BY SUN & AI
+    </footer>
 
     <script>
-        function openModal(id) { 
-            const m = document.getElementById(id);
-            if(m) { m.style.display = "block"; document.body.style.overflow = "hidden"; }
+        function openModal(id) {
+            document.getElementById(id).style.display = "block";
+            document.body.style.overflow = "hidden";
         }
-        function closeModal(id) { 
-            const m = document.getElementById(id);
-            if(m) { m.style.display = "none"; document.body.style.overflow = "auto"; }
+
+        function closeModal(id) {
+            document.getElementById(id).style.display = "none";
+            document.body.style.overflow = "auto";
         }
+
         function toggleLang() {
             const html = document.getElementById('main-html');
             const isHe = html.dir === 'rtl';
             html.dir = isHe ? 'ltr' : 'rtl';
             document.getElementById('langBtn').innerText = isHe ? "עברית" : "ENGLISH";
         }
+
+        function calculateProfit() {
+            const kw = parseFloat(document.getElementById('kwInput').value);
+            if (kw > 0) {
+                const yearly = Math.round(kw * 1400 * 0.14);
+                document.getElementById('profitResult').innerHTML = `רווח שנתי משוער: <strong>₪${yearly}</strong>`;
+            } else {
+                document.getElementById('profitResult').innerHTML = '';
+            }
+        }
+
+        document.getElementById('joinForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('successMsg').style.display = 'block';
+            this.style.display = 'none';
+            setTimeout(() => location.reload(), 3500);
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === "Escape") {
+                document.querySelectorAll('.modal').forEach(m => m.style.display = "none");
+                document.body.style.overflow = "auto";
+            }
+        });
     </script>
 </body>
 </html>
