@@ -37,11 +37,10 @@
         }
 
         .hero {
-            min-height: 100vh; display: flex; flex-direction: column; align-items: center; 
-            justify-content: center; text-align: center; padding: 120px 20px 60px;
+            min-height: 80vh; display: flex; flex-direction: column; align-items: center; 
+            justify-content: center; text-align: center; padding: 120px 20px 40px;
         }
 
-        /* לוגו ענק עם אפקט Feather משופר */
         .main-logo-hero {
             width: clamp(350px, 65vw, 900px);
             margin-bottom: 30px;
@@ -59,7 +58,7 @@
 
         .hero p { font-size: 1.4rem; opacity: 0.8; margin-bottom: 40px; max-width: 800px; }
 
-        .cta-group { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 60px; }
+        .cta-group { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px; }
         .btn {
             padding: 18px 40px; border-radius: 50px; font-family: 'Orbitron'; font-weight: 700;
             text-decoration: none; font-size: 0.9rem; cursor: pointer; text-transform: uppercase;
@@ -67,7 +66,16 @@
         .btn-primary { background: var(--accent); color: #000; }
         .btn-outline { border: 2px solid var(--primary); color: var(--primary); }
 
-        /* גריד של הפתרונות (החלונות מהתמונות) */
+        /* סקשן וידאו */
+        .video-section { width: 90%; max-width: 1000px; margin: 0 auto 80px; }
+        .video-container { 
+            position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; 
+            border-radius: 40px; border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 0 80px rgba(0,210,255,0.25); background: #000;
+        }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0; }
+
+        /* גריד פתרונות */
         .bento-grid {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px; padding: 0 8% 80px; max-width: 1400px; margin: 0 auto;
@@ -76,11 +84,11 @@
             background: var(--card-bg); border: 1px solid rgba(255,255,255,0.05);
             border-radius: 35px; padding: 40px; cursor: pointer; text-align: center;
         }
-        .bento-card:hover { border-color: var(--accent); transform: translateY(-10px); background: rgba(33, 38, 45, 0.98); }
+        .bento-card:hover { border-color: var(--accent); transform: translateY(-10px); }
         .bento-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
         .bento-card h3 { font-family: 'Orbitron'; margin-bottom: 15px; font-size: 1.4rem; color: var(--accent); }
 
-        /* חלונות קופצים (Modals) */
+        /* Modals */
         .modal {
             display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(5,7,10,0.98); backdrop-filter: blur(20px); overflow-y: auto;
@@ -118,6 +126,12 @@
         </div>
     </header>
 
+    <section class="video-section">
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/A13HuAeMcAU" title="VPP Solar Club Video" allowfullscreen></iframe>
+        </div>
+    </section>
+
     <div class="bento-grid">
         <div class="bento-card" onclick="openModal('m-arbitrage')">
             <i class="fas fa-microchip"></i>
@@ -137,7 +151,7 @@
         <div class="bento-card" onclick="openModal('m-solutions')">
             <i class="fas fa-lightbulb"></i>
             <h3 id="c4-h">SOLUTIONS</h3>
-            <p id="c4-p">פתרונות מותאמים לכל קהלי היעד.</p>
+            <p id="c4-p">פתרונות לכל קהלי היעד.</p>
         </div>
     </div>
 
@@ -156,7 +170,7 @@
     <div id="m-syndicate" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('m-syndicate')">&times;</span>
-            <h2 id="m2-t">THE SYNDICATE</h2>
+            <h2 id="m2-t">VPP SYNDICATE</h2>
             <ul id="m2-l">
                 <li><i class="fas fa-check"></i> איחוד מאות נכסים לכוח קנייה קולקטיבי.</li>
                 <li><i class="fas fa-check"></i> ניהול מרכזי מבוסס ענן (VPP).</li>
@@ -196,8 +210,7 @@
             he: {
                 title: "THE ENERGY SYNDICATE",
                 subtitle: "ניהול חכם. רווח מקסימלי. אנרגיה נקייה.",
-                app: "פתח אפליקציה",
-                pitch: "מצגת 2026",
+                app: "פתח אפליקציה", pitch: "מצגת 2026",
                 c1h: "AI ARBITRAGE", c1p: "מנוע קבלת ההחלטות האוטונומי.",
                 c2h: "VPP SYNDICATE", c2p: "רשת מבוזרת של נכסי אנרגיה.",
                 c3h: "CONNECTIVITY", c3p: "חיבור ישיר לנגה וחברת החשמל.",
@@ -208,8 +221,7 @@
             en: {
                 title: "THE ENERGY SYNDICATE",
                 subtitle: "Smart Management. Maximum Profit. Clean Energy.",
-                app: "OPEN APP",
-                pitch: "PITCH DECK 2026",
+                app: "OPEN APP", pitch: "PITCH DECK 2026",
                 c1h: "AI ARBITRAGE", c1p: "Autonomous Decision Engine.",
                 c2h: "VPP SYNDICATE", c2p: "Decentralized Energy Network.",
                 c3h: "CONNECTIVITY", c3p: "Direct Grid Integration.",
@@ -224,7 +236,6 @@
             const isHe = html.dir === 'rtl';
             const lang = isHe ? 'en' : 'he';
             html.dir = isHe ? 'ltr' : 'rtl';
-            
             document.getElementById('langBtn').innerText = isHe ? 'עברית' : 'ENGLISH';
             document.getElementById('hero-title').innerText = translations[lang].title;
             document.getElementById('hero-subtitle').innerText = translations[lang].subtitle;
