@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VPP Solar Club | Premium Energy OS</title>
+    <title>VPP Solar Club | The Energy Elite</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@200;400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #00d2ff; 
             --accent: #3a7bd5;
             --bg: #010409;
-            --glass: rgba(255, 255, 255, 0.03);
+            --glass: rgba(255, 255, 255, 0.02);
             --glass-border: rgba(255, 255, 255, 0.08);
             --text: #f0f4f8;
         }
 
-        * { box-sizing: border-box; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        * { box-sizing: border-box; transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
         html { scroll-behavior: smooth; }
 
         body {
@@ -25,18 +25,28 @@
             background-color: var(--bg);
             color: var(--text);
             overflow-x: hidden;
-            background-image: radial-gradient(circle at 50% -20%, #112240 0%, #010409 60%);
+            background-image: radial-gradient(circle at 50% 0%, #0d1b33 0%, #010409 100%);
         }
 
-        /* --- Global Elements --- */
-        .animate-on-scroll { opacity: 0; transform: translateY(30px); }
-        .animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
+        /* --- Background Logo (50% Transparency) --- */
+        .bg-watermark {
+            position: absolute;
+            top: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            max-width: 1200px;
+            opacity: 0.5; /* שקיפות 50% כפי שביקשת */
+            z-index: -1;
+            filter: blur(2px) brightness(1.2);
+            pointer-events: none;
+        }
 
-        /* --- Navbar --- */
+        /* --- Navbar Elite --- */
         nav {
-            backdrop-filter: blur(20px);
-            background: rgba(1, 4, 9, 0.8);
-            padding: 1.2rem 8%;
+            backdrop-filter: blur(30px);
+            background: rgba(1, 4, 9, 0.7);
+            padding: 1.5rem 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -47,134 +57,117 @@
             border-bottom: 1px solid var(--glass-border);
         }
 
-        .nav-brand { font-family: 'Orbitron'; font-weight: 700; letter-spacing: 2px; color: var(--primary); }
-
+        .nav-brand { font-family: 'Orbitron'; font-weight: 900; letter-spacing: 4px; color: #fff; font-size: 1.2rem; }
         .btn-lang {
-            background: var(--glass);
+            background: transparent;
             border: 1px solid var(--primary);
             color: var(--primary);
-            padding: 6px 20px;
-            border-radius: 40px;
+            padding: 8px 24px;
+            border-radius: 50px;
             cursor: pointer;
-            font-size: 0.8rem;
-            font-weight: 600;
+            font-family: 'Orbitron';
+            font-size: 0.7rem;
+            letter-spacing: 1.5px;
         }
-        .btn-lang:hover { background: var(--primary); color: #000; box-shadow: 0 0 20px rgba(0, 210, 255, 0.4); }
+        .btn-lang:hover { background: var(--primary); color: #000; box-shadow: 0 0 25px var(--primary); }
 
-        /* --- Hero Logo Section --- */
-        .logo-container {
-            margin-top: 100px;
-            text-align: center;
-            padding: 2rem;
-        }
-        .logo-container img {
-            width: 60%; /* לוגו ברוחב מאוזן כפי שביקשת */
-            max-width: 800px;
-            filter: drop-shadow(0 0 30px rgba(0, 210, 255, 0.2));
-        }
-
+        /* --- Hero Section --- */
         header {
+            margin-top: 250px; /* נותן מקום ללוגו הרקע */
             text-align: center;
-            padding: 2rem 10% 4rem;
+            padding: 0 10% 8rem;
         }
 
         header h1 {
             font-family: 'Orbitron', sans-serif;
-            font-size: clamp(2rem, 6vw, 4rem);
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 900;
             margin-bottom: 2rem;
-            line-height: 1.2;
-            background: linear-gradient(to bottom, #fff 40%, var(--primary));
+            line-height: 1.1;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            background: linear-gradient(to bottom, #fff 50%, var(--primary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .cta-main {
             display: inline-block;
-            padding: 1.5rem 4rem;
-            background: linear-gradient(45deg, var(--primary), var(--accent));
-            color: #fff;
+            padding: 1.5rem 5rem;
+            background: #fff;
+            color: #000;
             text-decoration: none;
             border-radius: 100px;
-            font-weight: 700;
+            font-weight: 800;
             font-family: 'Orbitron';
             letter-spacing: 2px;
-            box-shadow: 0 15px 40px rgba(0, 210, 255, 0.25);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
         }
-        .cta-main:hover { transform: scale(1.05) translateY(-5px); box-shadow: 0 20px 50px rgba(0, 210, 255, 0.4); }
-
-        /* --- Cinematic Video Section --- */
-        .video-wrapper {
-            max-width: 1000px;
-            margin: 4rem auto;
-            padding: 0 5%;
-        }
-        .video-box {
-            position: relative;
-            padding-bottom: 56.25%;
-            border-radius: 30px;
-            overflow: hidden;
-            border: 1px solid var(--glass-border);
-            box-shadow: 0 0 60px rgba(0, 210, 255, 0.1);
-        }
-        .video-box iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        .cta-main:hover { transform: scale(1.05) translateY(-5px); background: var(--primary); box-shadow: 0 25px 60px rgba(0, 210, 255, 0.4); }
 
         /* --- Feature Grid --- */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-            padding: 4rem 10%;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            padding: 2rem 10% 10rem;
         }
 
         .card {
             background: var(--glass);
-            backdrop-filter: blur(15px);
+            backdrop-filter: blur(20px);
             border: 1px solid var(--glass-border);
             border-radius: 40px;
-            padding: 3.5rem 2.5rem;
-            text-align: center;
+            padding: 4rem 3rem;
             cursor: pointer;
             position: relative;
+            text-align: center;
         }
         .card:hover {
-            background: rgba(255, 255, 255, 0.05);
             border-color: var(--primary);
-            transform: translateY(-15px);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-20px);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
         }
-        .card i { font-size: 3.5rem; color: var(--primary); margin-bottom: 1.5rem; display: block; }
-        .card h3 { font-family: 'Orbitron'; font-size: 1.8rem; margin-bottom: 1rem; color: #fff; }
-        .card p { font-weight: 300; line-height: 1.6; opacity: 0.8; font-size: 1.1rem; }
+        .card i { font-size: 3rem; color: var(--primary); margin-bottom: 2rem; display: block; opacity: 0.8; }
+        .card h3 { font-family: 'Orbitron'; font-size: 1.6rem; margin-bottom: 1.5rem; letter-spacing: 1px; color: #fff; }
+        .card p { font-weight: 200; line-height: 1.8; opacity: 0.7; font-size: 1rem; }
 
-        /* --- Full-Screen Deep Info Modal --- */
+        /* --- Deep Info Modals --- */
         .modal {
             display: none;
             position: fixed;
             z-index: 3000;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(1, 4, 9, 0.98);
-            backdrop-filter: blur(25px);
+            background: rgba(0,0,0,0.97);
+            backdrop-filter: blur(40px);
             overflow-y: auto;
         }
         .modal-content {
             margin: 5% auto;
-            padding: 4rem 2rem;
-            width: 90%; max-width: 900px;
+            padding: 6rem 10%;
+            max-width: 1100px;
             text-align: right;
         }
-        .close-btn { position: fixed; left: 5%; top: 5%; font-size: 3rem; color: var(--primary); cursor: pointer; z-index: 3001; }
+        .close-btn { position: fixed; left: 5%; top: 5%; font-size: 3rem; color: var(--primary); cursor: pointer; z-index: 3100; transition: 0.3s; }
+        .close-btn:hover { transform: rotate(90deg); }
 
-        .info-section {
-            border-bottom: 1px solid var(--glass-border);
-            padding: 1.5rem 0;
+        .info-block { margin-bottom: 4rem; border-right: 2px solid var(--primary); padding-right: 2rem; }
+        .info-block h4 { font-family: 'Orbitron'; font-size: 1.8rem; color: var(--primary); margin-bottom: 1.5rem; }
+        .info-block p { font-size: 1.2rem; line-height: 2; font-weight: 300; color: #cbd5e0; }
+
+        /* --- Video Section --- */
+        .video-container { max-width: 1000px; margin: 0 auto 10rem; padding: 0 5%; }
+        .video-frame {
+            position: relative; padding-bottom: 56.25%; border-radius: 40px; overflow: hidden;
+            border: 1px solid var(--glass-border); box-shadow: 0 0 100px rgba(0, 210, 255, 0.1);
         }
-        .info-section h4 { color: var(--primary); font-family: 'Orbitron'; margin-bottom: 1rem; font-size: 1.4rem; cursor: pointer; display: flex; justify-content: space-between; }
-        .info-body { display: none; padding: 1rem 0; line-height: 1.8; font-size: 1.1rem; color: #cbd5e0; }
+        .video-frame iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
 
-        /* RTL/LTR Utils */
+        /* Utils */
         .ltr { direction: ltr; text-align: left; }
         .ltr .modal-content { text-align: left; }
-        .ltr .close-btn { right: 5%; left: auto; }
+        .ltr .info-block { border-right: none; border-left: 2px solid var(--primary); padding-right: 0; padding-left: 2rem; }
     </style>
 </head>
 <body id="body-tag">
@@ -182,69 +175,55 @@
     <nav>
         <button class="btn-lang" onclick="toggleLang()" id="langBtn">ENGLISH</button>
         <div class="nav-brand">VPP SOLAR CLUB</div>
-        <a href="https://vppsolarclub.base44.app" style="color: var(--primary); text-decoration: none; font-weight: 700; font-size: 0.9rem;">DASHBOARD</a>
+        <a href="https://vppsolarclub.base44.app" style="color: var(--primary); text-decoration: none; font-weight: 800; font-size: 0.8rem; letter-spacing: 2px;">DASHBOARD</a>
     </nav>
 
-    <div class="logo-container animate-on-scroll">
-        <img src="./VPP_LOGO.png.png" alt="VPP Solar Club Header">
-    </div>
+    <img src="./VPP_LOGO.png.png" alt="Background Watermark" class="bg-watermark">
 
-    <header class="animate-on-scroll">
+    <header>
         <h1 id="heroTitle">The AI Operating System for Decentralized Energy</h1>
         <a href="https://vppsolarclub.base44.app" class="cta-main" id="heroCta">ENTER PLATFORM</a>
     </header>
 
-    <div class="video-wrapper animate-on-scroll">
-        <div class="video-box">
-            <iframe src="https://www.youtube.com/embed/A13HuAeMcAU" title="VPP Solar Club Platform" allowfullscreen></iframe>
+    <div class="video-container">
+        <div class="video-frame">
+            <iframe src="https://www.youtube.com/embed/A13HuAeMcAU" title="VPP Overview" allowfullscreen></iframe>
         </div>
     </div>
 
-    <div class="grid animate-on-scroll">
+    <div class="grid">
         <div class="card" onclick="openModal('m1')">
-            <i class="fas fa-chart-line"></i>
-            <h3 id="c1t">Smart Trading</h3>
-            <p id="c1d">אופטימיזציה של רווחים באמצעות אלגוריתם מבוסס מחירי SMP בזמן אמת.</p>
+            <i class="fas fa-microchip"></i>
+            <h3 id="c1t">AI Arbitrage Engine</h3>
+            <p id="c1d">אופטימיזציה של רווחים באמצעות אלגוריתם חיזוי מחירי SMP המייצר פער רווח קריטי בכל 15 דקות.</p>
         </div>
         <div class="card" onclick="openModal('m2')">
-            <i class="fas fa-users-rays"></i>
-            <h3 id="c2t">Solar Syndicate</h3>
-            <p id="c2d">ניהול קהילתי חכם המאפשר מכירת חשמל בין שכנים ומקסום פוטנציאל הגג.</p>
+            <i class="fas fa-network-wired"></i>
+            <h3 id="c2t">Microgrid Syndicate</h3>
+            <p id="c2d">איחוד נכסי אנרגיה מבוזרים לכדי רשת אחת עוצמתית המאפשרת מסחר P2P וחוסן קהילתי.</p>
         </div>
         <div class="card" onclick="openModal('m3')">
-            <i class="fas fa-microchip"></i>
-            <h3 id="c3t">Technion-Grade</h3>
-            <p id="c3d">ארכיטקטורה הנדסית יציבה המבטיחה אינטגרציה מלאה מול תשתיות המדינה.</p>
+            <i class="fas fa-shield-halved"></i>
+            <h3 id="c3t">Institutional Integrity</h3>
+            <p id="c3d">ארכיטקטורה הנדסית ברמת Technion המבטיחה עמידות בסייבר ואינטגרציה חלקה מול תשתיות לאומיות.</p>
         </div>
     </div>
 
     <div id="m1" class="modal">
         <span class="close-btn" onclick="closeModal('m1')">&times;</span>
         <div class="modal-content">
-            <h2 id="m1h" style="font-family: 'Orbitron'; font-size: 3rem; color: #fff;">Smart Trading AI</h2>
-            
-            <div class="info-section">
-                <h4 onclick="toggleSection(this)">01. מנגנון ה-Profit Gap <i class="fas fa-plus"></i></h4>
-                <div class="info-body">
-                    האלגוריתם שלנו מייצר פער רווח ממוצע של <strong>₪0.14 לקוט"ש</strong> מעל המתחרים. הוא עושה זאת על ידי חיזוי מחירי ה-SMP ופריקת אנרגיה רק בשיא הביקוש.
-                </div>
+            <div class="info-block">
+                <h4 id="m1h1">מנגנון ה-Profit Gap הקריטי</h4>
+                <p>האלגוריתם שלנו סורק את מחירי ה-SMP בזמן אמת ומייצר פער רווח ממוצע של ₪0.14 לקוט"ש. זהו היתרון הכלכלי המובהק של המערכת המאפשר החזר השקעה (ROI) מהיר פי 2 מהמתחרים.</p>
             </div>
-            <div class="info-section">
-                <h4 onclick="toggleSection(this)">02. אוטומציה מלאה <i class="fas fa-plus"></i></h4>
-                <div class="info-body">
-                    אין צורך בהתערבות ידנית. המערכת מנהלת את טעינת הסוללות ופריקתן באופן אוטונומי לחלוטין, תוך שמירה על אורך חיי הסוללה.
-                </div>
+            <div class="info-block">
+                <h4 id="m1h2">חיזוי מבוסס למידת מכונה</h4>
+                <p>המערכת לא רק מגיבה לשוק, היא צופה אותו. באמצעות ניתוח נתוני עבר ותנאי מזג אוויר, ה-AI קובע את אסטרטגיית הטעינה והפריקה האופטימלית לכל יום בנפרד.</p>
             </div>
         </div>
     </div>
 
     <script>
-        // Intersection Observer for animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
-
         const content = {
             he: { btn: "ENGLISH", hero: "The AI Operating System for Decentralized Energy", cta: "ENTER PLATFORM" },
             en: { btn: "עברית", hero: "The AI Operating System for Decentralized Energy", cta: "ENTER PLATFORM" }
@@ -260,14 +239,6 @@
 
         function openModal(id) { document.getElementById(id).style.display = "block"; document.body.style.overflow = "hidden"; }
         function closeModal(id) { document.getElementById(id).style.display = "none"; document.body.style.overflow = "auto"; }
-        
-        function toggleSection(header) {
-            const body = header.nextElementSibling;
-            const icon = header.querySelector('i');
-            const isOpen = body.style.display === "block";
-            body.style.display = isOpen ? "none" : "block";
-            icon.className = isOpen ? "fas fa-plus" : "fas fa-minus";
-        }
     </script>
 </body>
 </html>
