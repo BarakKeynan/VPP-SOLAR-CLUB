@@ -9,655 +9,288 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <style>
-        :root {<!DOCTYPE html>
-
-<html lang="he" dir="rtl" id="main-html">
-
-<head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>VPP SOLAR CLUB | THE ENERGY SYNDICATE</title>
-
-
-
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-    
-
-    <style>
-
         :root {
-
             --primary: #00d2ff;
-
             --accent: #00ff88;
-
             --bg-dark: #05070a;
-
             --card-bg: rgba(22, 27, 34, 0.9);
-
         }
-
-
 
         * { margin:0; padding:0; box-sizing:border-box; transition: all 0.3s ease; }
-
         body { font-family:'Inter', sans-serif; background:var(--bg-dark); color:#fff; overflow-x:hidden; }
 
-
-
         /* רקע דינמי */
-
         .solar-overlay {
-
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
-
             background: linear-gradient(rgba(5,7,10,0.8), rgba(5,7,10,0.95)),
-
                         url('https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&q=80&w=1600') center/cover;
-
         }
-
-
 
         nav {
-
             position: absolute; top: 0; width: 100%; padding: 30px 8%;
-
             display: flex; justify-content: flex-end; z-index: 1000;
-
         }
-
-
 
         .lang-btn {
-
             padding: 10px 25px; border: 2px solid var(--accent); border-radius: 50px;
-
             background: rgba(0, 255, 136, 0.1); color: var(--accent); 
-
             font-family: 'Orbitron'; cursor: pointer; font-weight: bold;
-
         }
-
-
 
         .hero {
-
             min-height: 90vh; display: flex; flex-direction: column; align-items: center; 
-
             justify-content: center; text-align: center; padding: 100px 20px 40px;
-
         }
-
-
 
         /* לוגו ענק עם אפקט Feather */
-
         .main-logo-hero {
-
             width: clamp(350px, 70vw, 950px);
-
             margin-bottom: 30px;
-
             filter: drop-shadow(0 0 50px rgba(0,210,255,0.4));
-
             mask-image: radial-gradient(circle, black 55%, rgba(0,0,0,0.3) 85%, transparent 100%);
-
             -webkit-mask-image: radial-gradient(circle, black 55%, rgba(0,0,0,0.3) 85%, transparent 100%);
-
         }
-
-
 
         .hero h1 {
-
             font-family: 'Orbitron'; font-size: clamp(2.2rem, 7vw, 5.5rem); font-weight: 900;
-
             background: linear-gradient(135deg, #fff, var(--primary), var(--accent));
-
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-
             margin-bottom: 15px; letter-spacing: 2px;
-
         }
-
-
 
         .hero p { font-size: 1.5rem; opacity: 0.8; margin-bottom: 45px; max-width: 850px; font-weight: 300; }
 
-
-
         .cta-group { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 50px; }
-
         .btn {
-
             padding: 18px 45px; border-radius: 60px; font-family: 'Orbitron'; font-weight: 700;
-
             text-decoration: none; font-size: 0.95rem; cursor: pointer; text-transform: uppercase;
-
         }
-
         .btn-primary { background: var(--accent); color: #000; box-shadow: 0 10px 40px rgba(0,255,136,0.3); }
-
         .btn-outline { border: 2px solid var(--primary); color: var(--primary); }
 
-
-
         /* סקשן וידאו */
-
         .video-section { width: 90%; max-width: 1050px; margin: 0 auto 100px; }
-
         .video-container { 
-
             position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; 
-
             border-radius: 45px; border: 1px solid rgba(255,255,255,0.1);
-
             box-shadow: 0 0 100px rgba(0,210,255,0.2); background: #000;
-
         }
-
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0; }
 
-
-
         /* גריד פתרונות */
-
         .bento-grid {
-
             display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-
             gap: 30px; padding: 0 8% 100px; max-width: 1500px; margin: 0 auto;
-
         }
-
         .bento-card {
-
             background: var(--card-bg); border: 1px solid rgba(255,255,255,0.05);
-
             border-radius: 40px; padding: 45px; cursor: pointer; text-align: center; backdrop-filter: blur(15px);
-
         }
-
         .bento-card:hover { border-color: var(--accent); transform: translateY(-10px); background: rgba(33, 38, 45, 0.98); }
-
         .bento-card i { font-size: 3rem; color: var(--primary); margin-bottom: 20px; }
-
         .bento-card h3 { font-family: 'Orbitron'; margin-bottom: 15px; font-size: 1.6rem; color: var(--accent); }
 
-
-
         /* חלונות קופצים (Modals) */
-
         .modal {
-
             display: none; position: fixed; z-index: 3000; top: 0; left: 0; width: 100%; height: 100%;
-
             background: rgba(5,7,10,0.98); backdrop-filter: blur(30px); overflow-y: auto;
-
         }
-
         .modal-content {
-
             max-width: 850px; margin: 80px auto; padding: 60px; background: var(--card-bg);
-
             border-radius: 50px; border: 1px solid var(--primary); position: relative;
-
         }
-
         .close-btn { position: absolute; top: 25px; left: 35px; font-size: 3rem; cursor: pointer; color: var(--accent); opacity: 0.7; }
-
         .close-btn:hover { opacity: 1; }
-
         .modal-content h2 { font-family: 'Orbitron'; color: var(--primary); margin-bottom: 30px; font-size: 2rem; }
-
         .modal-content ul { list-style: none; text-align: right; }
-
         [dir="ltr"] .modal-content ul { text-align: left; }
-
         .modal-content li { margin-bottom: 20px; font-size: 1.2rem; display: flex; align-items: center; gap: 15px; line-height: 1.4; }
-
         .modal-content li i { color: var(--accent); font-size: 1rem; }
 
-
-
         /* כפתור צור קשר צף עתידני */
-
         .floating-contact {
-
             position: fixed; bottom: 40px; right: 40px; z-index: 2000;
-
             display: flex; align-items: center; gap: 15px; padding: 15px 30px;
-
             background: rgba(22, 27, 34, 0.85); backdrop-filter: blur(10px);
-
             border: 2px solid var(--accent); border-radius: 100px;
-
             color: var(--accent); text-decoration: none; font-family: 'Orbitron';
-
             font-weight: 700; font-size: 1rem; box-shadow: 0 10px 30px rgba(0, 255, 136, 0.2);
-
         }
-
         .floating-contact:hover {
-
             background: var(--accent); color: #000; box-shadow: 0 15px 40px rgba(0, 255, 136, 0.4);
-
             transform: translateY(-5px);
-
         }
-
         /* התאמת כיוון ציר הצפת הכפתור כשהשפה משתנה */
-
         [dir="ltr"] .floating-contact { right: auto; left: 40px; }
 
-
-
         footer { text-align: center; padding: 80px; opacity: 0.4; font-family: 'Orbitron'; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; }
-
         
-
         @media (max-width: 768px) {
-
             .floating-contact { bottom: 20px; right: 50%; transform: translateX(50%); left: auto; width: max-content; }
-
             [dir="ltr"] .floating-contact { left: auto; right: 50%; transform: translateX(-50%); }
-
         }
-
     </style>
-
 </head>
-
 <body>
-
-
 
     <div class="solar-overlay"></div>
 
-
-
     <nav>
-
         <button onclick="toggleLang()" class="lang-btn" id="langBtn">ENGLISH</button>
-
     </nav>
 
-
-
     <header class="hero">
-
         <img src="VPP_LOGO.png" alt="VPP Solar Club" class="main-logo-hero" onerror="this.src='VPP_LOGO.png.png'">
-
         <h1 id="hero-title">THE ENERGY SYNDICATE</h1>
-
         <p id="hero-subtitle">ניהול חכם. רווח מקסימלי. אנרגיה נקייה.</p>
-
         
-
         <div class="cta-group">
-
             <a href="https://barakkeynan.github.io/VPP-SOLAR-CLUB/" class="btn btn-primary" id="btn-app">OPEN APP</a>
-
-            <a href="VPP_Solar_Club_Pitch_Deck_2026.pdf" target="_blank" class="btn btn-outline" id="btn-pitch">PITCH DECK</a>
-
+            <a href="VPP-Solar-Club מצגת בעב'.pdf" target="_blank" class="btn btn-outline" id="btn-pitch">מצגת 2026</a>
         </div>
-
     </header>
 
-
-
     <section class="video-section">
-
         <div class="video-container">
-
             <iframe src="https://www.youtube.com/embed/A13HuAeMcAU" title="VPP Solar Club Official Video" allowfullscreen></iframe>
-
         </div>
-
     </section>
 
-
-
     <div class="bento-grid">
-
         <div class="bento-card" onclick="openModal('m-arbitrage')">
-
             <i class="fas fa-microchip"></i>
-
             <h3 id="c1-h">AI ARBITRAGE</h3>
-
             <p id="c1-p">מנוע קבלת ההחלטות האוטונומי.</p>
-
         </div>
-
         <div class="bento-card" onclick="openModal('m-syndicate')">
-
             <i class="fas fa-network-wired"></i>
-
             <h3 id="c2-h">VPP SYNDICATE</h3>
-
             <p id="c2-p">רשת מבוזרת של נכסי אנרגיה.</p>
-
         </div>
-
         <div class="bento-card" onclick="openModal('m-connect')">
-
             <i class="fas fa-link"></i>
-
             <h3 id="c3-h">CONNECTIVITY</h3>
-
             <p id="c3-p">חיבור ישיר לנגה וחברת החשמל.</p>
-
         </div>
-
         <div class="bento-card" onclick="openModal('m-solutions')">
-
             <i class="fas fa-lightbulb"></i>
-
             <h3 id="c4-h">SOLUTIONS</h3>
-
             <p id="c4-p">פתרונות לכל קהלי היעד.</p>
-
         </div>
-
     </div>
-
-
 
     <div id="m-arbitrage" class="modal">
-
         <div class="modal-content">
-
             <span class="close-btn" onclick="closeModal('m-arbitrage')">&times;</span>
-
             <h2 id="m1-t">AI ARBITRAGE</h2>
-
             <ul id="m1-l">
-
                 <li><i class="fas fa-bolt"></i> מסחר באנרגיה בזמן אמת כל 15 דקות לרווח מקסימלי.</li>
-
                 <li><i class="fas fa-bolt"></i> אלגוריתם טעינה ופריקה מבוסס מחירי SMP.</li>
-
                 <li><i class="fas fa-bolt"></i> אופטימיזציה לשמירה על אורך חיי הסוללה.</li>
-
             </ul>
-
         </div>
-
     </div>
-
-
 
     <div id="m-syndicate" class="modal">
-
         <div class="modal-content">
-
             <span class="close-btn" onclick="closeModal('m-syndicate')">&times;</span>
-
             <h2 id="m2-t">VPP SYNDICATE</h2>
-
             <ul id="m2-l">
-
                 <li><i class="fas fa-network-wired"></i> איחוד נכסים מבוזרים לכוח קנייה קולקטיבי.</li>
-
                 <li><i class="fas fa-network-wired"></i> ניהול ענן מרכזי (Virtual Power Plant).</li>
-
                 <li><i class="fas fa-network-wired"></i> יציבות והנדסה ברמה הגבוהה ביותר בשוק.</li>
-
             </ul>
-
         </div>
-
     </div>
-
-
 
     <div id="m-connect" class="modal">
-
         <div class="modal-content">
-
             <span class="close-btn" onclick="closeModal('m-connect')">&times;</span>
-
             <h2 id="m3-t">CONNECTIVITY</h2>
-
             <ul id="m3-l">
-
                 <li><i class="fas fa-plug"></i> אינטגרציה מלאה עם Tesla וספקי חומרה מובילים.</li>
-
                 <li><i class="fas fa-plug"></i> API ישיר מול חברת נגה (ניהול המערכת).</li>
-
                 <li><i class="fas fa-plug"></i> ניטור ובקרה רציפה 24/7 לביצועים אופטימליים.</li>
-
             </ul>
-
         </div>
-
     </div>
-
-
 
     <div id="m-solutions" class="modal">
-
         <div class="modal-content">
-
             <span class="close-btn" onclick="closeModal('m-solutions')">&times;</span>
-
             <h2 id="m4-t">SOLUTIONS</h2>
-
             <ul id="m4-l">
-
                 <li><i class="fas fa-check-circle"></i> <b>מרכזים לוגיסטיים:</b> הפחתת עלויות בשיא הביקוש.</li>
-
                 <li><i class="fas fa-check-circle"></i> <b>בעלי גגות:</b> הגדלת רווחים ב-25% מעל השוק.</li>
-
                 <li><i class="fas fa-check-circle"></i> <b>שוכרים:</b> השתתפות בקהילת אנרגיה והנחה בחשבון.</li>
-
             </ul>
-
         </div>
-
     </div>
 
-
-
     <a href="mailto:barak@vppsolarclub.com" class="floating-contact" id="contactBtn">
-
         <i class="fas fa-envelope"></i> <span id="contactText">דברו איתנו</span>
-
     </a>
-
-
 
     <footer>© 2026 VPP SOLAR CLUB • HAIFA, ISRAEL • ENGINEERED BY BARAK KEYNAN</footer>
 
-
-
     <script>
-
         const texts = {
-
             he: {
-
                 title: "THE ENERGY SYNDICATE",
-
                 subtitle: "ניהול חכם. רווח מקסימלי. אנרגיה נקייה.",
-
-                app: "פתח אפליקציה", pitch: "מצגת 2026",
-
+                app: "פתח אפליקציה", 
+                pitch: "מצגת 2026",
+                pitch_file: "VPP-Solar-Club מצגת בעב'.pdf",
                 c1h: "AI ARBITRAGE", c1p: "מנוע קבלת ההחלטות האוטונומי.",
-
                 c2h: "VPP SYNDICATE", c2p: "רשת מבוזרת של נכסי אנרגיה.",
-
                 c3h: "CONNECTIVITY", c3p: "חיבור ישיר לנגה וחברת החשמל.",
-
                 c4h: "SOLUTIONS", c4p: "פתרונות לכל קהלי היעד.",
-
                 contact: "דברו איתנו",
-
                 m1l: `<li><i class="fas fa-bolt"></i> מסחר באנרגיה בזמן אמת כל 15 דקות לרווח מקסימלי.</li><li><i class="fas fa-bolt"></i> אלגוריתם טעינה ופריקה מבוסס מחירי SMP.</li><li><i class="fas fa-bolt"></i> אופטימיזציה לשמירה על אורך חיי הסוללה.</li>`,
-
                 m4l: `<li><i class="fas fa-check-circle"></i> <b>מרכזים לוגיסטיים:</b> הפחתת עלויות בשיא הביקוש.</li><li><i class="fas fa-check-circle"></i> <b>בעלי גגות:</b> הגדלת רווחים ב-25% מעל השוק.</li><li><i class="fas fa-check-circle"></i> <b>שוכרים:</b> השתתפות בקהילת אנרגיה והנחה בחשבון.</li>`
-
             },
-
             en: {
-
                 title: "THE ENERGY SYNDICATE",
-
                 subtitle: "Smart Management. Maximum Profit. Clean Energy.",
-
-                app: "OPEN APP", pitch: "PITCH DECK 2026",
-
+                app: "OPEN APP", 
+                pitch: "PITCH DECK 2026",
+                pitch_file: "VPP_Solar_Club_Pitch_Deck_2026.pdf",
                 c1h: "AI ARBITRAGE", c1p: "Autonomous Decision Engine.",
-
                 c2h: "VPP SYNDICATE", c2p: "Decentralized Energy Network.",
-
                 c3h: "CONNECTIVITY", c3p: "Direct Grid Integration.",
-
                 c4h: "SOLUTIONS", c4p: "Tailored Energy Solutions.",
-
                 contact: "CONTACT US",
-
                 m1l: `<li><i class="fas fa-bolt"></i> Real-time energy trading every 15 mins for max profit.</li><li><i class="fas fa-bolt"></i> Smart charge/discharge based on SMP prices.</li><li><i class="fas fa-bolt"></i> Autonomous battery life-cycle optimization.</li>`,
-
                 m4l: `<li><i class="fas fa-check-circle"></i> <b>Logistics:</b> Cost reduction during peak demand.</li><li><i class="fas fa-check-circle"></i> <b>Rooftops:</b> Average 25% yield increase.</li><li><i class="fas fa-check-circle"></i> <b>Tenants:</b> Direct bill discounts via community power.</li>`
-
             }
-
         };
 
-
-
         function toggleLang() {
-
             const html = document.getElementById('main-html');
-
             const isHe = html.dir === 'rtl';
-
             const lang = isHe ? 'en' : 'he';
-
             html.dir = isHe ? 'ltr' : 'rtl';
-
             
-
             document.getElementById('langBtn').innerText = isHe ? 'עברית' : 'ENGLISH';
-
             document.getElementById('hero-title').innerText = texts[lang].title;
-
             document.getElementById('hero-subtitle').innerText = texts[lang].subtitle;
-
             document.getElementById('btn-app').innerText = texts[lang].app;
-
-            document.getElementById('btn-pitch').innerText = texts[lang].pitch;
+            
+            const pitchBtn = document.getElementById('btn-pitch');
+            pitchBtn.innerText = texts[lang].pitch;
+            pitchBtn.setAttribute('href', texts[lang].pitch_file);
 
             document.getElementById('c1-h').innerText = texts[lang].c1h; document.getElementById('c1-p').innerText = texts[lang].c1p;
-
             document.getElementById('c2-h').innerText = texts[lang].c2h; document.getElementById('c2-p').innerText = texts[lang].c2p;
-
             document.getElementById('c3-h').innerText = texts[lang].c3h; document.getElementById('c3-p').innerText = texts[lang].c3p;
-
             document.getElementById('c4-h').innerText = texts[lang].c4h; document.getElementById('c4-p').innerText = texts[lang].c4p;
-
             document.getElementById('contactText').innerText = texts[lang].contact;
-
             document.getElementById('m1-l').innerHTML = texts[lang].m1l;
-
             document.getElementById('m4-l').innerHTML = texts[lang].m4l;
-
         }
-
-
 
         function openModal(id) { document.getElementById(id).style.display = "block"; document.body.style.overflow = "hidden"; }
-
         function closeModal(id) { document.getElementById(id).style.display = "none"; document.body.style.overflow = "auto"; }
-
     </script>
-
 </body>
-
 </html>
-            --primary: #00d2ff;
-            --accent: #00ff88;
-            --bg-dark: #05070a;
-            --card-bg: rgba(22, 27, 34, 0.9);
-        }
-
-        * { margin:0; padding:0; box-sizing:border-box; transition: all 0.3s ease; }
-        body { font-family:'Inter', sans-serif; background:var(--bg-dark); color:#fff; overflow-x:hidden; }
-
-        /* רקע דינמי */
-        .solar-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
-            background: linear-gradient(rgba(5,7,10,0.8), rgba(5,7,10,0.95)),
-                        url('https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&q=80&w=1600') center/cover;
-        }
-
-        nav {
-            position: absolute; top: 0; width: 100%; padding: 30px 8%;
-            display: flex; justify-content: flex-end; z-index: 1000;
-        }
-
-        .lang-btn {
-            padding: 10px 25px; border: 2px solid var(--accent); border-radius: 50px;
-            background: rgba(0, 255, 136, 0.1); color: var(--accent); 
-            font-family: 'Orbitron'; cursor: pointer; font-weight: bold;
-        }
-
-        .hero {
-            min-height: 90vh; display: flex; flex-direction: column; align-items: center; 
-            justify-content: center; text-align: center; padding: 100px 20px 40px;
-        }
-
-        /* לוגו ענק עם אפקט Feather */
-        .main-logo-hero {
-            width: clamp(350px, 70vw, 950px);
-            margin-bottom: 30px;
-            filter: drop-shadow(0 0 50px rgba(0,210,255,0.4));
-            mask-image: radial-gradient(circle, black 55%, rgba(0,0,0,0.3) 85%, transparent 100%);
-            -webkit-mask-image: radial-gradient(circle, black 55%, rgba(0,0,0,0.3) 85%, transparent 100%);
-        }
-
-        .hero h1 {
-            font-family: 'Orbitron'; font-size: clamp(2.2rem, 7vw, 5.5rem); font-weight: 900;
-            background: linear-gradient(135deg, #fff, var(--primary), var(--accent));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            margin-bottom: 15px; letter-spacing: 2px;
-        }
-
-        .hero p { font-size: 1.5rem; opacity: 0.8; margin-bottom: 45px; max-width: 850px; font-weight: 300; }
-
-        .cta-group { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 50px; }
-        .btn {
-            padding: 18px 45px; border-radius: 60px; font-family: 'Orbitron'; font-weight: 700;
-            text-decoration: none; font-size: 0.95rem; cursor: pointer; text-transform: uppercase;
-        }
-        .btn-primary { background: var(--accent); color: #000; box-shadow: 0 10px 40px rgba(0,255,136,0.3); }
-        .btn-outline { border: 2px solid var(--primary); color: var(--primary); }
-
-        /* סקשן וידאו */
-        .video-section { width: 90%; max-width: 1050px; margin: 0 auto 100px; }
-        .video-container { 
-            position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; 
-            border-radius: 45px; border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 0 100px rgba(0,210,255,0.2); background: #000;
-        }
-        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0; }
-
-        /* גריד פתרונות */
-        .bento-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px; padding: 0 8% 100px; max-width: 1500px; margin: 0 auto;
-        }
-        .bento-card {
-            background: var(--card-bg); border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 40px; padding: 45px; cursor: pointer; text-align: center; backdrop-filter: blur(15px);
-        }
-        .bento-card:hover { border-color: var(--accent); transform: translateY(-1
